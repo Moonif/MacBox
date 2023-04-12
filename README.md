@@ -4,4 +4,4 @@ MacBox is an optional manager app for the [86Box emulator](https://github.com/86
 <br/>It's written in Swift and supports both Apple Silicon and Intel based machines.
 
 # System requirements
-* MacOS Mojave 10.14
+* MacOS Big Sur 11.0
