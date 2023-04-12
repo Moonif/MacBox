@@ -80,13 +80,13 @@
                         <toolbar key="toolbar" implicitIdentifier="1756AC06-50A3-486E-B4F1-68772E058424" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="T2p-DO-2la">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wAl-LD-C7Z"/>
-                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" tag="-1" image="NSAddTemplate" sizingBehavior="auto" id="dku-Fs-jda">
+                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" tag="-1" image="add" sizingBehavior="auto" id="dku-Fs-jda">
                                     <connections>
                                         <action selector="addVMButtonAction:" target="Oky-zY-oP4" id="Zu3-TD-Eor"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="pGa-oF-eFZ"/>
-                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Print Tray" paletteLabel="Print Tray" tag="-1" image="tray.fill" catalog="system" id="iAl-vP-Cp6" userLabel="Print Tray">
+                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Print Tray" paletteLabel="Print Tray" tag="-1" image="print" id="iAl-vP-Cp6" userLabel="Print Tray">
                                     <size key="minSize" width="46" height="27"/>
                                     <size key="maxSize" width="46" height="27"/>
                                 </toolbarItem>
@@ -147,8 +147,15 @@
                                                             <rect key="frame" x="8" y="0.0" width="460" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-yG-FNS">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="qrT-1t-9Go"/>
+                                                                    </constraints>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pc" id="79C-iQ-zVF"/>
+                                                                </imageView>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-WR-MWR">
-                                                                    <rect key="frame" x="0.0" y="17" width="460" height="16"/>
+                                                                    <rect key="frame" x="26" y="17" width="436" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="jLm-hf-iYL">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -157,9 +164,12 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="e5h-WR-MWR" firstAttribute="leading" secondItem="agH-0y-Tuf" secondAttribute="leading" constant="2" id="0vg-pW-1DU"/>
-                                                                <constraint firstItem="e5h-WR-MWR" firstAttribute="centerY" secondItem="agH-0y-Tuf" secondAttribute="centerY" id="vad-34-4g7"/>
-                                                                <constraint firstItem="e5h-WR-MWR" firstAttribute="centerX" secondItem="agH-0y-Tuf" secondAttribute="centerX" id="vqn-At-lT2"/>
+                                                                <constraint firstItem="e5h-WR-MWR" firstAttribute="leading" secondItem="jn1-yG-FNS" secondAttribute="trailing" constant="8" symbolic="YES" id="9VA-1t-cqc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="jn1-yG-FNS" secondAttribute="bottom" id="Lnn-bC-vW0"/>
+                                                                <constraint firstAttribute="trailing" secondItem="e5h-WR-MWR" secondAttribute="trailing" id="ODr-AG-yxy"/>
+                                                                <constraint firstItem="jn1-yG-FNS" firstAttribute="top" secondItem="agH-0y-Tuf" secondAttribute="top" id="bQL-O0-9b1"/>
+                                                                <constraint firstItem="jn1-yG-FNS" firstAttribute="leading" secondItem="agH-0y-Tuf" secondAttribute="leading" id="uOs-HL-aId"/>
+                                                                <constraint firstItem="e5h-WR-MWR" firstAttribute="centerY" secondItem="jn1-yG-FNS" secondAttribute="centerY" id="x0U-hR-ATr"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="e5h-WR-MWR" id="rX5-Eh-AGH"/>
@@ -189,8 +199,8 @@
                                 <rect key="frame" x="528" y="58" width="240" height="400"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-nJ-PyD">
-                                        <rect key="frame" x="146" y="-6" width="100" height="40"/>
-                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="NSTouchBarPlayTemplate" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
+                                        <rect key="frame" x="140" y="-6" width="106" height="40"/>
+                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="run" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -200,8 +210,8 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-kZ-aMF" userLabel="DeleteVM Button">
-                                        <rect key="frame" x="-1" y="-2" width="27" height="23"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarDeleteTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sPp-tA-UPt">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="21"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="trash" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" inset="2" id="sPp-tA-UPt">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -232,11 +242,14 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-fR-vKm">
-                                        <rect key="frame" x="102" y="-6" width="44" height="40"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="gearshape.fill" catalog="system" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
+                                        <rect key="frame" x="90" y="-6" width="50" height="40"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="gear" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="vmSettingsButtonAction:" target="XfG-lQ-9wD" id="ehb-AI-TSV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -393,8 +406,8 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-mB-yVW">
-                                <rect key="frame" x="19" y="18" width="147" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Clear Imported VM" bezelStyle="texturedRounded" image="NSTouchBarDeleteTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kwo-ux-TbM">
+                                <rect key="frame" x="19" y="18" width="150" height="23"/>
+                                <buttonCell key="cell" type="roundTextured" title="Clear Imported VM" bezelStyle="texturedRounded" image="clean" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kwo-ux-TbM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -444,10 +457,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSAddTemplate" width="18" height="16"/>
-        <image name="NSTouchBarDeleteTemplate" width="18" height="21"/>
-        <image name="NSTouchBarPlayTemplate" width="15" height="16"/>
-        <image name="gearshape.fill" catalog="system" width="16" height="16"/>
-        <image name="tray.fill" catalog="system" width="19" height="13"/>
+        <image name="add" width="14" height="15"/>
+        <image name="clean" width="22" height="22"/>
+        <image name="gear" width="22" height="22"/>
+        <image name="pc" width="22" height="22"/>
+        <image name="print" width="21" height="21"/>
+        <image name="run" width="18" height="21"/>
+        <image name="trash" width="22" height="21"/>
     </resources>
 </document>

@@ -221,12 +221,8 @@ class MainViewController: NSViewController {
         writeConfigFile()
     }
     
-// ------------------------------------
-// IBActions
-// ------------------------------------
-    
-    // Start VM button action
-    @IBAction func startVMButtonAction(_ sender: NSButton) {
+    // Start VM process
+    private func startVM(launchSettings: Bool = false) {
         if currentSelectedVM != nil {
             let process = Process()
             
@@ -241,15 +237,12 @@ class MainViewController: NSViewController {
             }
             let vmPath = (vmList[currentSelectedVM ?? 0]).path ?? defaultPath.path
             // Set process arguments
-            let args:[String] = ["-n", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-V",vmName]
+            let args:[String] = launchSettings ?
+            ["-n", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-S"] :
+            ["-n", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-V",vmName]
             process.arguments = args
             
             process.executableURL = URL(fileURLWithPath:"/usr/bin/open")
-            
-            let errorPipe = Pipe()
-            let outputPipe = Pipe()
-            process.standardOutput = outputPipe
-            process.standardError = errorPipe
 
             // Run the process
             do{
@@ -258,6 +251,19 @@ class MainViewController: NSViewController {
                 print("Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+// ------------------------------------
+// IBActions
+// ------------------------------------
+    
+    // Start VM button action
+    @IBAction func startVMButtonAction(_ sender: NSButton) {
+        startVM()
+    }
+    // VM settings button action
+    @IBAction func vmSettingsButtonAction(_ sender: NSButton) {
+        startVM(launchSettings: true)
     }
     
     // Delete VM button action
