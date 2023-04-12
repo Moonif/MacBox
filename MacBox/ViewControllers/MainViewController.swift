@@ -21,10 +21,11 @@ class MainViewController: NSViewController {
     
     // Variables
     private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
     
-    let nameTextFieldMaxLimit: Int = 32
+    private let nameTextFieldMaxLimit: Int = 32
     
     // View did load
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class MainViewController: NSViewController {
         vmsTableView.delegate = self
         vmsTableView.dataSource = self
         vmNameTextField.delegate = self
+        vmDescriptionTextField.delegate = self
         
         // Config views
         configView()
@@ -147,6 +149,9 @@ class MainViewController: NSViewController {
         // Check if 86Box app is installed
         var buildVer = "0"
         if let bundleURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "net.86Box.86Box") {
+            // Save 86Box emulator URL
+            emulatorUrl = bundleURL
+            // Get 86Box info.plist
             if let bundle = Bundle(url: bundleURL) {
                 // Get the 86Box bundle version
                 if let bundleVersion = bundle.infoDictionary?["CFBundleVersion"] as? String {
@@ -304,6 +309,18 @@ class MainViewController: NSViewController {
         }
     }
     
+    // Print tray toolbar button action
+    @IBAction func printTrayButtonAction(_ sender: Any) {
+        if emulatorUrl != nil {
+            let suffix = "86Box.app"
+            if emulatorUrl!.relativePath.hasSuffix(suffix) {
+                let dir = emulatorUrl!.relativePath.dropLast(suffix.count)
+                let printTrayDir = dir.appending("printer")
+                NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(printTrayDir))
+            }
+        }
+    }
+    
 }
 
 // ------------------------------------
@@ -326,6 +343,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         startVMButton.isEnabled = true
         deleteVMButton.isEnabled = true
         
+        // Set VM name and description text
         vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
         vmDescriptionTextField.stringValue = vmList[row].description ?? ""
         
@@ -339,8 +357,32 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
 extension MainViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
-            if textField.stringValue.count > nameTextFieldMaxLimit {
+            // Limit name text field max number of characters
+            if textField.stringValue.count > nameTextFieldMaxLimit && textField.identifier == NSUserInterfaceItemIdentifier(rawValue: "vmNameID") {
                 textField.stringValue = String(textField.stringValue.dropLast())
+            }
+        }
+    }
+    
+    func controlTextDidEndEditing(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            if textField.identifier == NSUserInterfaceItemIdentifier(rawValue: "vmNameID") {
+                if currentSelectedVM != nil {
+                    // Update VM name
+                    vmList[currentSelectedVM!].name = textField.stringValue
+                    
+                    vmsTableView.reloadData()
+                    writeConfigFile()
+                }
+            }
+            else if textField.identifier == NSUserInterfaceItemIdentifier(rawValue: "vmDescriptionID") {
+                if currentSelectedVM != nil {
+                    // Update VM description
+                    vmList[currentSelectedVM!].description = textField.stringValue
+                    
+                    vmsTableView.reloadData()
+                    writeConfigFile()
+                }
             }
         }
     }

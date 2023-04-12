@@ -89,6 +89,9 @@
                                 <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Print Tray" paletteLabel="Print Tray" tag="-1" image="print" id="iAl-vP-Cp6" userLabel="Print Tray">
                                     <size key="minSize" width="46" height="27"/>
                                     <size key="maxSize" width="46" height="27"/>
+                                    <connections>
+                                        <action selector="printTrayButtonAction:" target="Oky-zY-oP4" id="Kcd-R2-cyZ"/>
+                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -219,18 +222,18 @@
                                             <action selector="deleteVMButtonAction:" target="XfG-lQ-9wD" id="wK5-dH-hEi"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bru-xq-RxK">
+                                    <textField identifier="vmNameID" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bru-xq-RxK">
                                         <rect key="frame" x="18" y="320" width="204" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="qgG-1O-SAB"/>
                                         </constraints>
                                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="VM Name" id="77S-ae-5dA">
-                                            <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                            <font key="font" textStyle="title2" name=".SFNS-Regular"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaA-kD-3qe">
+                                    <textField identifier="vmDescriptionID" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaA-kD-3qe">
                                         <rect key="frame" x="18" y="104" width="204" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="WsB-np-Ofa"/>
