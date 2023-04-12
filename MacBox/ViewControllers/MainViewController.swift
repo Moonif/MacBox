@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Network
 
 class MainViewController: NSViewController {
 
@@ -13,11 +14,17 @@ class MainViewController: NSViewController {
     @IBOutlet weak var vmsTableView: NSTableView!
     @IBOutlet weak var startVMButton: NSButton!
     @IBOutlet weak var deleteVMButton: NSButton!
+    @IBOutlet weak var spinningProgressIndicator: NSProgressIndicator!
+    @IBOutlet weak var statusLabel: NSTextField!
+    @IBOutlet weak var vmNameTextField: NSTextField!
+    @IBOutlet weak var vmDescriptionTextField: NSTextField!
     
     // Variables
     private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
+    
+    let nameTextFieldMaxLimit: Int = 32
     
     // View did load
     override func viewDidLoad() {
@@ -26,15 +33,22 @@ class MainViewController: NSViewController {
         // Set delegates
         vmsTableView.delegate = self
         vmsTableView.dataSource = self
+        vmNameTextField.delegate = self
         
+        // Config views
         configView()
+        // Initialize MacBox files
         initFiles()
+        // Check for 86Box version
+        checkFor86Box()
     }
     
     // Config views initial properties
     private func configView() {
         startVMButton.isEnabled = false
         deleteVMButton.isEnabled = false
+        spinningProgressIndicator.startAnimation(self)
+        statusLabel.stringValue = ""
     }
     
     // Initialize MacBox directory and config files
@@ -73,7 +87,7 @@ class MainViewController: NSViewController {
     }
     
     // Write the MacBox config file
-    private func writeConfigFile(overwrite: Bool = false) {
+    private func writeConfigFile() {
         var configStr = ""
         let jsonEncoder = JSONEncoder()
         
@@ -88,22 +102,18 @@ class MainViewController: NSViewController {
         // Write data to the Config file
         if #available(macOS 13.0, *) {
             let configFileURL = homeDirURL.appending(component: "Config")
-            if !FileManager.default.fileExists(atPath: configFileURL.path) || overwrite {
-                do {
-                    try configStr.write(to: configFileURL, atomically: true, encoding: .utf8)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
+            do {
+                try configStr.write(to: configFileURL, atomically: true, encoding: .utf8)
+            } catch {
+                print("Error: \(error.localizedDescription)")
             }
         } else {
             // Fallback on earlier versions
             let configFileURL = homeDirURL.appendingPathComponent("Config")
-            if !FileManager.default.fileExists(atPath: configFileURL.path) || overwrite {
-                do {
-                    try configStr.write(to: configFileURL, atomically: true, encoding: .utf8)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
+            do {
+                try configStr.write(to: configFileURL, atomically: true, encoding: .utf8)
+            } catch {
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -132,11 +142,83 @@ class MainViewController: NSViewController {
         }
     }
     
+    // Check if 86Box is installed, and check for updated version
+    private func checkFor86Box() {
+        // Check if 86Box app is installed
+        var buildVer = "0"
+        if let bundleURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "net.86Box.86Box") {
+            if let bundle = Bundle(url: bundleURL) {
+                // Get the 86Box bundle version
+                if let bundleVersion = bundle.infoDictionary?["CFBundleVersion"] as? String {
+                    // Return only the build version
+                    buildVer = String((bundleVersion).suffix(4))
+                }
+            }
+        }
+        
+        fetch86BoxLatestBuildNumber(ver: buildVer)
+    }
+    
+    // Fetch the latest stable 86Box build version from Jenkins
+    private func fetch86BoxLatestBuildNumber (ver: String) {
+        // Check for internet connection
+        let monitor = NWPathMonitor()
+        let queue = DispatchQueue(label: "InternetConnectionMonitor")
+        
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+            if pathUpdateHandler.status == .satisfied {
+                // We're online, fetch build version from Jenkins
+                if let url = URL(string: "https://ci.86box.net/job/86Box/lastStableBuild/buildNumber") {
+                    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                        guard let data = data else { return }
+                        // Set status label
+                        if let jenkinsBuildVer = String(data: data, encoding: .utf8) {
+                            self.setVersionStatusLabel(localVer: ver, onlineVer: jenkinsBuildVer)
+                        }
+                        else {
+                            self.setVersionStatusLabel(localVer: ver, onlineVer: "0")
+                        }
+                    }
+                    task.resume()
+                }
+            }
+            else {
+                // We're offline, set status label to local version
+                self.setVersionStatusLabel(localVer: ver, onlineVer: "0")
+            }
+        }
+        
+        monitor.start(queue: queue)
+    }
+    
+    // Set the 86Box version status label
+    private func setVersionStatusLabel (localVer: String, onlineVer: String) {
+        DispatchQueue.main.async {
+            self.spinningProgressIndicator.stopAnimation(self)
+            
+            // Compare Jenkins version with local version
+            if onlineVer != localVer {
+                // Version mismatch
+                self.statusLabel.stringValue = localVer != "0" ? onlineVer != "0" ?
+                "🟠 86Box (build \(localVer)) is installed. New update is available (build \(onlineVer))." :
+                "🟢 86Box (build \(localVer)) is installed." :
+                "🔴 86Box is not installed."
+            }
+            else {
+                // Version match
+                self.statusLabel.stringValue = localVer != "0" ? onlineVer != "0" ?
+                "🟢 86Box (build \(localVer)) is installed and up-to-date." :
+                "🟢 86Box (build \(localVer)) is installed." :
+                "🔴 86Box is not installed."
+            }
+        }
+    }
+    
     // Add VM to the table view
     func addVM(vm: VM) {
         vmList.append(vm)
         vmsTableView.reloadData()
-        writeConfigFile(overwrite: true)
+        writeConfigFile()
     }
     
 // ------------------------------------
@@ -194,7 +276,7 @@ class MainViewController: NSViewController {
                 // User pressed the Delete button
                 vmList.remove(at: currentSelectedVM!)
                 vmsTableView.reloadData()
-                writeConfigFile(overwrite: true)
+                writeConfigFile()
                 
                 if vmList.count > 0 {
                     currentSelectedVM = vmsTableView.selectedRow
@@ -238,6 +320,22 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         startVMButton.isEnabled = true
         deleteVMButton.isEnabled = true
         
+        vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
+        vmDescriptionTextField.stringValue = vmList[row].description ?? ""
+        
         return true
+    }
+}
+
+// ------------------------------------
+// TextField Delegate
+// ------------------------------------
+extension MainViewController: NSTextFieldDelegate {
+    func controlTextDidChange(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            if textField.stringValue.count > nameTextFieldMaxLimit {
+                textField.stringValue = String(textField.stringValue.dropLast())
+            }
+        }
     }
 }

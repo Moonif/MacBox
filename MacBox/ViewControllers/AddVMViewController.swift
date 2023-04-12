@@ -118,7 +118,7 @@ class AddVMViewController: NSViewController {
 }
 
 // ------------------------------------
-// VM TableView Delegate and Datasource
+// TextField Delegate
 // ------------------------------------
 extension AddVMViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {

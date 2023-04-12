@@ -79,9 +79,6 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="1756AC06-50A3-486E-B4F1-68772E058424" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="T2p-DO-2la">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Ak9-yu-6Hm"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="d09-gT-Zaj"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="TXu-Sn-h7I"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wAl-LD-C7Z"/>
                                 <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" tag="-1" image="NSAddTemplate" sizingBehavior="auto" id="dku-Fs-jda">
                                     <connections>
@@ -89,9 +86,15 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="pGa-oF-eFZ"/>
+                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Print Tray" paletteLabel="Print Tray" tag="-1" image="tray.fill" catalog="system" id="iAl-vP-Cp6" userLabel="Print Tray">
+                                    <size key="minSize" width="46" height="27"/>
+                                    <size key="maxSize" width="46" height="27"/>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="dku-Fs-jda"/>
+                                <toolbarItem reference="pGa-oF-eFZ"/>
+                                <toolbarItem reference="iAl-vP-Cp6"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -111,11 +114,11 @@
             <objects>
                 <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="MainViewController" customModule="MacBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="788" height="440"/>
+                        <rect key="frame" x="0.0" y="0.0" width="788" height="478"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3q-FG-ILj">
-                                <rect key="frame" x="20" y="20" width="500" height="400"/>
+                                <rect key="frame" x="20" y="58" width="500" height="400"/>
                                 <clipView key="contentView" drawsBackground="NO" id="piS-Co-BmO">
                                     <rect key="frame" x="1" y="1" width="498" height="398"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,8 +185,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KzH-sh-kDv">
-                                <rect key="frame" x="528" y="20" width="240" height="400"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KzH-sh-kDv" userLabel="VMInfoView">
+                                <rect key="frame" x="528" y="58" width="240" height="400"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-nJ-PyD">
                                         <rect key="frame" x="146" y="-6" width="100" height="40"/>
@@ -206,36 +209,109 @@
                                             <action selector="deleteVMButtonAction:" target="XfG-lQ-9wD" id="wK5-dH-hEi"/>
                                         </connections>
                                     </button>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bru-xq-RxK">
+                                        <rect key="frame" x="18" y="320" width="204" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="qgG-1O-SAB"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="VM Name" id="77S-ae-5dA">
+                                            <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaA-kD-3qe">
+                                        <rect key="frame" x="18" y="104" width="204" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="WsB-np-Ofa"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" id="qUX-rQ-qXb">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-fR-vKm">
+                                        <rect key="frame" x="102" y="-6" width="44" height="40"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="gearshape.fill" catalog="system" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bru-xq-RxK" secondAttribute="trailing" constant="20" symbolic="YES" id="9sf-Ii-cvw"/>
+                                    <constraint firstItem="bru-xq-RxK" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" constant="20" symbolic="YES" id="Emg-zT-C2R"/>
+                                    <constraint firstItem="YaA-kD-3qe" firstAttribute="top" secondItem="bru-xq-RxK" secondAttribute="bottom" constant="16" id="GTs-aD-slS"/>
                                     <constraint firstItem="Nuf-kZ-aMF" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="I5r-2R-hAp"/>
-                                    <constraint firstItem="hxY-nJ-PyD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nuf-kZ-aMF" secondAttribute="trailing" constant="20" id="ORQ-ST-irA"/>
+                                    <constraint firstAttribute="bottom" secondItem="SgG-fR-vKm" secondAttribute="bottom" id="KPi-T4-n12"/>
+                                    <constraint firstItem="YaA-kD-3qe" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" constant="20" symbolic="YES" id="PAi-yu-OEq"/>
+                                    <constraint firstAttribute="trailing" secondItem="YaA-kD-3qe" secondAttribute="trailing" constant="20" symbolic="YES" id="UKp-PJ-Twm"/>
+                                    <constraint firstItem="hxY-nJ-PyD" firstAttribute="leading" secondItem="SgG-fR-vKm" secondAttribute="trailing" constant="12" symbolic="YES" id="V8d-I3-vil"/>
+                                    <constraint firstItem="bru-xq-RxK" firstAttribute="top" secondItem="KzH-sh-kDv" secondAttribute="top" constant="20" symbolic="YES" id="cCH-J3-NKy"/>
                                     <constraint firstAttribute="trailing" secondItem="hxY-nJ-PyD" secondAttribute="trailing" id="cUc-Xu-vGh"/>
                                     <constraint firstAttribute="bottom" secondItem="hxY-nJ-PyD" secondAttribute="bottom" id="m0E-mE-FI4"/>
                                     <constraint firstAttribute="bottom" secondItem="Nuf-kZ-aMF" secondAttribute="bottom" id="tfa-gm-PF5"/>
                                     <constraint firstAttribute="width" constant="240" id="vh2-7r-Q8k"/>
                                 </constraints>
                             </customView>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="a19-Qi-QFh">
+                                <rect key="frame" x="0.0" y="47" width="788" height="5"/>
+                            </box>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="2aX-tV-f45" userLabel="BottomStatusView">
+                                <rect key="frame" x="0.0" y="0.0" width="788" height="50"/>
+                                <subviews>
+                                    <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="YRz-j1-IkF">
+                                        <rect key="frame" x="20" y="14" width="16" height="16"/>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LQu-5F-fSe">
+                                        <rect key="frame" x="18" y="14" width="752" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Version Status" id="8io-Yt-EBf">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LQu-5F-fSe" firstAttribute="leading" secondItem="2aX-tV-f45" secondAttribute="leading" constant="20" symbolic="YES" id="34S-Ew-2PY"/>
+                                    <constraint firstItem="LQu-5F-fSe" firstAttribute="top" secondItem="2aX-tV-f45" secondAttribute="top" constant="20" symbolic="YES" id="XwB-bF-M5i"/>
+                                    <constraint firstAttribute="trailing" secondItem="LQu-5F-fSe" secondAttribute="trailing" constant="20" symbolic="YES" id="aT8-x6-c4u"/>
+                                    <constraint firstItem="YRz-j1-IkF" firstAttribute="leading" secondItem="2aX-tV-f45" secondAttribute="leading" constant="20" symbolic="YES" id="h0f-eE-HMu"/>
+                                    <constraint firstAttribute="height" constant="50" id="qvv-UO-RaO"/>
+                                    <constraint firstItem="YRz-j1-IkF" firstAttribute="top" secondItem="2aX-tV-f45" secondAttribute="top" constant="20" symbolic="YES" id="x5o-Pr-O3L"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="a19-Qi-QFh" secondAttribute="trailing" id="3Qg-jU-isW"/>
                             <constraint firstAttribute="trailing" secondItem="KzH-sh-kDv" secondAttribute="trailing" constant="20" symbolic="YES" id="4n9-BU-CD6"/>
-                            <constraint firstAttribute="bottom" secondItem="e3q-FG-ILj" secondAttribute="bottom" constant="20" symbolic="YES" id="CKc-cg-Y1H"/>
                             <constraint firstItem="e3q-FG-ILj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="PFG-0q-qKd"/>
                             <constraint firstItem="KzH-sh-kDv" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="XP6-W9-g1S"/>
                             <constraint firstItem="e3q-FG-ILj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="aGa-cq-Edq"/>
+                            <constraint firstItem="a19-Qi-QFh" firstAttribute="top" secondItem="KzH-sh-kDv" secondAttribute="bottom" constant="8" symbolic="YES" id="d00-xy-WNB"/>
+                            <constraint firstItem="2aX-tV-f45" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="fTm-jF-3zH"/>
+                            <constraint firstAttribute="trailing" secondItem="2aX-tV-f45" secondAttribute="trailing" id="ifG-r4-L2h"/>
+                            <constraint firstAttribute="bottom" secondItem="2aX-tV-f45" secondAttribute="bottom" id="njd-Il-d2j"/>
+                            <constraint firstItem="2aX-tV-f45" firstAttribute="top" secondItem="e3q-FG-ILj" secondAttribute="bottom" constant="8" symbolic="YES" id="pUg-Mw-USC"/>
                             <constraint firstItem="KzH-sh-kDv" firstAttribute="leading" secondItem="e3q-FG-ILj" secondAttribute="trailing" constant="8" symbolic="YES" id="r2L-Qg-9Lk"/>
-                            <constraint firstAttribute="bottom" secondItem="KzH-sh-kDv" secondAttribute="bottom" constant="20" symbolic="YES" id="uOp-MJ-616"/>
+                            <constraint firstItem="a19-Qi-QFh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="u3a-Gu-6SC"/>
+                            <constraint firstItem="a19-Qi-QFh" firstAttribute="top" secondItem="e3q-FG-ILj" secondAttribute="bottom" constant="8" symbolic="YES" id="zDm-pk-7Oi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteVMButton" destination="Nuf-kZ-aMF" id="qcF-Ql-zCt"/>
+                        <outlet property="spinningProgressIndicator" destination="YRz-j1-IkF" id="81t-89-DKJ"/>
                         <outlet property="startVMButton" destination="hxY-nJ-PyD" id="W53-VC-gJ9"/>
+                        <outlet property="statusLabel" destination="LQu-5F-fSe" id="Gq1-rS-vS2"/>
+                        <outlet property="vmDescriptionTextField" destination="YaA-kD-3qe" id="eyP-Lk-GJf"/>
+                        <outlet property="vmNameTextField" destination="bru-xq-RxK" id="udL-Iz-kbN"/>
                         <outlet property="vmsTableView" destination="LzS-oZ-P3H" id="Fvx-5i-1QG"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="805"/>
+            <point key="canvasLocation" x="311" y="821"/>
         </scene>
         <!--AddVM View Controller-->
         <scene sceneID="9rz-Ed-HNC">
@@ -318,7 +394,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-mB-yVW">
                                 <rect key="frame" x="19" y="18" width="147" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Clear Imported VM" bezelStyle="texturedRounded" image="xmark.circle" catalog="system" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kwo-ux-TbM">
+                                <buttonCell key="cell" type="roundTextured" title="Clear Imported VM" bezelStyle="texturedRounded" image="NSTouchBarDeleteTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kwo-ux-TbM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -371,6 +447,7 @@
         <image name="NSAddTemplate" width="18" height="16"/>
         <image name="NSTouchBarDeleteTemplate" width="18" height="21"/>
         <image name="NSTouchBarPlayTemplate" width="15" height="16"/>
-        <image name="xmark.circle" catalog="system" width="15" height="15"/>
+        <image name="gearshape.fill" catalog="system" width="16" height="16"/>
+        <image name="tray.fill" catalog="system" width="19" height="13"/>
     </resources>
 </document>
