@@ -25,8 +25,8 @@ class MainViewController: NSViewController {
     private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
-    
     private let nameTextFieldMaxLimit: Int = 32
+    private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     
     // View did load
     override func viewDidLoad() {
@@ -37,6 +37,8 @@ class MainViewController: NSViewController {
         vmsTableView.dataSource = self
         vmNameTextField.delegate = self
         vmDescriptionTextField.delegate = self
+        // Register table view for drag and drop
+        vmsTableView.registerForDraggedTypes(([dragDropType]))
         
         // Config views
         configView()
@@ -330,10 +332,13 @@ class MainViewController: NSViewController {
 // VM TableView Delegate and Datasource
 // ------------------------------------
 extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
+    
+    // Return number of cells for vm table view
     func numberOfRows(in tableView: NSTableView) -> Int {
         return vmList.count
     }
     
+    // Populate cells based on vmList data
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let vmObject = vmList[row]
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "textCellID"), owner: self) as? NSTableCellView
@@ -341,6 +346,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         return cell
     }
     
+    // Handle cells selection
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         currentSelectedVM = row
         startVMButton.isEnabled = true
@@ -350,6 +356,58 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         // Set VM name and description text
         vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
         vmDescriptionTextField.stringValue = vmList[row].description ?? ""
+        
+        return true
+    }
+    
+    // Set drag and drop for table cells
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let item = NSPasteboardItem()
+        item.setString(String(row), forType: self.dragDropType)
+        return item
+    }
+    
+    // Validate drag and drop behavior
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        if dropOperation == .above {
+            return .move
+        }
+        return []
+    }
+    
+    // Handle post drag and drop behavior
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        var oldIndexes = [Int]()
+        info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) { dragItem, _, _ in
+            if let str = (dragItem.item as! NSPasteboardItem).string(forType: self.dragDropType), let index = Int(str) {
+                oldIndexes.append(index)
+            }
+        }
+        
+        var oldIndexOffset = 0
+        var newIndexOffset = 0
+        
+        // Update table view cells and vmlist data
+        tableView.beginUpdates()
+        for oldIndex in oldIndexes {
+            if oldIndex < row {
+                // Re-arrange vmList
+                let vm = vmList.remove(at: oldIndex + oldIndexOffset)
+                vmList.insert(vm, at: row - 1)
+                // Move and animate table view cell
+                tableView.moveRow(at: oldIndex + oldIndexOffset, to: row - 1)
+                oldIndexOffset -= 1
+            }
+            else {
+                // Re-arrange vmList
+                let vm = vmList.remove(at: oldIndex)
+                vmList.insert(vm, at: row + newIndexOffset)
+                // Move and animate table view cell
+                tableView.moveRow(at: oldIndex, to: row + newIndexOffset)
+                newIndexOffset += 1
+            }
+        }
+        tableView.endUpdates()
         
         return true
     }
