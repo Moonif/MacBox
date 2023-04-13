@@ -322,6 +322,7 @@
                         <outlet property="statusLabel" destination="LQu-5F-fSe" id="Gq1-rS-vS2"/>
                         <outlet property="vmDescriptionTextField" destination="YaA-kD-3qe" id="eyP-Lk-GJf"/>
                         <outlet property="vmNameTextField" destination="bru-xq-RxK" id="udL-Iz-kbN"/>
+                        <outlet property="vmSettingsButton" destination="SgG-fR-vKm" id="cf1-hb-MId"/>
                         <outlet property="vmsTableView" destination="LzS-oZ-P3H" id="Fvx-5i-1QG"/>
                     </connections>
                 </viewController>

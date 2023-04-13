@@ -13,6 +13,7 @@ class MainViewController: NSViewController {
     // IBOutlets
     @IBOutlet weak var vmsTableView: NSTableView!
     @IBOutlet weak var startVMButton: NSButton!
+    @IBOutlet weak var vmSettingsButton: NSButton!
     @IBOutlet weak var deleteVMButton: NSButton!
     @IBOutlet weak var spinningProgressIndicator: NSProgressIndicator!
     @IBOutlet weak var statusLabel: NSTextField!
@@ -48,6 +49,7 @@ class MainViewController: NSViewController {
     // Config views initial properties
     private func configView() {
         startVMButton.isEnabled = false
+        vmSettingsButton.isEnabled = false
         deleteVMButton.isEnabled = false
         spinningProgressIndicator.startAnimation(self)
         statusLabel.stringValue = ""
@@ -295,6 +297,7 @@ class MainViewController: NSViewController {
                 else {
                     currentSelectedVM = nil
                     startVMButton.isEnabled = false
+                    vmSettingsButton.isEnabled = false
                     deleteVMButton.isEnabled = false
                 }
             }
@@ -341,6 +344,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         currentSelectedVM = row
         startVMButton.isEnabled = true
+        vmSettingsButton.isEnabled = true
         deleteVMButton.isEnabled = true
         
         // Set VM name and description text

@@ -123,6 +123,7 @@ class AddVMViewController: NSViewController {
 extension AddVMViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
+            textField.backgroundColor = NSColor.textBackgroundColor
             if textField.stringValue.count > nameTextFieldMaxLimit {
                 textField.stringValue = String(textField.stringValue.dropLast())
             }
