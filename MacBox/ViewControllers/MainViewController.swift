@@ -21,6 +21,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var vmDescriptionTextField: NSTextField!
     
     // Variables
+    private let userDefaults = UserDefaults.standard
     private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     private var emulatorUrl : URL?
     var vmList: [VM] = []
@@ -89,6 +90,15 @@ class MainViewController: NSViewController {
             else {
                 readConfigFile()
             }
+        }
+        // Restore last selected vm
+        let lastSelectedVM = userDefaults.integer(forKey: "lastSelectedVM")
+        print(lastSelectedVM)
+        if lastSelectedVM > 0 && lastSelectedVM < vmList.count {
+            let indexSet = IndexSet(integer: lastSelectedVM)
+            vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+            vmsTableView.scrollRowToVisible(lastSelectedVM)
+            selectTableRow(row: lastSelectedVM)
         }
     }
     
@@ -230,6 +240,37 @@ class MainViewController: NSViewController {
         writeConfigFile()
     }
     
+    // Delete selected VM
+    func deleteVM() {
+        if currentSelectedVM != nil {
+            // Show confirmation alert
+            let alert = NSAlert()
+            
+            alert.messageText = "Do you want to delete the selected VM?"
+            alert.alertStyle = .critical
+            alert.addButton(withTitle: "Delete").bezelColor = .controlAccentColor
+            alert.addButton(withTitle: "Cancel")
+            
+            let alertResult = alert.runModal()
+            if alertResult == .alertFirstButtonReturn {
+                // User pressed the Delete button
+                vmList.remove(at: currentSelectedVM!)
+                vmsTableView.reloadData()
+                writeConfigFile()
+                
+                if vmList.count > 0 {
+                    currentSelectedVM = vmsTableView.selectedRow
+                }
+                else {
+                    currentSelectedVM = nil
+                    startVMButton.isEnabled = false
+                    vmSettingsButton.isEnabled = false
+                    deleteVMButton.isEnabled = false
+                }
+            }
+        }
+    }
+    
     // Start VM process
     private func startVM(launchSettings: Bool = false) {
         if currentSelectedVM != nil {
@@ -262,6 +303,23 @@ class MainViewController: NSViewController {
         }
     }
     
+    // Select table row and populate vm info
+    private func selectTableRow(row: Int) {
+        currentSelectedVM = row
+        startVMButton.isEnabled = true
+        vmSettingsButton.isEnabled = true
+        deleteVMButton.isEnabled = true
+        
+        // Set VM name and description text
+        vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
+        vmDescriptionTextField.stringValue = vmList[row].description ?? ""
+        
+        // Set user defaults
+        DispatchQueue.main.async {
+            self.userDefaults.set(row, forKey: "lastSelectedVM")
+        }
+    }
+    
 // ------------------------------------
 // IBActions
 // ------------------------------------
@@ -277,33 +335,7 @@ class MainViewController: NSViewController {
     
     // Delete VM button action
     @IBAction func deleteVMButtonAction(_ sender: NSButton) {
-        if currentSelectedVM != nil {
-            // Show confirmation alert
-            let alert = NSAlert()
-            
-            alert.messageText = "Do you want to delete the selected VM?"
-            alert.alertStyle = .critical
-            alert.addButton(withTitle: "Delete").bezelColor = .controlAccentColor
-            alert.addButton(withTitle: "Cancel")
-            
-            let alertResult = alert.runModal()
-            if alertResult == .alertFirstButtonReturn {
-                // User pressed the Delete button
-                vmList.remove(at: currentSelectedVM!)
-                vmsTableView.reloadData()
-                writeConfigFile()
-                
-                if vmList.count > 0 {
-                    currentSelectedVM = vmsTableView.selectedRow
-                }
-                else {
-                    currentSelectedVM = nil
-                    startVMButton.isEnabled = false
-                    vmSettingsButton.isEnabled = false
-                    deleteVMButton.isEnabled = false
-                }
-            }
-        }
+        deleteVM()
     }
     
     // Add VM toolbar button action
@@ -348,14 +380,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
     
     // Handle cells selection
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        currentSelectedVM = row
-        startVMButton.isEnabled = true
-        vmSettingsButton.isEnabled = true
-        deleteVMButton.isEnabled = true
-        
-        // Set VM name and description text
-        vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
-        vmDescriptionTextField.stringValue = vmList[row].description ?? ""
+        selectTableRow(row: row)
         
         return true
     }
@@ -408,6 +433,9 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
             }
         }
         tableView.endUpdates()
+        
+        // Update config file
+        writeConfigFile()
         
         return true
     }
