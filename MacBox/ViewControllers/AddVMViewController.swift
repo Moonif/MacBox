@@ -13,12 +13,10 @@ class AddVMViewController: NSViewController {
     @IBOutlet weak var vmNameTextField: NSTextField!
     @IBOutlet weak var vmDescriptionTextField: NSTextField!
     @IBOutlet weak var vmPathStatusTextField: NSTextField!
-    @IBOutlet weak var clearVMButton: NSButton!
     
     // Variables
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     var mainVC = MainViewController()
-    var importedVMPath : String?
     
     let nameTextFieldMaxLimit: Int = 32
 
@@ -42,7 +40,27 @@ class AddVMViewController: NSViewController {
     // Config views initial properties
     private func configView() {
         vmPathStatusTextField.stringValue = "VM will be created at: \"\(homeDirURL.path)\"."
-        clearVMButton.isEnabled = false
+    }
+    
+    // Create VM
+    private func createVM(name: String, description: String?, path: String?) -> VM {
+        var vm = VM()
+        
+        // Set name and description
+        vm.name = name
+        vm.description = description
+        
+        // Set path
+        var defaultPath = homeDirURL
+        if #available(macOS 13.0, *) {
+            defaultPath = homeDirURL.appending(component: "\(vm.name ?? "")")
+        } else {
+            // Fallback on earlier versions
+            defaultPath = homeDirURL.appendingPathComponent("\(vm.name ?? "")")
+        }
+        vm.path = path != nil ? path : defaultPath.path
+        
+        return vm
     }
     
 // ------------------------------------
@@ -74,46 +92,13 @@ class AddVMViewController: NSViewController {
         }
         
         // Create a VM and add it to the table view
-        var vm = VM()
-        
-        vm.name = vmNameTextField.stringValue
-        vm.description = vmDescriptionTextField.stringValue
-        vm.path = importedVMPath
-        
+        let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextField.stringValue, path: nil)
         mainVC.addVM(vm: vm)
         
-        // Dismiss the add VM modal view
-        dismiss(self)
-    }
-    
-    // Import an existing VM
-    @IBAction func importVMButtonAction(_ sender: NSButton) {
-        let filePickerPanel = NSOpenPanel()
-        
-        filePickerPanel.allowsMultipleSelection = false
-        filePickerPanel.canChooseDirectories = true
-        filePickerPanel.canChooseFiles = false
-        
-        if filePickerPanel.runModal() == .OK {
-            if let vmDirectoryURL = filePickerPanel.url?.path {
-                let VMConfigFileURL = vmDirectoryURL.appending("/86box.cfg")
-                if FileManager.default.fileExists(atPath: VMConfigFileURL) {
-                    importedVMPath = vmDirectoryURL
-                    vmPathStatusTextField.stringValue = "🟢 86Box config file was found.\nVM is located at: \"\(importedVMPath ?? "")\"."
-                    clearVMButton.isEnabled = true
-                }
-                else {
-                    importedVMPath = nil
-                    vmPathStatusTextField.stringValue = "🔴 Could not find 86Box config file.\nA new VM will be created at: \"\(homeDirURL.path)\"."
-                    clearVMButton.isEnabled = false
-                }
-            }
+        // Dismiss the add VM tabVC modal view
+        if let tabVC = self.parent as? NSTabViewController {
+            dismiss(tabVC)
         }
-    }
-    
-    @IBAction func clearVMButtonAction(_ sender: NSButton) {
-        importedVMPath = nil
-        configView()
     }
 }
 

@@ -18,7 +18,12 @@ class MainViewController: NSViewController {
     @IBOutlet weak var spinningProgressIndicator: NSProgressIndicator!
     @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var vmNameTextField: NSTextField!
-    @IBOutlet weak var vmDescriptionTextField: NSTextField!
+    @IBOutlet var vmDescriptionTextView: NSTextView!
+    
+    @IBOutlet weak var vmSpecMachine: NSTextField!
+    @IBOutlet weak var vmSpecCPU: NSTextField!
+    @IBOutlet weak var vmSpecRAM: NSTextField!
+    @IBOutlet weak var vmSpecHDD: NSTextField!
     
     // Variables
     private let userDefaults = UserDefaults.standard
@@ -26,6 +31,9 @@ class MainViewController: NSViewController {
     private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
+    private var currentVMPrinterPath: String?
+    private var currentVMScreenShotsPath: String?
+    private var currentVMConfigPath: String?
     private let nameTextFieldMaxLimit: Int = 32
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
     
@@ -37,7 +45,7 @@ class MainViewController: NSViewController {
         vmsTableView.delegate = self
         vmsTableView.dataSource = self
         vmNameTextField.delegate = self
-        vmDescriptionTextField.delegate = self
+        vmDescriptionTextView.delegate = self
         // Register table view for drag and drop
         vmsTableView.registerForDraggedTypes(([dragDropType]))
         
@@ -49,6 +57,13 @@ class MainViewController: NSViewController {
         checkFor86Box()
     }
     
+    // View will appear
+    override func viewWillAppear() {
+        // Remove fullscreen window button
+        self.view.window?.styleMask.remove(.fullScreen)
+        self.view.window?.styleMask.remove(.resizable)
+    }
+    
     // Config views initial properties
     private func configView() {
         startVMButton.isEnabled = false
@@ -56,6 +71,17 @@ class MainViewController: NSViewController {
         deleteVMButton.isEnabled = false
         spinningProgressIndicator.startAnimation(self)
         statusLabel.stringValue = ""
+        
+        // Specs text
+        vmSpecMachine.stringValue = "-"
+        vmSpecCPU.stringValue = "-"
+        vmSpecRAM.stringValue = "-"
+        vmSpecHDD.stringValue = "-"
+        
+        // Add show in finder for table view cells
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
+        vmsTableView.menu = menu
     }
     
     // Initialize MacBox directory and config files
@@ -93,7 +119,6 @@ class MainViewController: NSViewController {
         }
         // Restore last selected vm
         let lastSelectedVM = userDefaults.integer(forKey: "lastSelectedVM")
-        print(lastSelectedVM)
         if lastSelectedVM > 0 && lastSelectedVM < vmList.count {
             let indexSet = IndexSet(integer: lastSelectedVM)
             vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
@@ -235,7 +260,20 @@ class MainViewController: NSViewController {
     
     // Add VM to the table view
     func addVM(vm: VM) {
-        vmList.append(vm)
+        // Make sure vm has a path
+        var fixedVM = vm
+        if vm.path == nil {
+            var defaultPath = homeDirURL
+            if #available(macOS 13.0, *) {
+                defaultPath = homeDirURL.appending(component: "\(vm.name ?? "")")
+            } else {
+                // Fallback on earlier versions
+                defaultPath = homeDirURL.appendingPathComponent("\(vm.name ?? "")")
+            }
+            fixedVM.path = defaultPath.path
+        }
+        
+        vmList.append(fixedVM)
         vmsTableView.reloadData()
         writeConfigFile()
     }
@@ -312,11 +350,136 @@ class MainViewController: NSViewController {
         
         // Set VM name and description text
         vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
-        vmDescriptionTextField.stringValue = vmList[row].description ?? ""
+        vmDescriptionTextView.string = vmList[row].description ?? ""
+        // Set all VM paths
+        var defaultPath = homeDirURL
+        if #available(macOS 13.0, *) {
+            defaultPath = homeDirURL.appending(component: "\(vmList[row].name ?? "")")
+        } else {
+            // Fallback on earlier versions
+            defaultPath = homeDirURL.appendingPathComponent("\(vmList[row].name ?? "")")
+        }
+        let vmPath = (vmList[row].path != nil ? vmList[row].path : defaultPath.path) ?? ""
+        setAllVMPaths(vmPath: vmPath)
+        
+        // Set VM specs
+        setVMSpecs()
         
         // Set user defaults
         DispatchQueue.main.async {
             self.userDefaults.set(row, forKey: "lastSelectedVM")
+        }
+    }
+    
+    // Table View Cell Show in Finder Action
+    @objc private func tableViewFindInFinderAction(_ sender: AnyObject) {
+        if vmsTableView.clickedRow >= 0 {
+            let vmPathURL = URL(fileURLWithPath: vmList[vmsTableView.clickedRow].path ?? "")
+            NSWorkspace.shared.open(vmPathURL)
+        }
+    }
+    
+    // Set all VM paths
+    private func setAllVMPaths(vmPath: String) {
+        currentVMPrinterPath = vmPath.appending("/printer")
+        currentVMScreenShotsPath = vmPath.appending("/screenshots")
+        currentVMConfigPath = vmPath.appending("/86box.cfg")
+        
+        // Create printer folder if it doesn't already exist
+        if let printerPath = currentVMPrinterPath {
+            if !FileManager.default.fileExists(atPath: printerPath) {
+                do {
+                    try FileManager.default.createDirectory(atPath: printerPath, withIntermediateDirectories: true)
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        // Create screenshots folder if it doesn't already exist
+        if let screenshotsPath = currentVMScreenShotsPath {
+            if !FileManager.default.fileExists(atPath: screenshotsPath) {
+                do {
+                    try FileManager.default.createDirectory(atPath: screenshotsPath, withIntermediateDirectories: true)
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    // Set current VM specs
+    private func setVMSpecs() {
+        if currentVMConfigPath != nil {
+            if FileManager.default.fileExists(atPath: currentVMConfigPath ?? "") {
+                let ini = IniParser()
+                // Parse machine type
+                let machineType = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["machine"] ?? ""
+                // Parse cpu family
+                let cpuFamily = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["cpu_family"] ?? ""
+                // Parse cpu speed
+                let cpuSpeed = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["cpu_speed"] ?? ""
+                // Parse ram size
+                let ramSize = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["mem_size"] ?? ""
+                // Parse ram size
+                let hddPath = ini.parseConfig(currentVMConfigPath ?? "")["Hard disks"]?["hdd_01_fn"] ?? nil
+
+                // Parse and define devices name
+                let nameDefs = Bundle.main.path(forResource: "namedefs.inf", ofType: nil)
+                
+                // Define machine type name
+                if let machinesDef = (ini.parseConfig(nameDefs ?? "")["machine"]) {
+                    if machinesDef[machineType] != nil {
+                        vmSpecMachine.stringValue = machinesDef[machineType] ?? ""
+                    }
+                    else {
+                        vmSpecMachine.stringValue = machineType
+                    }
+                }
+                
+                // Define cpu family name
+                var cpuFamilyName = ""
+                if let cpuDef = (ini.parseConfig(nameDefs ?? "")["cpu_family"]) {
+                    if cpuDef[cpuFamily] != nil {
+                        cpuFamilyName = cpuDef[cpuFamily] ?? ""
+                    }
+                    else {
+                        cpuFamilyName = cpuFamily
+                    }
+                }
+                
+                // Define cpu speed
+                let cpuSpeedConverted = (Float(cpuSpeed) ?? 0.0) / 1000000
+                let cpuSpeedRounded = String(format: "%.2f", cpuSpeedConverted)
+                vmSpecCPU.stringValue = "\(cpuFamilyName) \(cpuSpeedRounded) MHz"
+                
+                // Define and format ram size
+                let ramBCF = ByteCountFormatter()
+                ramBCF.allowedUnits = [.useAll]
+                ramBCF.countStyle = .memory
+                let ramSizeConverted = ramBCF.string(fromByteCount: (Int64(ramSize) ?? 0) * 1024)
+                vmSpecRAM.stringValue = "RAM \(ramSizeConverted)"
+
+                // Define hdd size
+                if hddPath != nil {
+                    let hddSize = FileManager.default.sizeOfFile(atPath: hddPath ?? "") ?? 0
+                    // Format hdd size
+                    let hddBCF = ByteCountFormatter()
+                    hddBCF.allowedUnits = [.useAll]
+                    hddBCF.countStyle = .binary
+                    let hddSizeConverted = hddBCF.string(fromByteCount: hddSize)
+                    vmSpecHDD.stringValue = "HDD \(hddSizeConverted)"
+                }
+                else {
+                    vmSpecHDD.stringValue = "No HDD Found"
+                }
+            }
+            else {
+                vmSpecMachine.stringValue = "-"
+                vmSpecCPU.stringValue = "-"
+                vmSpecRAM.stringValue = "-"
+                vmSpecHDD.stringValue = "-"
+            }
         }
     }
     
@@ -340,24 +503,38 @@ class MainViewController: NSViewController {
     
     // Add VM toolbar button action
     @IBAction func addVMButtonAction(_ sender: Any) {
-        if let addVMVC = self.storyboard?.instantiateController(withIdentifier: "AddVMVC") as? AddVMViewController {
-            addVMVC.mainVC = self
-            self.presentAsModalWindow(addVMVC)
+        if let addVMTabViewVC = self.storyboard?.instantiateController(withIdentifier: "AddVMVC") as? NSTabViewController {
+            for tabViewVC in addVMTabViewVC.tabViewItems {
+                if let addVMVC = tabViewVC.viewController as? AddVMViewController {
+                    addVMVC.mainVC = self
+                }
+                else if let importVMVC = tabViewVC.viewController as? ImportVMViewController {
+                    importVMVC.mainVC = self
+                }
+            }
+            self.presentAsModalWindow(addVMTabViewVC)
         }
     }
     
     // Print tray toolbar button action
     @IBAction func printTrayButtonAction(_ sender: Any) {
-        if emulatorUrl != nil {
-            let suffix = "86Box.app"
-            if emulatorUrl!.relativePath.hasSuffix(suffix) {
-                let dir = emulatorUrl!.relativePath.dropLast(suffix.count)
-                let printTrayDir = dir.appending("printer")
-                NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(printTrayDir))
-            }
+        if currentVMPrinterPath != nil {
+            NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(currentVMPrinterPath ?? ""))
         }
     }
     
+    @IBAction func screenshotsButtonAction(_ sender: Any) {
+        if currentVMScreenShotsPath != nil {
+            NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(currentVMScreenShotsPath ?? ""))
+        }
+    }
+    
+    // Open the Jenkins url
+    @IBAction func versionStatusButtonAction(_ sender: NSButton) {
+        if let url = URL(string: "https://ci.86box.net/job/86Box/") {
+            NSWorkspace.shared.open(url)
+        }
+    }
 }
 
 // ------------------------------------
@@ -460,17 +637,32 @@ extension MainViewController: NSTextFieldDelegate {
                 if currentSelectedVM != nil {
                     // Update VM name
                     vmList[currentSelectedVM!].name = textField.stringValue
-                    
-                    vmsTableView.reloadData()
                     writeConfigFile()
+                    // Save current selected row
+                    let lastSelectedRow = currentSelectedVM
+                    // Reload table data
+                    vmsTableView.reloadData()
+                    // Re-select previously selected row
+                    let indexSet = IndexSet(integer: lastSelectedRow ?? 0)
+                    vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+                    vmsTableView.scrollRowToVisible(lastSelectedRow ?? 0)
+                    selectTableRow(row: lastSelectedRow ?? 0)
                 }
             }
-            else if textField.identifier == NSUserInterfaceItemIdentifier(rawValue: "vmDescriptionID") {
+        }
+    }
+}
+
+// ------------------------------------
+// TextView Delegate
+// ------------------------------------
+extension MainViewController: NSTextViewDelegate {
+    func textDidEndEditing(_ notification: Notification) {
+        if let textView = notification.object as? NSTextView {
+            if textView.identifier == NSUserInterfaceItemIdentifier(rawValue: "vmDescriptionID") {
                 if currentSelectedVM != nil {
                     // Update VM description
-                    vmList[currentSelectedVM!].description = textField.stringValue
-                    
-                    vmsTableView.reloadData()
+                    vmList[currentSelectedVM!].description = textView.string
                     writeConfigFile()
                 }
             }
