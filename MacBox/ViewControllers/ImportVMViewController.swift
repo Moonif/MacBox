@@ -19,6 +19,7 @@ class ImportVMViewController: NSViewController {
     // Variables
     var mainVC = MainViewController()
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    private var searchURL: URL?
     private var cancelSearch: Bool = false
     private var configFilesList: [String] = []
     private var importedVMPath : String?
@@ -30,6 +31,9 @@ class ImportVMViewController: NSViewController {
         // Set delegates
         configFilesTableView.delegate = self
         configFilesTableView.dataSource = self
+        
+        // Set defaults
+        searchURL = FileManager.default.homeDirectoryForCurrentUser
     }
     
     // Start the search when the view appear
@@ -61,10 +65,10 @@ class ImportVMViewController: NSViewController {
         configFilesTableView.reloadData()
         
         // Set the search path at the user's home directory
-        let url = FileManager.default.homeDirectoryForCurrentUser
+        let url = searchURL
         let localFileManager = FileManager()
         
-        if let enumerator: FileManager.DirectoryEnumerator = localFileManager.enumerator(atPath: url.path) {
+        if let enumerator: FileManager.DirectoryEnumerator = localFileManager.enumerator(atPath: url?.path ?? "") {
             // Conduct the search as a background process as not to block the user interaction
             DispatchQueue.global(qos: .background).async {
                 while let element = enumerator.nextObject() as? String {
@@ -75,7 +79,7 @@ class ImportVMViewController: NSViewController {
                     let configFileSuffix = "/86box.cfg"
                     guard element.hasSuffix(configFileSuffix) else { continue }
                     
-                    let vmPath = "\(url.path)/\(element)".dropLast(configFileSuffix.count)
+                    let vmPath = "\(url?.path ?? "")/\(element)".dropLast(configFileSuffix.count)
                     
                     // Check if path already present in the VMs list
                     let match = self.mainVC.vmList.contains(where: { vm in
@@ -213,6 +217,44 @@ class ImportVMViewController: NSViewController {
             cancelSearch = false
             findConfigFiles()
         }
+    }
+    
+    // Search popup button action
+    @IBAction func searchPopUpButtonAction(_ sender: NSPopUpButton) {
+        // Cancel current search
+        cancelSearch = true
+        
+        // Set selected search directory
+        switch sender.selectedItem?.identifier {
+        case NSUserInterfaceItemIdentifier(rawValue: "searchItemHome") :
+            searchURL = FileManager.default.homeDirectoryForCurrentUser
+            break
+        case NSUserInterfaceItemIdentifier(rawValue: "searchItemDocuments") :
+            searchURL = URL(fileURLWithPath: "Documents", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+            break
+        case NSUserInterfaceItemIdentifier(rawValue: "searchItemCustom") :
+            // Open the file picker
+            let filePickerPanel = NSOpenPanel()
+            
+            filePickerPanel.allowsMultipleSelection = false
+            filePickerPanel.canChooseDirectories = true
+            filePickerPanel.canChooseFiles = false
+            
+            if filePickerPanel.runModal() == .OK {
+                if let customDirectoryURL = filePickerPanel.url {
+                    searchURL = customDirectoryURL
+                }
+            }
+            break
+        default:
+            break
+        }
+        
+        // Config views
+        configView()
+        
+        cancelSearch = false
+        findConfigFiles()
     }
 }
 

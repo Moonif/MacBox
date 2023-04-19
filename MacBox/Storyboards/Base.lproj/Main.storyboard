@@ -91,9 +91,7 @@
                                         <action selector="printTrayButtonAction:" target="Oky-zY-oP4" id="Kcd-R2-cyZ"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" tag="-1" image="camera" id="YpZ-1Y-BHP">
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="32" height="32"/>
+                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" tag="-1" image="camera" sizingBehavior="auto" id="YpZ-1Y-BHP">
                                     <connections>
                                         <action selector="screenshotsButtonAction:" target="Oky-zY-oP4" id="EHM-Hf-M4x"/>
                                     </connections>
@@ -744,8 +742,8 @@
                                 <rect key="frame" x="20" y="84" width="16" height="16"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wni-d2-f3o">
-                                <rect key="frame" x="42" y="84" width="251" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Searching your Mac for 86Box VM files..." id="0Gb-mC-S6K">
+                                <rect key="frame" x="42" y="84" width="269" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Searching your Mac for 86Box config files..." id="0Gb-mC-S6K">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -759,26 +757,45 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-Vf-4vv">
+                                <rect key="frame" x="366" y="76" width="158" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Search: Home" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dz5-Ik-wZS" id="ERh-qo-Fl6">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="in4-nj-O01">
+                                        <items>
+                                            <menuItem title="Search: Home" state="on" identifier="searchItemHome" id="dz5-Ik-wZS"/>
+                                            <menuItem title="Search: Documents" identifier="searchItemDocuments" id="uPw-97-Cpw"/>
+                                            <menuItem title="Search: Custom" identifier="searchItemCustom" id="qIx-Pa-bKT"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="searchPopUpButtonAction:" target="1f0-Jm-eeh" id="02G-1V-YGU"/>
+                                </connections>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="uf1-Ik-1Px" firstAttribute="leading" secondItem="XUk-FL-jX1" secondAttribute="leading" constant="20" symbolic="YES" id="27s-yI-fzy"/>
                             <constraint firstAttribute="bottom" secondItem="X3A-Ov-Rrm" secondAttribute="bottom" constant="20" symbolic="YES" id="3C8-LQ-reO"/>
+                            <constraint firstAttribute="trailing" secondItem="m5f-Vf-4vv" secondAttribute="trailing" constant="20" symbolic="YES" id="7vR-Vk-iNT"/>
                             <constraint firstAttribute="trailing" secondItem="9kD-QW-qf4" secondAttribute="trailing" constant="20" symbolic="YES" id="CrB-dZ-6Gd"/>
                             <constraint firstItem="wni-d2-f3o" firstAttribute="top" secondItem="9kD-QW-qf4" secondAttribute="bottom" constant="8" symbolic="YES" id="D07-Qp-Si4"/>
                             <constraint firstItem="Kku-rr-qZO" firstAttribute="leading" secondItem="XUk-FL-jX1" secondAttribute="leading" constant="20" symbolic="YES" id="DGV-yg-IVc"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kku-rr-qZO" secondAttribute="trailing" constant="20" symbolic="YES" id="ErI-uq-CD4"/>
+                            <constraint firstItem="m5f-Vf-4vv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uf1-Ik-1Px" secondAttribute="trailing" constant="8" symbolic="YES" id="Ihx-Rv-J06"/>
                             <constraint firstItem="Zm8-c4-0e0" firstAttribute="top" secondItem="9kD-QW-qf4" secondAttribute="bottom" constant="8" symbolic="YES" id="Niy-5V-CUS"/>
                             <constraint firstItem="Zm8-c4-0e0" firstAttribute="leading" secondItem="XUk-FL-jX1" secondAttribute="leading" constant="20" symbolic="YES" id="OvK-lE-nnb"/>
                             <constraint firstAttribute="bottom" secondItem="3zd-am-cM1" secondAttribute="bottom" constant="20" symbolic="YES" id="Pdm-Sb-sIQ"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uf1-Ik-1Px" secondAttribute="trailing" constant="20" symbolic="YES" id="PsL-6l-Nfy"/>
                             <constraint firstItem="X3A-Ov-Rrm" firstAttribute="leading" secondItem="3zd-am-cM1" secondAttribute="trailing" constant="12" symbolic="YES" id="Qa3-4O-DXg"/>
                             <constraint firstItem="3zd-am-cM1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XUk-FL-jX1" secondAttribute="leading" constant="20" symbolic="YES" id="V1E-HT-zNB"/>
                             <constraint firstItem="9kD-QW-qf4" firstAttribute="top" secondItem="Kku-rr-qZO" secondAttribute="bottom" constant="8" symbolic="YES" id="V8G-3z-1r3"/>
                             <constraint firstItem="9kD-QW-qf4" firstAttribute="leading" secondItem="XUk-FL-jX1" secondAttribute="leading" constant="20" symbolic="YES" id="ai8-6M-mlF"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wni-d2-f3o" secondAttribute="trailing" constant="20" symbolic="YES" id="cJx-4O-iRA"/>
                             <constraint firstItem="uf1-Ik-1Px" firstAttribute="top" secondItem="9kD-QW-qf4" secondAttribute="bottom" constant="8" symbolic="YES" id="dGW-D0-hM6"/>
                             <constraint firstItem="Kku-rr-qZO" firstAttribute="top" secondItem="XUk-FL-jX1" secondAttribute="top" constant="20" symbolic="YES" id="dQ4-o3-kDB"/>
+                            <constraint firstItem="m5f-Vf-4vv" firstAttribute="top" secondItem="wni-d2-f3o" secondAttribute="top" id="gtt-nv-QKb"/>
                             <constraint firstAttribute="trailing" secondItem="X3A-Ov-Rrm" secondAttribute="trailing" constant="20" symbolic="YES" id="yVZ-4Y-No2"/>
+                            <constraint firstItem="m5f-Vf-4vv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wni-d2-f3o" secondAttribute="trailing" constant="8" symbolic="YES" id="yvD-eN-hnG"/>
                             <constraint firstItem="wni-d2-f3o" firstAttribute="leading" secondItem="Zm8-c4-0e0" secondAttribute="trailing" constant="8" symbolic="YES" id="zcK-fb-a42"/>
                         </constraints>
                     </view>
