@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F918A5A129F19CE500E15E32 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = F918A5A029F19CE500E15E32 /* Templates */; };
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
 		F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */ = {isa = PBXBuildFile; fileRef = F9A04BAD29EEF26F00DC813D /* namedefs.inf */; };
 		F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A04BB029EF0F5400DC813D /* FileManager.swift */; };
 		F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B09E6329E9DBC800C86A0F /* IniParser.swift */; };
+		F9BB907629F14C7E000B4C5F /* VMTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB907529F14C7E000B4C5F /* VMTemplate.swift */; };
 		F9BDB5CC29EC139A00D7331F /* ImportVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDB5CB29EC139A00D7331F /* ImportVMViewController.swift */; };
 		F9D6078329E2BABE002541BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6078229E2BABE002541BF /* AppDelegate.swift */; };
 		F9D6078529E2BABE002541BF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6078429E2BABE002541BF /* MainViewController.swift */; };
@@ -20,11 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F918A5A029F19CE500E15E32 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
 		F9A04BAD29EEF26F00DC813D /* namedefs.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = namedefs.inf; sourceTree = "<group>"; };
 		F9A04BB029EF0F5400DC813D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		F9B09E6329E9DBC800C86A0F /* IniParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IniParser.swift; sourceTree = "<group>"; };
+		F9BB907529F14C7E000B4C5F /* VMTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTemplate.swift; sourceTree = "<group>"; };
 		F9BDB5CB29EC139A00D7331F /* ImportVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVMViewController.swift; sourceTree = "<group>"; };
 		F9D6077F29E2BABE002541BF /* MacBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D6078229E2BABE002541BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				F934D58C29E424EE00F0D450 /* VM.swift */,
+				F9BB907529F14C7E000B4C5F /* VMTemplate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				F959EF7629E3580700934DA5 /* Storyboards */,
 				F959EF7529E357F500934DA5 /* Classes */,
 				F9D1BE1429EB0F1D000C7E5F /* Utils */,
+				F918A5A029F19CE500E15E32 /* Templates */,
 				F9D6078229E2BABE002541BF /* AppDelegate.swift */,
 				F9D6078629E2BABF002541BF /* Assets.xcassets */,
 				F9D6078B29E2BABF002541BF /* MacBox.entitlements */,
@@ -185,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F918A5A129F19CE500E15E32 /* Templates in Resources */,
 				F9D6078729E2BABF002541BF /* Assets.xcassets in Resources */,
 				F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */,
 				F9D6078A29E2BABF002541BF /* Main.storyboard in Resources */,
@@ -200,6 +207,7 @@
 			files = (
 				F9BDB5CC29EC139A00D7331F /* ImportVMViewController.swift in Sources */,
 				F9D6078529E2BABE002541BF /* MainViewController.swift in Sources */,
+				F9BB907629F14C7E000B4C5F /* VMTemplate.swift in Sources */,
 				F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */,
 				F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */,
 				F934D58D29E424EE00F0D450 /* VM.swift in Sources */,
@@ -272,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -360,7 +368,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -394,7 +402,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -259,18 +259,28 @@ class MainViewController: NSViewController {
     }
     
     // Add VM to the table view
-    func addVM(vm: VM) {
+    func addVM(vm: VM, vmTemplateConfigPath: String? = nil) {
         // Make sure vm has a path
         var fixedVM = vm
+        
         if vm.path == nil {
             var defaultPath = homeDirURL
             if #available(macOS 13.0, *) {
-                defaultPath = homeDirURL.appending(component: "\(vm.name ?? "")")
+                defaultPath = homeDirURL.appending(component: "\(vm.name?.replacingOccurrences(of: "/", with: "") ?? "")")
             } else {
                 // Fallback on earlier versions
-                defaultPath = homeDirURL.appendingPathComponent("\(vm.name ?? "")")
+                defaultPath = homeDirURL.appendingPathComponent("\(vm.name?.replacingOccurrences(of: "/", with: "")  ?? "")")
             }
-            fixedVM.path = defaultPath.path
+            fixedVM.path = defaultPath.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+        }
+        
+        // Copy template config file
+        if vmTemplateConfigPath != nil {
+            do{
+                try FileManager.default.copyItem(atPath: vmTemplateConfigPath ?? "", toPath: fixedVM.path?.appending("/86box.cfg") ?? "")
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
         }
         
         vmList.append(fixedVM)
