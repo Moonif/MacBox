@@ -275,6 +275,9 @@ class MainViewController: NSViewController {
             fixedVM.path = defaultPath.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
         }
         
+        // Create all VM paths
+        setAllVMPaths(vmPath: fixedVM.path ?? "")
+        
         // Copy template config file
         if vmTemplateConfigPath != nil {
             do{
@@ -376,19 +379,17 @@ class MainViewController: NSViewController {
         vmSettingsButton.isEnabled = true
         deleteVMButton.isEnabled = true
         
+        // VM properties
+        let vmName = vmList[row].name ?? "86Box - MacBoxVM"
+        let vmDescription = vmList[row].description ?? ""
+        let vmPath = vmList[row].path ?? ""
+        currentVMPrinterPath = vmPath.appending("/printer")
+        currentVMScreenShotsPath = vmPath.appending("/screenshots")
+        currentVMConfigPath = vmPath.appending("/86box.cfg")
+        
         // Set VM name and description text
-        vmNameTextField.stringValue = vmList[row].name ?? "86Box - MacBoxVM"
-        vmDescriptionTextView.string = vmList[row].description ?? ""
-        // Set all VM paths
-        var defaultPath = homeDirURL
-        if #available(macOS 13.0, *) {
-            defaultPath = homeDirURL.appending(component: "\(vmList[row].name ?? "")")
-        } else {
-            // Fallback on earlier versions
-            defaultPath = homeDirURL.appendingPathComponent("\(vmList[row].name ?? "")")
-        }
-        let vmPath = (vmList[row].path != nil ? vmList[row].path : defaultPath.path) ?? ""
-        setAllVMPaths(vmPath: vmPath)
+        vmNameTextField.stringValue = vmName
+        vmDescriptionTextView.string = vmDescription
         
         // Set VM specs
         setVMSpecs()
@@ -418,29 +419,24 @@ class MainViewController: NSViewController {
     
     // Set all VM paths
     private func setAllVMPaths(vmPath: String) {
-        currentVMPrinterPath = vmPath.appending("/printer")
-        currentVMScreenShotsPath = vmPath.appending("/screenshots")
-        currentVMConfigPath = vmPath.appending("/86box.cfg")
+        let printerPath = vmPath.appending("/printer")
+        let screenshotsPath = vmPath.appending("/screenshots")
         
         // Create printer folder if it doesn't already exist
-        if let printerPath = currentVMPrinterPath {
-            if !FileManager.default.fileExists(atPath: printerPath) {
-                do {
-                    try FileManager.default.createDirectory(atPath: printerPath, withIntermediateDirectories: true)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
+        if !FileManager.default.fileExists(atPath: printerPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: printerPath, withIntermediateDirectories: true)
+            } catch {
+                print("Error: \(error.localizedDescription)")
             }
         }
         
         // Create screenshots folder if it doesn't already exist
-        if let screenshotsPath = currentVMScreenShotsPath {
-            if !FileManager.default.fileExists(atPath: screenshotsPath) {
-                do {
-                    try FileManager.default.createDirectory(atPath: screenshotsPath, withIntermediateDirectories: true)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
+        if !FileManager.default.fileExists(atPath: screenshotsPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: screenshotsPath, withIntermediateDirectories: true)
+            } catch {
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
