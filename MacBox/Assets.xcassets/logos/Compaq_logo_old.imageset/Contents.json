@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Compaq_logo_old.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

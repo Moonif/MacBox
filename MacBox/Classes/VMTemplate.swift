@@ -9,4 +9,5 @@ struct VMTemplate {
     var name: String?
     var infoPath: String?
     var configPath: String?
+    var machineLogo: String?
 }

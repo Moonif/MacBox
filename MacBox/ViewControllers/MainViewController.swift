@@ -24,6 +24,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var vmSpecCPU: NSTextField!
     @IBOutlet weak var vmSpecRAM: NSTextField!
     @IBOutlet weak var vmSpecHDD: NSTextField!
+    @IBOutlet weak var vmSpecMachineLogo: NSImageView!
     
     // Variables
     private let userDefaults = UserDefaults.standard
@@ -506,12 +507,20 @@ class MainViewController: NSViewController {
                 else {
                     vmSpecHDD.stringValue = "No HDD Found"
                 }
+                
+                if let machineLogo = vmList[currentSelectedVM ?? 0].logo {
+                    vmSpecMachineLogo.image = NSImage(named: machineLogo)
+                }
+                else {
+                    vmSpecMachineLogo.image = nil
+                }
             }
             else {
                 vmSpecMachine.stringValue = "-"
                 vmSpecCPU.stringValue = "-"
                 vmSpecRAM.stringValue = "-"
                 vmSpecHDD.stringValue = "-"
+                vmSpecMachineLogo.image = nil
             }
         }
     }

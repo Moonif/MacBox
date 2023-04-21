@@ -17,6 +17,7 @@ class AddVMViewController: NSViewController {
     @IBOutlet weak var vmSpecMachine: NSTextField!
     @IBOutlet weak var vmSpecCPU: NSTextField!
     @IBOutlet weak var vmSpecRAM: NSTextField!
+    @IBOutlet weak var vmSpecMachineLogo: NSImageView!
     
     // Variables
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
@@ -81,6 +82,10 @@ class AddVMViewController: NSViewController {
                 let vmTemplateYear = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Year"] ?? ""
                 
                 vmTemplate.name = "[\(vmTemplateYear)] \(vmTemplateDescription)"
+                
+                if let machineLogo = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Logo"] {
+                    vmTemplate.machineLogo = machineLogo
+                }
             }
             
             vmTemplateList.append(vmTemplate)
@@ -90,13 +95,14 @@ class AddVMViewController: NSViewController {
     }
     
     // Create VM
-    private func createVM(name: String, description: String?, path: String?) -> VM {
+    private func createVM(name: String, description: String?, path: String?, logo: String?) -> VM {
         var vm = VM()
         
         // Set VM properties
         vm.name = name
         vm.description = description
         vm.path = path
+        vm.logo = logo
         
         return vm
     }
@@ -149,12 +155,21 @@ class AddVMViewController: NSViewController {
             ramBCF.countStyle = .memory
             let ramSizeConverted = ramBCF.string(fromByteCount: (Int64(ramSize) ?? 0) * 1024)
             vmSpecRAM.stringValue = "RAM \(ramSizeConverted)"
+            
+            // Define machine logo
+            if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
+                vmSpecMachineLogo.image = NSImage(named: machineLogo)
+            }
+            else {
+                vmSpecMachineLogo.image = nil
+            }
         }
         else {
             // Empty template selected
             vmSpecMachine.stringValue = "-"
             vmSpecCPU.stringValue = "-"
             vmSpecRAM.stringValue = "-"
+            vmSpecMachineLogo.image = nil
         }
     }
     
@@ -187,7 +202,11 @@ class AddVMViewController: NSViewController {
         }
         
         // Create a VM and add it to the table view
-        let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextField.stringValue, path: nil)
+        var logo: String?
+        if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
+            logo = machineLogo
+        }
+        let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextField.stringValue, path: nil, logo: logo)
         mainVC.addVM(vm: vm, vmTemplateConfigPath: currentTemplateConfigPath)
         
         // Dismiss the add VM tabVC modal view
