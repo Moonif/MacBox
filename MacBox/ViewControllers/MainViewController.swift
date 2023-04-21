@@ -31,6 +31,7 @@ class MainViewController: NSViewController {
     private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
+    private var currentRunningVM: Int?
     private var currentVMPrinterPath: String?
     private var currentVMScreenShotsPath: String?
     private var currentVMConfigPath: String?
@@ -336,8 +337,8 @@ class MainViewController: NSViewController {
             let vmPath = (vmList[currentSelectedVM ?? 0]).path ?? defaultPath.path
             // Set process arguments
             let args:[String] = launchSettings ?
-            ["-n", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-S"] :
-            ["-n", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-V",vmName]
+            ["-W", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-S"] :
+            ["-W", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-V",vmName]
             process.arguments = args
             
             process.executableURL = URL(fileURLWithPath:"/usr/bin/open")
@@ -345,6 +346,23 @@ class MainViewController: NSViewController {
             // Run the process
             do{
                 try process.run()
+                // Process is running
+                currentRunningVM = launchSettings ? nil : currentSelectedVM
+                let lastSelectedRow = currentSelectedVM
+                vmsTableView.reloadData()
+                
+                // Re-select previously selected row
+                reselectTableRow(row: lastSelectedRow)
+                
+                // Wait for process to end
+                process.waitUntilExit()
+                
+                // Process is terminated
+                currentRunningVM = nil
+                vmsTableView.reloadData()
+                
+                // Re-select previously selected row
+                reselectTableRow(row: lastSelectedRow)
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -379,6 +397,15 @@ class MainViewController: NSViewController {
         DispatchQueue.main.async {
             self.userDefaults.set(row, forKey: "lastSelectedVM")
         }
+    }
+    
+    // Re-select previously selected row
+    private func reselectTableRow(row: Int?) {
+        let indexSet = IndexSet(integer: row ?? 0)
+        
+        vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+        vmsTableView.scrollRowToVisible(row ?? 0)
+        selectTableRow(row: row ?? 0)
     }
     
     // Table View Cell Show in Finder Action
@@ -562,6 +589,14 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         let vmObject = vmList[row]
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "textCellID"), owner: self) as? NSTableCellView
         cell?.textField?.stringValue = vmObject.name ?? "No Name"
+        if let imageView = cell?.subviews.first as? NSImageView {
+            if currentRunningVM != nil && currentRunningVM == row {
+                imageView.image = NSImage(named: "pcon")
+            }
+            else {
+                imageView.image = NSImage(named: "pc")
+            }
+        }
         return cell
     }
     
@@ -653,10 +688,7 @@ extension MainViewController: NSTextFieldDelegate {
                     // Reload table data
                     vmsTableView.reloadData()
                     // Re-select previously selected row
-                    let indexSet = IndexSet(integer: lastSelectedRow ?? 0)
-                    vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
-                    vmsTableView.scrollRowToVisible(lastSelectedRow ?? 0)
-                    selectTableRow(row: lastSelectedRow ?? 0)
+                    reselectTableRow(row: lastSelectedRow)
                 }
             }
         }

@@ -312,7 +312,7 @@
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pHA-8B-i3h">
                                         <rect key="frame" x="26" y="157" width="256" height="14"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Machine" id="PdS-tT-imz">
+                                        <textFieldCell key="cell" title="Machine" id="PdS-tT-imz">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -320,7 +320,7 @@
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s3a-Ly-7lh">
                                         <rect key="frame" x="26" y="135" width="256" height="14"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="CPU" id="yEI-AJ-Fok">
+                                        <textFieldCell key="cell" title="CPU" id="yEI-AJ-Fok">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -3,6 +3,7 @@
 //  MacBox
 //
 //  Created by Laci bá' for WinBox
+//  Updated by Moonif for MacBox
 //
 
 [params]
@@ -54,7 +55,6 @@ xi8088=Xi8088
 zdsz151=Zenith Data Systems Z-151/152/161
 zdsz159=Zenith Data Systems Z-159
 zdsupers=Zenith Data Systems SupersPort (Z-184)
-
 p3120=Philips P3120
 pc1512=Amstrad PC1512
 pc1640=Amstrad PC1640
@@ -70,9 +70,7 @@ tandy1000sl2=Tandy 1000 SL/2
 v86p=Victor V86P
 t1200=Toshiba T1200
 lxt3=VTech Laser XT3
-
 hed919=Hedaka HED-919
-
 ibmat=IBM AT
 ibmps1es=IBM PS/1 model 2011
 ibmps2_m30_286=IBM PS/2 model 30-286
@@ -81,7 +79,7 @@ ibmatami=AMI IBM AT
 cmdpc30=Commodore PC 30 III
 portableii=Compaq Portable II
 portableiii=Compaq Portable III
-mr286=MR 286 clone
+mr286=MR BIOS 286 clone
 pc8=NCR PC8/810/710/3390/3392
 m290=Olivetti M290
 openat=OpenAT
@@ -91,7 +89,7 @@ siemens=Siemens PCD-2L
 t3100e=Toshiba T3100e
 quadt286=Quadtel 286 clone
 tg286m=Trigem 286M
-ami286=Dataexpert 286
+ami286=DataExpert 286
 3302=NCR 3302
 px286=Phoenix 286 clone
 gw286ct=GW-286CT GEAR
@@ -102,9 +100,7 @@ spc4200p=Samsung SPC-4200P
 spc4216p=Samsung SPC-4216P
 spc4620p=Samsung SPC-4620P
 deskmaster286=Samsung Deskmaster 286
-
 ibmps2_m50=IBM PS/2 model 50
-
 ibmps1_2121=IBM PS/1 model 2121
 pc916sx=NCR PC916SX
 quadt386sx=QTC-SXM KT X20T02/HI
@@ -121,13 +117,11 @@ cmdsl386sx16=Commodore SL386SX-16
 dtk386=DTK 386SX clone
 awardsx=DTK PPM-3333P
 cmdsl386sx25=Commodore SL386SX-25
-dataexpert386sx=Dataexpert 386SX
+dataexpert386sx=DataExpert 386SX
 spc6033p=Samsung SPC-6033P
 kmxc02=KMX-C-02
 megapc=Amstrad MegaPC
-
 ibmps2_m55sx=IBM PS/2 model 55SX
-
 rycleopardlx=RYC Leopard LX
 acc386=AMI 386DX clone
 ecs386=ECS 386/32
@@ -138,11 +132,9 @@ asus386=ASUS ISA-386C
 ibmps2_m70_type3=IBM PS/2 model 70 (type 3)
 ibmps2_m80=IBM PS/2 model 80 (type 2)
 ibmps2_m80_type3=IBM PS/2 model 80 (type 3)
-
 award495=Award 486 clone
-ami495=Dataexpert SX495 (AMI BIOS)
-mr495=Dataexpert SX495 (MR BIOS)
-
+ami495=DataExpert SX495 (AMI BIOS)
+mr495=DataExpert SX495 (MR BIOS)
 ali1429=Olystar LIL1429
 cs4031=AMI 486 CS4031
 mvi486=Mylex MVI486
@@ -160,7 +152,6 @@ decpclpv=DEC DECpc LPV
 acerv10=Acer V10
 valuepoint433=IBM PS/ValuePoint 433DX/Si
 win471=ABIT AB-AH4
-
 greenb=Green-B
 403tg=Jetway J-403TG
 403tg_d=Jetway J-403TG Rev. D
@@ -169,7 +160,6 @@ vi15g=AOpen Vi15G
 vli486sv2g=ASUS VL/I-486SV2G (GX4)
 dtk486=DTK PKM-0038S E-2
 ami471=Epox 486SX/DX Green
-
 sbc490=AAEON SBC-490
 abpb4=ABIT AB-PB4
 win486pci=AMI WinBIOS 486 PCI
@@ -198,13 +188,11 @@ spc7700plw=Samsung SPC7700P-LW
 hot433=Shuttle HOT-433A
 g486vpa=DFI G486VPA
 486vipio2=FIC VIP-IO2
-
 itoxstar=ITOX STAR
 arb1423c=Acrosser AR-B1423C
 arb1479=Acrosser AR-B1479
 pcm9340=Advantech PCM-9340
 pcm5330=AAEON PCM-5330
-
 excaliburpci=AMI Excalibur PCI Pentium
 p5mp3=ASUS P/I-P5MP3
 dellxp60=Dell Dimension XPS P60
@@ -214,33 +202,26 @@ valuepointp60=IBM PS/ValuePoint P60
 revenge=Intel Premiere/PCI
 586mc1=Micro Star 586MC1
 pb520r=Packard Bell PB520R
-
 excalibur=AMI Excalibur VLB
 p5vl=Supermicro P5VL-PCI
 excaliburpci2=AMI Excalibur PCI-II Pentium ISA
 p5sp4=ASUS PCI/I-P5SP4
-
 plato=Intel Premiere/PCI II
 ambradp90=AMBRA DP90 PCI
 430nx=Gigabyte GA-586IP
-
 acerv30=Acer V30
 apollo=AMI Apollo
-exp8551=Dataexpert EXP8551
+exp8551=DataExpert EXP8551
 zappa=Intel Advanced/ZP
 powermatev=NEC PowerMate V
 mb500n=PC Partner MB500N
 hawk=Trigem Hawk
-
 pat54pv=TMC PAT54PV
-
 hot543=Shuttle HOT-543
-
 p54sp4=ASUS PCI/I-P54SP4
 sq588=BCM SQ-588
-
+63a1=Soltek SL-63A1
 hot539=Shuttle HOT-539
-
 p54tp4xe=ASUS P/I-P54TP4XE
 p54tp4xe_mr=ASUS P/I-P54TP4XE (MR BIOS)
 gw2katx=Gateway 2000 Thor
@@ -251,16 +232,13 @@ endeavor=Intel Advanced/EV
 pb640=Packard Bell PB640
 pb810=Packard Bell PB810
 fmb=QDI FMB
-
 acerm3a=Acer M3A
 ap53=AOpen AP53
 8500tuc=Biostar MB-8500TUC
 p55t2s=SuperMicro Super P55T2S
-
 p5vxb=ECS P5VX-B
 gw2kte=Gateway 2000 Tigereye
 ap5s=AOpen AP5S
-
 acerv35n=Acer V35N
 p55t2p4=ASUS P/I-P55T2P4
 m7shi=Micronics M7S-Hi
@@ -268,7 +246,6 @@ tc430hx=Intel TC430HX
 equium5200=Toshiba Equium 5200D
 pcv240=Sony Vaio PCV-240
 p65up5_cp55t2d=ASUS P/I-P65UP5 (C-P55T2D)
-
 ap5vm=AOpen AP5VM
 p55tvp4=ASUS P/I-P55TVP4
 5ivg=Azza PT-5IVG
@@ -280,39 +257,29 @@ brio80xx=HP Brio 80xx
 pb680=Packard Bell PB680
 mb520n=PC Partner MB520N
 430vx=Shuttle HOT-557
-
 nupro592=ADLink NuPRO-592
 tx97=ASUS TX97
 an430tx=Intel AN430TX
 ym430tx=Intel YM430TX
 mb540n=PC Partner MB540N
 p5mms98=SuperMicro Super P5MMS98
-
 ficva502=FIC VA-502
-
 ficpa2012=FIC PA-2012
-
 r534f=Rise R534F
 ms5146=MSI MS-5146
-
 sp97xv=ASUS SP97-XV
 m571=PC Chips M571
-
 m560=PC Chips M560
 ms5164=MSI MS-5164
-
 p5a=ASUS P5A
 m579=PC Chips M579
 5aa=Gigabyte GA-5AA
 5ax=Gigabyte GA-5AX
-
 ax59pro=AOpen AX59 Pro
 ficva503p=FIC VA-503+
 ficva503a=FIC VA-503A
 5emapro=Soyo SY-5EMA Pro
-
 p6rp4=ASUS P/I-P6RP4
-
 acerv60n=Acer V60N
 p65up5_cp6nd=ASUS P/I-P65UP5 (C-P6ND)
 8600ttc=Biostar MB-8600TTC
@@ -321,15 +288,11 @@ ap440fx=Intel AP440FX
 vs440fx=Intel VS440FX
 m6mi=Micronics M6Mi
 mb600n=PC Partner MB600N
-
 p65up5_cpknd=ASUS P/I-P65UP5 (C-PKND)
 kn97=ASUS KN97
-
 lx6=ABIT LX6
 spitfire=Micronics Spitfire
-
 p6i440e2=QDI EXCELLENT II
-
 p2bls=ASUS P2B-LS
 p3bf=ASUS P3B-F
 bf6=ABIT BF6
@@ -338,41 +301,28 @@ ax6bc=AOpen AX6BC
 vei8=HP Vectra VEi 8
 tsunamiatx=Tyan Tsunami ATX
 p6sba=SuperMicro Super P6SBA
-
 ms6168=MSI MS-6168
 borapro=Packard Bell Bora Pro
-
 atc6310bxii=A-Trend ATC6310BXII
-
 ficka6130=FIC KA-6130
 p3v133=ASUS P3V133
 p3v4x=ASUS P3V4X
-
 fw6400gx=Freeway FW-6400GX
-
 trinity371=Tyan Trinity 371
-
 6gxu=Gigabyte GA-6GXU
 s2dge=SuperMicro Super S2DGE
-
 s370slm=SuperMicro Super 370SLM
-
 awo671r=AEWIN AW-O671R
 cubx=ASUS CUBX
 ambx133=AmazePC AM-BX133
-
-63a=Soltek SL-63A1
-
+63a=Soltek SL-63A
 atc7020bxii=A-Trend ATC7020BXII
-
 apas3=PC Partner APAS3
 p6bap=ECS P6BAP
 6via90ap=Acorp 6VIA90AP
 cuv4xls=ASUS CUV4X-LS
 gt694va=BCM GT694VA
-
 vpc2007=Microsoft Virtual PC 2007
-
 8500ttc=Biostar MB-8600TTC
 eagle_pcspirit=Eagle PC Spirit
 multitech_pc500=Multitech PC-500
@@ -394,7 +344,7 @@ olivetti_m300_08=Olivetti M300-08
 olivetti_m300_15=Olivetti M300-15
 cbm_sl386sx25=Commodore SL386SX-25
 award386dx=Award 386DX clone
-ami386dx=Dataexpert SX495 (386DX)
+ami386dx=DataExpert SX495 (386DX)
 mr386dx=MR 386DX clone
 fw6400gx_s1=Freeway FW-6400GX
 president=President Award 430FX PCI
@@ -402,19 +352,17 @@ j656vxd=Jetway J656VXD
 p55r2p4=ASUS P/I-P55T2P4
 wcf681=AEWIN WCF-681
 603tcf=Jetway 603TCF
-
 ibmps1_2121_isa=IBM PS/1 m.2121+ISA
 m30008=Olivetti M300-08
 m30015=Olivetti M300-15
 award486=Award 486 clone
-ami486=Dataexpert SX495 (486)
+ami486=DataExpert SX495 (486)
 mr486=MR 486 clone
 pcs46c=Olivetti PCS-46C
 p54vl=Supermicro P54VL-PCI
 mr586=ASUS P/I-P54TP4XE (MR BIOS)
 chariot=QDI Chariot
 ergox365=Fujitsu ErgoPro x365
-
 sbc-350a=AAEON SBC-350A
 decpc_lpv=DEC DECpc LPV
 green-b=Green-B
@@ -428,11 +376,42 @@ ga-5aa=Gigabyte GA-5AA
 ga-5ax=Gigabyte GA-5AX
 sy-5ema_pro=Soyo SY-5EMA Pro
 v60n=Acer V60N
+s1846=Tyan Tsunami ATX
+s1857=Tyan Trinity 371
+p6bat=ECS P6BAT-A+
+m729=PC Chips M729
+infinia7200=Toshiba Infinia 7200
+pcv90=Sony Vaio PCV-90
+56a5=Soltek SL-56A5
+ms5119=MSI MS-5119
+ms5124=MSI MS-5124
+p54sps=Gemlight GMB-P54SPS
+tg486g=TriGem 486G
+ms4134=MSI MS-4134
+tg486gp=TriGem 486GP
+arb1374=Acrosser AR-B1374
+ibmps2_m65sx=IBM PS/2 model 65SX
+ibmps2_m60=IBM PS/2 model 60
+elt=Epson Equity LT
+bw230=Bondwell BW230
+top88=Hyosung Topstar 88T
+super16t=Hyundai SUPER-16T
+super16te=Hyundai SUPER-16TE
+kaypropc=Kaypro PC
+mxl7t=Micoms XL-7 Turbo
+pb8810=Packard Bell PB8810
+pravetz16=Pravetz 16 / IMKO-4
+sansx16=Sanyo SX-16
+vendex=Vendex HeadStart Turbo 888-XT
+znic=Z-NIX PC-1600
+v20xt=PC-XT
 
 [cpu_family]
 8088=Intel 8088
 8088_europc=Intel 8088 for EuroPC
 8086=Intel 8086
+necv20=NEC V20
+necv30=NEC V30
 286=Intel 80286
 i386sx=Intel i386SX
 am386sx=AMD Am386SX
@@ -507,6 +486,7 @@ pentium2_klamath=Intel Pentium II (Klamath)
 pentium2_deschutes=Intel Pentium II (Deschutes)
 pentium2_xeon=Intel Pentium II Xeon
 celeron_mendocino=Intel Celeron (Mendocino)
+celeron_covington=Intel Celeron (Covington)
 c3_samuel=VIA Cyrix III
 pentium3_katmai=Intel Pentium III (Katmai)
 pentium3_coppermine=Intel Pentium III (Coppermine)
@@ -514,7 +494,6 @@ pentium3_coppermine=Intel Pentium III (Coppermine)
 [gfxcard]
 none=None		
 internal=Internal
-
 egawonder800=ATI EGA Wonder 800+
 mach64gx_isa=ATI Graphics Pro Turbo (Mach64 GX) ISA
 ati28800k=ATI Korean VGA (ATI-28800-5)
@@ -561,7 +540,6 @@ plantronics=Plantronics ColorPlus
 pgc=Professional Graphics Controller
 radius_isa=Radius SVGA Multiview ISA (HT209)
 rtg3106=Realtek RTG3106 (ISA)
-
 stealthvram_isa=Diamond Stealth VRAM (S3 86c911) ISA16
 orchid_s3_911=Orchid Fahrenheit 1280 (S3 86c911) ISA16
 ami_s3_924=AMI S3 86c924 ISA16
@@ -580,11 +558,9 @@ et4000w32i=Tseng Labs ET4000/w32i Rev. B ISA
 vga=Video Graphics Adapter
 v7_vga_1024i=Video 7 VGA 1024i (HT208)
 wy700=Wyse 700
-
 ibm1mbsvga=IBM 1MB SVGA Adapter/A (CL-GD 5428) MCA
 et4000mca=Tseng Labs ET4000AX MCA
 radius_mc=Radius SVGA Multiview MCA (HT209)
-
 mach64gx_pci=ATI Graphics Pro Turbo (Mach64 GX) PCI
 mach64vt2=ATI Video Xpression (Mach64 VT2)
 et4000w32p_revc_pci=Tseng Labs ET4000/w32p Rev. C PCI (Cardex)
@@ -636,7 +612,6 @@ tgui9680_pci=Trident TGUI 9680 PCI
 voodoo_banshee_pci=3Dfx Voodoo Banshee PCI
 voodoo3_2k_pci=3dfx Voodoo3 2000 PCI
 voodoo3_3k_pci=3dfx Voodoo3 3000 PCI
-
 mach64gx_vlb=ATI Graphics Pro Turbo (Mach64 GX) VLB
 et4000w32i_vlb=Tseng Labs ET4000/w32i Rev. B VLB
 et4000w32p_revc_vlb=Tseng Labs ET4000/w32p Rev. C VLB (Cardex)
@@ -670,17 +645,14 @@ spea_miragep64_vlb=SPEA Mirage P64 (S3 Trio64) VLB
 px_vision968_vlb=Phoenix S3 Vision968 VLB
 px_vision868_vlb=Phoenix S3 Vision868 VLB
 ht216_32=Headland HT216-32
-
 tgui9400cxi_vlb=Trident TGUI 9400CXi VLB
 tgui9440_vlb=Trident TGUI 9440 VLB
-
 velocity100_agp=3dfx Velocity 100
 voodoo3_2k_agp=3dfx Voodoo3 2000 AGP
 voodoo3_3k_agp=3dfx Voodoo3 3000 AGP
 virge357_agp=S3 ViRGE/GX2 (357) AGP
 stealth3d_4000_agp=Diamond Stealth 3D 4000 (S3 ViRGE/GX2) AGP
 trio3d2x_agp=S3 Trio3D/2X (362) AGP
-
 elsawin2kprox_964_vlb=ELSA Winner 2000 Pro/X (S3 Vision964) VLB
 elsawin2kprox_vlb=ELSA Winner 2000 Pro/X (S3 Vision968) VLB
 px_trio64vplus_vlb=Phoenix S3 Trio64V+ VLB
@@ -690,7 +662,6 @@ stealth3d_3000_vlb=Diamond Stealth 3D 3000 (S3 ViRGE/VX VLB)
 virge325_vlb=S3 ViRGE (325) VLB
 virge375_vlb=S3 ViRGE/DX (375) VLB
 virge375_vbe20_vlb=S3 ViRGE/DX (375, VBE 2.0) VLB
-
 et4000w32p_nc_vlb=Tseng Labs ET4000/w32p Rev. D VLB
 
 [voodoo]
