@@ -3,6 +3,16 @@
     {
       "filename" : "Compaq_logo_old.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Compaq_logo_old 1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

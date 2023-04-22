@@ -203,9 +203,12 @@ class AddVMViewController: NSViewController {
         
         // Create a VM and add it to the table view
         var logo: String?
-        if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
-            logo = machineLogo
+        if vmTemplateComboBox.indexOfSelectedItem > 0 {
+            if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
+                logo = machineLogo
+            }
         }
+        
         let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextField.stringValue, path: nil, logo: logo)
         mainVC.addVM(vm: vm, vmTemplateConfigPath: currentTemplateConfigPath)
         
