@@ -1,0 +1,12 @@
+[General]
+Manufacturer=Commodore
+Description=Commodore PC 30-III
+Logo=Commodore_logo
+Year=1989
+Author=Moonif
+
+[Shader]
+vid_renderer = qt_opengl3
+video_gl_shader = crt-guest-cgwg-curvature.glsl
+enable_overscan = 1
+vid_cga_contrast = 1
