@@ -4,3 +4,9 @@ Description=Compaq Deskpro
 Logo=Compaq_logo_old
 Year=1984
 Author=Moonif
+
+[Shader]
+vid_renderer = qt_opengl3
+video_gl_shader = crt-guest-cgwg-curvature.glsl
+enable_overscan = 1
+vid_cga_contrast = 1

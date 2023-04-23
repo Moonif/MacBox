@@ -10,6 +10,7 @@
 		F918A5A129F19CE500E15E32 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = F918A5A029F19CE500E15E32 /* Templates */; };
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
+		F99FFC5629F5364300099CAB /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F99FFC5529F5364300099CAB /* Shaders */; };
 		F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */ = {isa = PBXBuildFile; fileRef = F9A04BAD29EEF26F00DC813D /* namedefs.inf */; };
 		F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A04BB029EF0F5400DC813D /* FileManager.swift */; };
 		F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B09E6329E9DBC800C86A0F /* IniParser.swift */; };
@@ -25,6 +26,7 @@
 		F918A5A029F19CE500E15E32 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
+		F99FFC5529F5364300099CAB /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		F9A04BAD29EEF26F00DC813D /* namedefs.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = namedefs.inf; sourceTree = "<group>"; };
 		F9A04BB029EF0F5400DC813D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		F9B09E6329E9DBC800C86A0F /* IniParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IniParser.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				F959EF7629E3580700934DA5 /* Storyboards */,
 				F959EF7529E357F500934DA5 /* Classes */,
 				F9D1BE1429EB0F1D000C7E5F /* Utils */,
+				F99FFC5529F5364300099CAB /* Shaders */,
 				F918A5A029F19CE500E15E32 /* Templates */,
 				F9D6078229E2BABE002541BF /* AppDelegate.swift */,
 				F9D6078629E2BABF002541BF /* Assets.xcassets */,
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F918A5A129F19CE500E15E32 /* Templates in Resources */,
+				F99FFC5629F5364300099CAB /* Shaders in Resources */,
 				F9D6078729E2BABF002541BF /* Assets.xcassets in Resources */,
 				F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */,
 				F9D6078A29E2BABF002541BF /* Main.storyboard in Resources */,

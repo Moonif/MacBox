@@ -11,19 +11,21 @@ class AddVMViewController: NSViewController {
     
     // IBOutlets
     @IBOutlet weak var vmNameTextField: NSTextField!
-    @IBOutlet weak var vmDescriptionTextField: NSTextField!
+    @IBOutlet var vmDescriptionTextView: NSTextView!
     @IBOutlet weak var vmPathStatusTextField: NSTextField!
     @IBOutlet weak var vmTemplateComboBox: NSComboBox!
     @IBOutlet weak var vmSpecMachine: NSTextField!
     @IBOutlet weak var vmSpecCPU: NSTextField!
     @IBOutlet weak var vmSpecRAM: NSTextField!
+    @IBOutlet weak var vmSpecHDD: NSTextField!
     @IBOutlet weak var vmSpecMachineLogo: NSImageView!
+    @IBOutlet weak var vmTemplateShaderOption: NSButton!
     
     // Variables
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     var mainVC = MainViewController()
     var vmTemplateList: [VMTemplate] = []
-    var currentTemplateConfigPath: String?
+    var currentVMTemplate: VMTemplate?
     
     let nameTextFieldMaxLimit: Int = 32
 
@@ -56,16 +58,23 @@ class AddVMViewController: NSViewController {
         vmSpecMachine.stringValue = "-"
         vmSpecCPU.stringValue = "-"
         vmSpecRAM.stringValue = "-"
+        vmSpecHDD.stringValue = "-"
+        vmSpecMachineLogo.image = nil
         // Patch status text
         vmPathStatusTextField.stringValue = "VM will be created at: \"\(homeDirURL.path)\"."
+        // Shader option
+        vmTemplateShaderOption.isTransparent = true
     }
     
     // Populate VM templates
     private func populateVMTemplates() {
+        // Clear list
+        vmTemplateList.removeAll()
         // Add default item
         vmTemplateList.append(VMTemplate())
         
         // Add VM templates paths
+        var vmTemplateListSort: [VMTemplate] = []
         let vmTemplatesPaths = Bundle.main.paths(forResourcesOfType: nil, inDirectory: "Templates")
         for path in vmTemplatesPaths {
             // Create and add VM template
@@ -81,15 +90,21 @@ class AddVMViewController: NSViewController {
                 let vmTemplateDescription = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Description"] ?? ""
                 let vmTemplateYear = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Year"] ?? ""
                 
-                vmTemplate.name = "[\(vmTemplateYear)] \(vmTemplateDescription)"
-                
+                // VM template name
+                vmTemplate.name = vmTemplateDescription
+                // VM template year
+                vmTemplate.year = vmTemplateYear
+                // VM template logo
                 if let machineLogo = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Logo"] {
                     vmTemplate.machineLogo = machineLogo
                 }
             }
             
-            vmTemplateList.append(vmTemplate)
+            vmTemplateListSort.append(vmTemplate)
         }
+        // Add and sort VM templates list
+        vmTemplateList.append(contentsOf: vmTemplateListSort.sorted(by: { $0.year ?? "" < $1.year ?? "" }))
+
         // Reload combo box data
         vmTemplateComboBox.reloadData()
     }
@@ -119,6 +134,19 @@ class AddVMViewController: NSViewController {
             let cpuSpeed = ini.parseConfig(vmConfigPath)["Machine"]?["cpu_speed"] ?? "0"
             // Parse ram size
             let ramSize = ini.parseConfig(vmConfigPath)["Machine"]?["mem_size"] ?? "0"
+            // Parse hdd size
+            let hddPath = ini.parseConfig(vmConfigPath)["Hard disks"]?["hdd_01_fn"] ?? nil
+            // Parse hdd parameters
+            let hddParams = ini.parseConfig(vmConfigPath)["Hard disks"]?["hdd_01_parameters"] ?? ""
+            let hddParamsSplit = hddParams.split(separator: ",")
+            var hddS: Int64 = 0
+            var hddH: Int64 = 0
+            var hddC: Int64 = 0
+            if hddParamsSplit.count > 0 {
+                hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
+                hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
+                hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
+            }
             
             // Parse and define devices name
             let nameDefs = Bundle.main.path(forResource: "namedefs.inf", ofType: nil)
@@ -156,6 +184,21 @@ class AddVMViewController: NSViewController {
             let ramSizeConverted = ramBCF.string(fromByteCount: (Int64(ramSize) ?? 0) * 1024)
             vmSpecRAM.stringValue = "RAM \(ramSizeConverted)"
             
+            // Define hdd size
+            if hddPath != nil {
+                // Calculate hdd size
+                let hddSize = hddS * hddH * hddC * 512
+                // Format hdd size
+                let hddBCF = ByteCountFormatter()
+                hddBCF.allowedUnits = [.useAll]
+                hddBCF.countStyle = .binary
+                let hddSizeConverted = hddBCF.string(fromByteCount: hddSize)
+                vmSpecHDD.stringValue = "HDD \(hddSizeConverted)"
+            }
+            else {
+                vmSpecHDD.stringValue = "No HDD"
+            }
+            
             // Define machine logo
             if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
                 vmSpecMachineLogo.image = NSImage(named: machineLogo)
@@ -169,6 +212,7 @@ class AddVMViewController: NSViewController {
             vmSpecMachine.stringValue = "-"
             vmSpecCPU.stringValue = "-"
             vmSpecRAM.stringValue = "-"
+            vmSpecHDD.stringValue = "-"
             vmSpecMachineLogo.image = nil
         }
     }
@@ -204,13 +248,18 @@ class AddVMViewController: NSViewController {
         // Create a VM and add it to the table view
         var logo: String?
         if vmTemplateComboBox.indexOfSelectedItem > 0 {
-            if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
+            // Logo
+            if let machineLogo = currentVMTemplate?.machineLogo {
                 logo = machineLogo
+            }
+            // Shader
+            if vmTemplateShaderOption.state == .on {
+                currentVMTemplate?.useShader = true
             }
         }
         
-        let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextField.stringValue, path: nil, logo: logo)
-        mainVC.addVM(vm: vm, vmTemplateConfigPath: currentTemplateConfigPath)
+        let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextView.string, path: nil, logo: logo)
+        mainVC.addVM(vm: vm, vmTemplate: currentVMTemplate)
         
         // Dismiss the add VM tabVC modal view
         if let tabVC = self.parent as? NSTabViewController {
@@ -242,14 +291,28 @@ extension AddVMViewController: NSComboBoxDelegate, NSComboBoxDataSource {
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        return vmTemplateList[index].name
+        var vmDescription = ""
+        if let vmYear = vmTemplateList[index].year {
+            vmDescription.append("[\(vmYear)]")
+        }
+        if let vmName = vmTemplateList[index].name {
+            vmDescription.append(" \(vmName)")
+        }
+        return vmDescription
     }
     
     func comboBoxSelectionDidChange(_ notification: Notification) {
         if vmTemplateComboBox.indexOfSelectedItem >= 0 {
-            let vmTemplateConfigFilePath = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].configPath
-            currentTemplateConfigPath = vmTemplateComboBox.indexOfSelectedItem == 0 ? nil : vmTemplateConfigFilePath
-            setVMSpecs(vmConfigPath: vmTemplateConfigFilePath ?? "")
+            if vmTemplateComboBox.indexOfSelectedItem > 0 {
+                vmTemplateShaderOption.isTransparent = false
+                vmTemplateShaderOption.state = .on
+            }
+            else {
+                vmTemplateShaderOption.isTransparent = true
+            }
+            let vmTemplate = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem]
+            currentVMTemplate = vmTemplateComboBox.indexOfSelectedItem == 0 ? nil : vmTemplate
+            setVMSpecs(vmConfigPath: vmTemplate.configPath ?? "")
         }
     }
 }

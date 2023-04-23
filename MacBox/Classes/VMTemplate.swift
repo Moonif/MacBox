@@ -7,7 +7,9 @@
 
 struct VMTemplate {
     var name: String?
+    var year: String?
     var infoPath: String?
     var configPath: String?
     var machineLogo: String?
+    var useShader: Bool = false
 }

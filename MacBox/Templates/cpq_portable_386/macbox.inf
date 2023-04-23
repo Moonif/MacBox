@@ -1,8 +1,8 @@
 [General]
 Manufacturer=Compaq
-Description=Compaq Portable
+Description=Compaq Portable 386
 Logo=Compaq_logo_old
-Year=1983
+Year=1987
 Author=Moonif
 
 [Shader]

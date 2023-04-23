@@ -79,6 +79,7 @@ class MainViewController: NSViewController {
         vmSpecCPU.stringValue = "-"
         vmSpecRAM.stringValue = "-"
         vmSpecHDD.stringValue = "-"
+        vmSpecMachineLogo.image = nil
         
         // Add show in finder for table view cells
         let menu = NSMenu()
@@ -121,7 +122,7 @@ class MainViewController: NSViewController {
         }
         // Restore last selected vm
         let lastSelectedVM = userDefaults.integer(forKey: "lastSelectedVM")
-        if lastSelectedVM > 0 && lastSelectedVM < vmList.count {
+        if lastSelectedVM >= 0 && lastSelectedVM < vmList.count {
             let indexSet = IndexSet(integer: lastSelectedVM)
             vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
             vmsTableView.scrollRowToVisible(lastSelectedVM)
@@ -261,7 +262,7 @@ class MainViewController: NSViewController {
     }
     
     // Add VM to the table view
-    func addVM(vm: VM, vmTemplateConfigPath: String? = nil) {
+    func addVM(vm: VM, vmTemplate: VMTemplate? = nil) {
         // Make sure vm has a path
         var fixedVM = vm
         
@@ -280,17 +281,98 @@ class MainViewController: NSViewController {
         setAllVMPaths(vmPath: fixedVM.path ?? "")
         
         // Copy template config file
-        if vmTemplateConfigPath != nil {
-            do{
-                try FileManager.default.copyItem(atPath: vmTemplateConfigPath ?? "", toPath: fixedVM.path?.appending("/86box.cfg") ?? "")
-            } catch {
-                print("Error: \(error.localizedDescription)")
+        if vmTemplate != nil {
+            if let templateConfigPath = vmTemplate?.configPath {
+                let ini = IniParser()
+                
+                // Copy config file
+                let vmConfigPath = fixedVM.path?.appending("/86box.cfg") ?? ""
+                do{
+                    try FileManager.default.copyItem(atPath: templateConfigPath, toPath: vmConfigPath)
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
+                // Copy shader file
+                if vmTemplate?.useShader == true {
+                    // Get VM template shader path
+                    if let templateInfoPath = vmTemplate?.infoPath {
+                        if let vmShaderFileName = ini.parseConfig(templateInfoPath)["Shader"]?["video_gl_shader"] {
+                            // Get the shader file from the main bundle
+                            if let vmTemplateBundleShaderPath = Bundle.main.path(forResource: vmShaderFileName, ofType: nil, inDirectory: "Shaders") {
+                                // Copy shader file to VM shaders directory
+                                let vmShaderPath = fixedVM.path?.appending("/shaders/\(vmShaderFileName)") ?? ""
+                                do{
+                                    try FileManager.default.copyItem(atPath: vmTemplateBundleShaderPath, toPath: vmShaderPath)
+                                } catch {
+                                    print("Error: \(error.localizedDescription)")
+                                }
+                                // Get shader config
+                                let vmShaderRenderer = ini.parseConfig(templateInfoPath)["Shader"]?["vid_renderer"] ?? ""
+                                let vmShaderOverscan = ini.parseConfig(templateInfoPath)["Shader"]?["enable_overscan"] ?? "0"
+                                let vmShaderCGAContrast = ini.parseConfig(templateInfoPath)["Shader"]?["vid_cga_contrast"] ?? "0"
+                                // Write shader config
+                                var vmConfigURL: URL?
+                                if #available(macOS 13.0, *) {
+                                    vmConfigURL = URL(filePath: vmConfigPath)
+                                } else {
+                                    // Fallback on earlier versions
+                                    vmConfigURL = URL(fileURLWithPath: vmConfigPath)
+                                }
+                                if let url = vmConfigURL {
+                                    // Read and create VM config file
+                                    var shaderConfigString = ""
+                                    do {
+                                        try shaderConfigString = String(contentsOfFile: url.path, encoding: .utf8)
+                                        shaderConfigString.append("\n[General]\nvid_renderer = \(vmShaderRenderer)\nvideo_gl_shader = \(vmShaderPath)\nenable_overscan = \(vmShaderOverscan)\nvid_cga_contrast = \(vmShaderCGAContrast)\n")
+                                    } catch {
+                                        print("Error: \(error.localizedDescription)")
+                                    }
+                                    
+                                    // Write VM config file
+                                    if shaderConfigString != "" {
+                                        do {
+                                            try shaderConfigString.write(to: url, atomically: true, encoding: .utf8)
+                                        } catch {
+                                            print("Error: \(error.localizedDescription)")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Create disk if available
+                let hddParams = ini.parseConfig(templateConfigPath)["Hard disks"]?["hdd_01_parameters"] ?? ""
+                let hddParamsSplit = hddParams.split(separator: ",")
+                var hddS: Int64 = 0
+                var hddH: Int64 = 0
+                var hddC: Int64 = 0
+                if hddParamsSplit.count > 0 {
+                    hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
+                    hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
+                    hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
+                }
+                // Calculate hdd size
+                let vmTemplateHDDSize = hddS * hddH * hddC * 512
+                if vmTemplateHDDSize > 0 {
+                    let rawData = Data(count: Int(vmTemplateHDDSize))
+                    FileManager.default.createFile(atPath: fixedVM.path?.appending("/disks/hdd.IMG") ?? "", contents: rawData, attributes: nil)
+                }
             }
         }
         
         vmList.append(fixedVM)
         vmsTableView.reloadData()
         writeConfigFile()
+        
+        // Select last added VM
+        let lastIndex = vmList.count - 1
+        let indexSet = IndexSet(integer: lastIndex)
+        vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+        vmsTableView.scrollRowToVisible(lastIndex)
+        selectTableRow(row: lastIndex)
     }
     
     // Delete selected VM
@@ -422,6 +504,8 @@ class MainViewController: NSViewController {
     private func setAllVMPaths(vmPath: String) {
         let printerPath = vmPath.appending("/printer")
         let screenshotsPath = vmPath.appending("/screenshots")
+        let diskPath = vmPath.appending("/disks")
+        let shaderPath = vmPath.appending("/shaders")
         
         // Create printer folder if it doesn't already exist
         if !FileManager.default.fileExists(atPath: printerPath) {
@@ -436,6 +520,24 @@ class MainViewController: NSViewController {
         if !FileManager.default.fileExists(atPath: screenshotsPath) {
             do {
                 try FileManager.default.createDirectory(atPath: screenshotsPath, withIntermediateDirectories: true)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        // Create disk folder if it doesn't already exist
+        if !FileManager.default.fileExists(atPath: diskPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: diskPath, withIntermediateDirectories: true)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        // Create shader folder if it doesn't already exist
+        if !FileManager.default.fileExists(atPath: shaderPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: shaderPath, withIntermediateDirectories: true)
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -455,9 +557,20 @@ class MainViewController: NSViewController {
                 let cpuSpeed = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["cpu_speed"] ?? ""
                 // Parse ram size
                 let ramSize = ini.parseConfig(currentVMConfigPath ?? "")["Machine"]?["mem_size"] ?? ""
-                // Parse ram size
+                // Parse hdd size
                 let hddPath = ini.parseConfig(currentVMConfigPath ?? "")["Hard disks"]?["hdd_01_fn"] ?? nil
-
+                // Parse hdd parameters
+                let hddParams = ini.parseConfig(currentVMConfigPath ?? "")["Hard disks"]?["hdd_01_parameters"] ?? ""
+                let hddParamsSplit = hddParams.split(separator: ",")
+                var hddS: Int64 = 0
+                var hddH: Int64 = 0
+                var hddC: Int64 = 0
+                if hddParamsSplit.count > 0 {
+                    hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
+                    hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
+                    hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
+                }
+                
                 // Parse and define devices name
                 let nameDefs = Bundle.main.path(forResource: "namedefs.inf", ofType: nil)
                 
@@ -496,7 +609,8 @@ class MainViewController: NSViewController {
 
                 // Define hdd size
                 if hddPath != nil {
-                    let hddSize = FileManager.default.sizeOfFile(atPath: hddPath ?? "") ?? 0
+                    // Calculate hdd size
+                    let hddSize = hddS * hddH * hddC * 512
                     // Format hdd size
                     let hddBCF = ByteCountFormatter()
                     hddBCF.allowedUnits = [.useAll]
