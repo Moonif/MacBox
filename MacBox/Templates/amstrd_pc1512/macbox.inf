@@ -1,8 +1,8 @@
 [General]
-Manufacturer=Commodore
-Description=Commodore PC 30-III
-Logo=Commodore_logo
-Year=1989
+Manufacturer=Amstrad
+Description=Amstrad PC 1512
+Logo=Amstrad_logo
+Year=1986
 Author=Moonif
 
 [Shader]
