@@ -125,82 +125,16 @@ class AddVMViewController: NSViewController {
     // Set current VM specs
     private func setVMSpecs(vmConfigPath: String) {
         if vmConfigPath != "" {
-            let ini = IniParser()
-            // Parse machine type
-            let machineType = ini.parseConfig(vmConfigPath)["Machine"]?["machine"]
-            // Parse cpu family
-            let cpuFamily = ini.parseConfig(vmConfigPath)["Machine"]?["cpu_family"]
-            // Parse cpu speed
-            let cpuSpeed = ini.parseConfig(vmConfigPath)["Machine"]?["cpu_speed"] ?? "0"
-            // Parse ram size
-            let ramSize = ini.parseConfig(vmConfigPath)["Machine"]?["mem_size"] ?? "0"
-            // Parse hdd size
-            let hddPath = ini.parseConfig(vmConfigPath)["Hard disks"]?["hdd_01_fn"] ?? nil
-            // Parse hdd parameters
-            let hddParams = ini.parseConfig(vmConfigPath)["Hard disks"]?["hdd_01_parameters"] ?? ""
-            let hddParamsSplit = hddParams.split(separator: ",")
-            var hddS: Int64 = 0
-            var hddH: Int64 = 0
-            var hddC: Int64 = 0
-            if hddParamsSplit.count > 0 {
-                hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
-                hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
-                hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
-            }
-            
-            // Parse and define devices name
-            let nameDefs = Bundle.main.path(forResource: "namedefs.inf", ofType: nil)
-            
-            // Define machine type name
-            if let machinesDef = (ini.parseConfig(nameDefs ?? "")["machine"]) {
-                if machinesDef[machineType ?? ""] != nil {
-                    vmSpecMachine.stringValue = machinesDef[machineType ?? ""] ?? "-"
-                }
-                else {
-                    vmSpecMachine.stringValue = machineType ?? "-"
-                }
-            }
-            
-            // Define cpu family name
-            var cpuFamilyName = ""
-            if let cpuDef = (ini.parseConfig(nameDefs ?? "")["cpu_family"]) {
-                if cpuDef[cpuFamily ?? ""] != nil {
-                    cpuFamilyName = cpuDef[cpuFamily ?? ""] ?? "-"
-                }
-                else {
-                    cpuFamilyName = cpuFamily ?? "-"
-                }
-            }
-            
-            // Define cpu speed
-            let cpuSpeedConverted = (Float(cpuSpeed) ?? 0.0) / 1000000
-            let cpuSpeedRounded = String(format: "%.2f", cpuSpeedConverted)
-            vmSpecCPU.stringValue = "\(cpuFamilyName) \(cpuSpeedRounded) MHz"
-            
-            // Define and format ram size
-            let ramBCF = ByteCountFormatter()
-            ramBCF.allowedUnits = [.useAll]
-            ramBCF.countStyle = .memory
-            let ramSizeConverted = ramBCF.string(fromByteCount: (Int64(ramSize) ?? 0) * 1024)
-            vmSpecRAM.stringValue = "RAM \(ramSizeConverted)"
-            
-            // Define hdd size
-            if hddPath != nil {
-                // Calculate hdd size
-                let hddSize = hddS * hddH * hddC * 512
-                // Format hdd size
-                let hddBCF = ByteCountFormatter()
-                hddBCF.allowedUnits = [.useAll]
-                hddBCF.countStyle = .binary
-                let hddSizeConverted = hddBCF.string(fromByteCount: hddSize)
-                vmSpecHDD.stringValue = "HDD \(hddSizeConverted)"
-            }
-            else {
-                vmSpecHDD.stringValue = "No HDD"
-            }
+            // Parse config file and return string values
+            let parsedSpecs = ParseVMConfigFile(vmConfigPath: vmConfigPath)
+            // Set specs strings
+            vmSpecMachine.stringValue = parsedSpecs.machine
+            vmSpecCPU.stringValue = parsedSpecs.cpu
+            vmSpecRAM.stringValue = parsedSpecs.ram
+            vmSpecHDD.stringValue = parsedSpecs.hdd
             
             // Define machine logo
-            if let machineLogo = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem].machineLogo {
+            if let machineLogo = currentVMTemplate?.machineLogo {
                 vmSpecMachineLogo.image = NSImage(named: machineLogo)
             }
             else {
