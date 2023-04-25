@@ -1,0 +1,11 @@
+[General]
+Manufacturer=IBM
+Description=IBM PS/1 (Model 2121)
+Logo=IBM_logo
+Year=1991
+Author=Moonif
+
+[Shader]
+vid_renderer = qt_opengl3
+video_gl_shader = crt-guest-cgwg-curvature.glsl
+enable_overscan = 1
