@@ -126,7 +126,8 @@ class AddVMViewController: NSViewController {
     private func setVMSpecs(vmConfigPath: String) {
         if vmConfigPath != "" {
             // Parse config file and return string values
-            let parsedSpecs = ParseVMConfigFile(vmConfigPath: vmConfigPath)
+            let specsParser = SpecsParser()
+            let parsedSpecs = specsParser.ParseVMConfigFile(vmConfigPath: vmConfigPath)
             // Set specs strings
             vmSpecMachine.stringValue = parsedSpecs.machine
             vmSpecCPU.stringValue = parsedSpecs.cpu

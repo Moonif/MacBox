@@ -549,7 +549,8 @@ class MainViewController: NSViewController {
         if currentVMConfigPath != nil {
             if FileManager.default.fileExists(atPath: currentVMConfigPath ?? "") {
                 // Parse config file and return string values
-                let parsedSpecs = ParseVMConfigFile(vmConfigPath: currentVMConfigPath ?? "")
+                let specsParser = SpecsParser()
+                let parsedSpecs = specsParser.ParseVMConfigFile(vmConfigPath: currentVMConfigPath ?? "")
                 // Set specs strings
                 vmSpecMachine.stringValue = parsedSpecs.machine
                 vmSpecCPU.stringValue = parsedSpecs.cpu
