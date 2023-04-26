@@ -1,0 +1,9 @@
+[General]
+Manufacturer=Compaq
+Description=Compaq Presario 4532
+Logo=Compaq_logo
+Year=1997
+Author=Moonif
+
+[Shader]
+enable_overscan = 1

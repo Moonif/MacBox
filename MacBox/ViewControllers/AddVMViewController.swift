@@ -238,6 +238,7 @@ extension AddVMViewController: NSComboBoxDelegate, NSComboBoxDataSource {
     
     func comboBoxSelectionDidChange(_ notification: Notification) {
         if vmTemplateComboBox.indexOfSelectedItem >= 0 {
+            // Set shader option
             if vmTemplateComboBox.indexOfSelectedItem > 0 {
                 vmTemplateShaderOption.isTransparent = false
                 vmTemplateShaderOption.state = .on
@@ -245,8 +246,10 @@ extension AddVMViewController: NSComboBoxDelegate, NSComboBoxDataSource {
             else {
                 vmTemplateShaderOption.isTransparent = true
             }
+            // Set current vm template
             let vmTemplate = vmTemplateList[vmTemplateComboBox.indexOfSelectedItem]
             currentVMTemplate = vmTemplateComboBox.indexOfSelectedItem == 0 ? nil : vmTemplate
+            // Set current vm template specs
             setVMSpecs(vmConfigPath: vmTemplate.configPath ?? "")
         }
     }
