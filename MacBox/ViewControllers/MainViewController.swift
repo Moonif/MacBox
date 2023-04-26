@@ -85,6 +85,9 @@ class MainViewController: NSViewController {
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
         vmsTableView.menu = menu
+        
+        // Add double click for table view cells
+        vmsTableView.doubleAction = #selector(tableViewDoubleClickAction(_:))
     }
     
     // Initialize MacBox directory and config files
@@ -492,11 +495,18 @@ class MainViewController: NSViewController {
         selectTableRow(row: row ?? 0)
     }
     
-    // Table View Cell Show in Finder Action
+    // Tableview cell 'Show in Finder' action
     @objc private func tableViewFindInFinderAction(_ sender: AnyObject) {
         if vmsTableView.clickedRow >= 0 {
             let vmPathURL = URL(fileURLWithPath: vmList[vmsTableView.clickedRow].path ?? "")
             NSWorkspace.shared.open(vmPathURL)
+        }
+    }
+    
+    // Tableview cell double click action
+    @objc private func tableViewDoubleClickAction(_ sender: AnyObject) {
+        if vmsTableView.clickedRow >= 0 {
+            startVM()
         }
     }
     

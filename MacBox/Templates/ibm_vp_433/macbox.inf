@@ -1,0 +1,11 @@
+[General]
+Manufacturer=IBM
+Description=IBM PS/ValuePoint 433DX/Si
+Logo=IBM_logo
+Year=1994
+Author=Moonif
+
+[Shader]
+vid_renderer = qt_opengl3
+video_gl_shader = crt-guest-cgwg-curvature.glsl
+enable_overscan = 1
