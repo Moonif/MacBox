@@ -1,0 +1,9 @@
+[General]
+Manufacturer=Packard Bell
+Description=Packard Bell Platinum 55
+Logo=Pb_logo
+Year=1996
+Author=Moonif
+
+[Shader]
+enable_overscan = 1

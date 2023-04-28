@@ -1,0 +1,9 @@
+[General]
+Manufacturer=Epson
+Description=Epson Action PC 2600
+Logo=Epson_logo
+Year=1995
+Author=Moonif
+
+[Shader]
+enable_overscan = 1
