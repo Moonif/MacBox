@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg8"
+   width="4429.3pt"
+   height="750pt"
+   version="1.1"
+   viewBox="0 0 4429.3 750"
+   sodipodi:docname="Tandy_logo.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs835" />
+  <sodipodi:namedview
+     id="namedview833"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="0.18609036"
+     inkscape:cx="1179.5345"
+     inkscape:cy="502.44408"
+     inkscape:window-width="1312"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(517.03 487.9)"
+     style="fill:#f9f9f9">
+    <g
+       id="g1420"
+       transform="matrix(5.8963 0 0 5.8963 2531.5 -1283.3)"
+       style="fill:#f9f9f9">
+      <path
+         id="path24"
+         d="m-517.03 134.9v26.4h50.4v100.8h40.8v-100.8h45.601l11.999-26.4h-148.8"
+         style="fill:#f9f9f9" />
+      <path
+         id="path26"
+         d="m-339.25 211.95 19.026 26.15h37.574l10.425 24h43.2l-60-127.2h-55.2l-60 127.2h43.2zm45.15-0.25001h-45.05l22.525-49.499 22.525 49.499"
+         style="fill:#f9f9f9" />
+      <path
+         id="path28"
+         d="m-224.23 262.1h38.4v-74.825l71.999 74.825h33.602v-127.2h-38.402v72.324l-69.599-72.324h-36v127.2"
+         style="fill:#f9f9f9" />
+      <path
+         id="path30"
+         d="m-16.629 163.7h26.401c19.199 0 37.2 13.45 37.2 34.8 0 21.35-18.001 34.799-37.2 34.799h-26.401zm-42.001-28.8v127.2h90.201c28.475 0 56.2-27.724 56.2-56.199v-14.8c0-28.475-27.725-56.2-56.2-56.2h-90.201"
+         style="fill:#f9f9f9" />
+      <path
+         id="path32"
+         d="m70.972 134.9 62.399 73.175v54.024h38.4v-54.024l62.4-73.175h-45.599l-36.001 42.199-36-42.199h-45.599"
+         style="fill:#f9f9f9" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+[General]
+Manufacturer=Tandy
+Description=Tandy 1000
+Logo=Tandy_logo
+Year=1984
+Author=Moonif
+
+[Shader]
+vid_renderer = qt_opengl3
+video_gl_shader = crt-guest-cgwg-curvature.glsl
+enable_overscan = 1
+vid_cga_contrast = 1
