@@ -10,4 +10,5 @@ struct VM: Codable {
     var description: String?
     var path: String?
     var logo: String?
+    var appPath: String?
 }

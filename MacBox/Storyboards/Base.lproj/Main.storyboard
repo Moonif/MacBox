@@ -206,8 +206,11 @@
                                 <rect key="frame" x="508" y="58" width="280" height="420"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-nJ-PyD">
-                                        <rect key="frame" x="180" y="-6" width="106" height="40"/>
-                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="run" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
+                                        <rect key="frame" x="154" y="-6" width="132" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Cf8-ft-aZo"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="run" imagePosition="leading" alignment="left" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -267,7 +270,7 @@
                                         </scroller>
                                     </scrollView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-fR-vKm">
-                                        <rect key="frame" x="130" y="-6" width="50" height="40"/>
+                                        <rect key="frame" x="104" y="-6" width="50" height="40"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="options" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -363,6 +366,26 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="bottomRight" imageScaling="proportionallyDown" id="BUg-oe-VzD"/>
                                     </imageView>
+                                    <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="84X-KJ-u2Y">
+                                        <rect key="frame" x="247" y="0.0" width="33" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="HLm-Iq-vOV"/>
+                                            <constraint firstAttribute="width" constant="28" id="b8l-J0-4rm"/>
+                                        </constraints>
+                                        <popUpButtonCell key="cell" type="inline" title="Default 86Box Version" bezelStyle="inline" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxX" selectedItem="Ebz-Nf-Gjn" id="MyB-78-cSy">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystemBold"/>
+                                            <menu key="menu" id="LKG-Ru-LYs">
+                                                <items>
+                                                    <menuItem title="Default 86Box Version" state="on" identifier="defaultAppId" id="Ebz-Nf-Gjn"/>
+                                                    <menuItem title="Custom 86Box Version" identifier="customAppId" id="Jye-et-3Sc"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="vmAppVersionPopUpButtonAction:" target="XfG-lQ-9wD" id="PLo-NJ-SmS"/>
+                                        </connections>
+                                    </popUpButton>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ss8-X5-ioU" firstAttribute="top" secondItem="yeP-1u-gvO" secondAttribute="bottom" constant="8" symbolic="YES" id="1Mh-lM-ys3"/>
@@ -389,6 +412,7 @@
                                     <constraint firstItem="s3a-Ly-7lh" firstAttribute="top" secondItem="pHA-8B-i3h" secondAttribute="bottom" constant="8" symbolic="YES" id="R4f-np-WPV"/>
                                     <constraint firstItem="ss8-X5-ioU" firstAttribute="leading" secondItem="aRi-Wi-bFy" secondAttribute="trailing" constant="8" symbolic="YES" id="Sll-xW-TKL"/>
                                     <constraint firstItem="56X-zn-njc" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="Ss5-Vl-gQS"/>
+                                    <constraint firstAttribute="bottom" secondItem="84X-KJ-u2Y" secondAttribute="bottom" id="UWA-C0-8Bo"/>
                                     <constraint firstItem="hxY-nJ-PyD" firstAttribute="leading" secondItem="SgG-fR-vKm" secondAttribute="trailing" constant="12" symbolic="YES" id="V8d-I3-vil"/>
                                     <constraint firstItem="aRi-Wi-bFy" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="Vrs-0H-HHw"/>
                                     <constraint firstAttribute="trailing" secondItem="bru-xq-RxK" secondAttribute="trailing" id="VtG-sc-2Dc"/>
@@ -397,6 +421,7 @@
                                     <constraint firstItem="Kri-lR-wWJ" firstAttribute="top" secondItem="bru-xq-RxK" secondAttribute="bottom" constant="8" symbolic="YES" id="YqV-rf-ynV"/>
                                     <constraint firstItem="MyA-zx-Jcf" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="bYz-Tg-M2g"/>
                                     <constraint firstAttribute="trailing" secondItem="hxY-nJ-PyD" secondAttribute="trailing" id="cUc-Xu-vGh"/>
+                                    <constraint firstAttribute="trailing" secondItem="84X-KJ-u2Y" secondAttribute="trailing" id="fEe-WP-KMa"/>
                                     <constraint firstItem="Oek-Du-kCB" firstAttribute="top" secondItem="KzH-sh-kDv" secondAttribute="top" id="hUZ-gY-fM7"/>
                                     <constraint firstAttribute="trailing" secondItem="s3a-Ly-7lh" secondAttribute="trailing" id="iJ1-UB-VPu"/>
                                     <constraint firstAttribute="trailing" secondItem="gGx-G7-pyA" secondAttribute="trailing" id="kR1-OC-X3k"/>
@@ -477,6 +502,7 @@
                         <outlet property="spinningProgressIndicator" destination="YRz-j1-IkF" id="81t-89-DKJ"/>
                         <outlet property="startVMButton" destination="hxY-nJ-PyD" id="W53-VC-gJ9"/>
                         <outlet property="statusLabel" destination="LQu-5F-fSe" id="Gq1-rS-vS2"/>
+                        <outlet property="vmAppVersionPopUpButton" destination="84X-KJ-u2Y" id="5bS-ZF-NBm"/>
                         <outlet property="vmDescriptionTextView" destination="ZEm-MO-8Mg" id="Phf-Iq-Q0a"/>
                         <outlet property="vmNameTextField" destination="bru-xq-RxK" id="udL-Iz-kbN"/>
                         <outlet property="vmSettingsButton" destination="SgG-fR-vKm" id="cf1-hb-MId"/>

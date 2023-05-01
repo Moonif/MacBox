@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F918A5A129F19CE500E15E32 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = F918A5A029F19CE500E15E32 /* Templates */; };
+		F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */; };
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
 		F99FFC5629F5364300099CAB /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F99FFC5529F5364300099CAB /* Shaders */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		F918A5A029F19CE500E15E32 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVMProcess.swift; sourceTree = "<group>"; };
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
 		F99FFC5529F5364300099CAB /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				F934D58C29E424EE00F0D450 /* VM.swift */,
 				F9BB907529F14C7E000B4C5F /* VMTemplate.swift */,
 				F9DC6A4129F874770076FC50 /* SpecsParser.swift */,
+				F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				F9D6078529E2BABE002541BF /* MainViewController.swift in Sources */,
 				F9BB907629F14C7E000B4C5F /* VMTemplate.swift in Sources */,
 				F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */,
+				F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */,
 				F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */,
 				F934D58D29E424EE00F0D450 /* VM.swift in Sources */,
 				F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */,
@@ -376,7 +380,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.2.4;
+				MARKETING_VERSION = 0.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -410,7 +414,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.2.4;
+				MARKETING_VERSION = 0.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

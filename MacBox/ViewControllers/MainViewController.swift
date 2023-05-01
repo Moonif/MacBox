@@ -14,6 +14,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var vmsTableView: NSTableView!
     @IBOutlet weak var startVMButton: NSButton!
     @IBOutlet weak var vmSettingsButton: NSButton!
+    @IBOutlet weak var vmAppVersionPopUpButton: NSPopUpButton!
     @IBOutlet weak var deleteVMButton: NSButton!
     @IBOutlet weak var spinningProgressIndicator: NSProgressIndicator!
     @IBOutlet weak var statusLabel: NSTextField!
@@ -32,7 +33,7 @@ class MainViewController: NSViewController {
     private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
-    private var currentRunningVM: Int?
+    private var currentRunningVM: [RunningVMProcess] = []
     private var currentVMPrinterPath: String?
     private var currentVMScreenShotsPath: String?
     private var currentVMConfigPath: String?
@@ -424,10 +425,19 @@ class MainViewController: NSViewController {
                 defaultPath = homeDirURL.appendingPathComponent("/\(vmName)")
             }
             let vmPath = (vmList[currentSelectedVM ?? 0]).path ?? defaultPath.path
+            
+            // Selected app version
+            var vmAppVersion = "net.86Box.86Box"
+            var vmAppArg = "-b"
+            if let customAppPath = vmList[currentSelectedVM ?? 0].appPath {
+                vmAppVersion = customAppPath
+                vmAppArg = "-a"
+            }
+            
             // Set process arguments
             let args:[String] = launchSettings ?
-            ["-W", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-S"] :
-            ["-W", "-b","net.86Box.86Box","--args","-P","\(vmPath)","-V",vmName]
+            ["-W", vmAppArg,vmAppVersion,"--args","-P","\(vmPath)","-S"] :
+            ["-n", "-W", vmAppArg,vmAppVersion,"--args","-P","\(vmPath)","-V",vmName]
             process.arguments = args
             
             process.executableURL = URL(fileURLWithPath:"/usr/bin/open")
@@ -436,7 +446,10 @@ class MainViewController: NSViewController {
             do{
                 try process.run()
                 // Process is running
-                currentRunningVM = launchSettings ? nil : currentSelectedVM
+                if !launchSettings && currentSelectedVM != nil {
+                    let vmProcess = RunningVMProcess(vmProcessID: process.processIdentifier, vmRowNumber: currentSelectedVM ?? 0)
+                    currentRunningVM.append(vmProcess)
+                }
                 let lastSelectedRow = currentSelectedVM
                 vmsTableView.reloadData()
                 
@@ -444,14 +457,20 @@ class MainViewController: NSViewController {
                 reselectTableRow(row: lastSelectedRow)
                 
                 // Wait for process to end
-                process.waitUntilExit()
-                
-                // Process is terminated
-                currentRunningVM = nil
-                vmsTableView.reloadData()
-                
-                // Re-select previously selected row
-                reselectTableRow(row: lastSelectedRow)
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { (timer) in
+                    if !process.isRunning {
+                        // Process is terminated, invalidate timer
+                        timer.invalidate()
+                        
+                        // Clear current running vm
+                        self.currentRunningVM.removeAll(where:{ $0.vmProcessID == process.processIdentifier })
+                        
+                        self.vmsTableView.reloadData()
+                        
+                        // Re-select previously selected row
+                        self.reselectTableRow(row: lastSelectedRow)
+                    }
+                }
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -479,6 +498,14 @@ class MainViewController: NSViewController {
         
         // Set VM specs
         setVMSpecs()
+        
+        // Check for custom app path
+        if vmList[row].appPath != nil {
+            vmAppVersionPopUpButton.selectItem(at: 1)
+        }
+        else {
+            vmAppVersionPopUpButton.selectItem(at: 0)
+        }
         
         // Set user defaults
         DispatchQueue.main.async {
@@ -637,6 +664,46 @@ class MainViewController: NSViewController {
             NSWorkspace.shared.open(url)
         }
     }
+    
+    // Select 86Box version for the selected vm
+    @IBAction func vmAppVersionPopUpButtonAction(_ sender: NSPopUpButton) {
+        if sender.selectedItem?.identifier == NSUserInterfaceItemIdentifier(rawValue: "defaultAppId") {
+            if let selectedVM = currentSelectedVM {
+                // Default is nil: uses app bundle identifier
+                vmList[selectedVM].appPath = nil
+                // Update config file
+                writeConfigFile()
+            }
+        }
+        else {
+            // Open the file picker
+            let filePickerPanel = NSOpenPanel()
+            
+            filePickerPanel.allowsMultipleSelection = false
+            filePickerPanel.canChooseDirectories = false
+            filePickerPanel.canChooseFiles = true
+            filePickerPanel.allowedFileTypes = ["app"]
+            
+            if filePickerPanel.runModal() == .OK {
+                if let appURL = filePickerPanel.url {
+                    if let selectedVM = currentSelectedVM {
+                        // Set custom app path
+                        vmList[selectedVM].appPath = appURL.path
+                        // Update config file
+                        writeConfigFile()
+                    }
+                }
+            }
+            else {
+                // Reset selection
+                if let selectedVM = currentSelectedVM {
+                    if vmList[selectedVM].appPath == nil {
+                        vmAppVersionPopUpButton.selectItem(at: 0)
+                    }
+                }
+            }
+        }
+    }
 }
 
 // ------------------------------------
@@ -655,7 +722,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "textCellID"), owner: self) as? NSTableCellView
         cell?.textField?.stringValue = vmObject.name ?? "No Name"
         if let imageView = cell?.subviews.first as? NSImageView {
-            if currentRunningVM != nil && currentRunningVM == row {
+            if currentRunningVM.contains(where: { $0.vmRowNumber == row }) {
                 imageView.image = NSImage(named: "pcon")
             }
             else {
