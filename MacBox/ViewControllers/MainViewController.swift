@@ -30,7 +30,6 @@ class MainViewController: NSViewController {
     // Variables
     private let userDefaults = UserDefaults.standard
     private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
-    private var emulatorUrl : URL?
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
     private var currentRunningVM: [RunningVMProcess] = []
@@ -39,6 +38,10 @@ class MainViewController: NSViewController {
     private var currentVMConfigPath: String?
     private let nameTextFieldMaxLimit: Int = 32
     private var dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
+    // 86Box emulator variables
+    private var emulatorUrl: URL?
+    private var emulatorAppVer: String = "0"
+    private var emulatorBuildVer: String = "0"
     
     // View did load
     override func viewDidLoad() {
@@ -193,24 +196,27 @@ class MainViewController: NSViewController {
     // Check if 86Box is installed, and check for updated version
     private func checkFor86Box() {
         // Check if 86Box app is installed
-        var buildVer = "0"
         if let bundleURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "net.86Box.86Box") {
             // Save 86Box emulator URL
             emulatorUrl = bundleURL
             // Get 86Box info.plist
             if let bundle = Bundle(url: bundleURL) {
+                // Get the 86Box short version
+                if let shortVersion = bundle.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    emulatorAppVer = shortVersion
+                }
                 // Get the 86Box bundle version
                 if let bundleVersion = bundle.infoDictionary?["CFBundleVersion"] as? String {
-                    buildVer = bundleVersion
+                    emulatorBuildVer = String((bundleVersion).suffix(4))
                 }
             }
         }
         
-        fetch86BoxLatestBuildNumber(ver: buildVer)
+        fetch86BoxLatestBuildNumber()
     }
     
     // Fetch the latest stable 86Box build version from Jenkins
-    private func fetch86BoxLatestBuildNumber (ver: String) {
+    private func fetch86BoxLatestBuildNumber() {
         // Check for internet connection
         let monitor = NWPathMonitor()
         let queue = DispatchQueue(label: "InternetConnectionMonitor")
@@ -223,10 +229,10 @@ class MainViewController: NSViewController {
                         guard let data = data else { return }
                         // Set status label
                         if let jenkinsBuildVer = String(data: data, encoding: .utf8) {
-                            self.setVersionStatusLabel(localVer: ver, onlineVer: jenkinsBuildVer)
+                            self.setVersionStatusLabel(onlineVer: jenkinsBuildVer)
                         }
                         else {
-                            self.setVersionStatusLabel(localVer: ver, onlineVer: "0")
+                            self.setVersionStatusLabel(onlineVer: "0")
                         }
                     }
                     task.resume()
@@ -234,7 +240,7 @@ class MainViewController: NSViewController {
             }
             else {
                 // We're offline, set status label to local version
-                self.setVersionStatusLabel(localVer: ver, onlineVer: "0")
+                self.setVersionStatusLabel(onlineVer: "0")
             }
         }
         
@@ -242,33 +248,29 @@ class MainViewController: NSViewController {
     }
     
     // Set the 86Box version status label
-    private func setVersionStatusLabel (localVer: String, onlineVer: String) {
-        // Parse the app bundle version
-        let buildVer = String((localVer).suffix(4))
-        let appVer = String((localVer).prefix(3))
-        
+    private func setVersionStatusLabel (onlineVer: String) {
         DispatchQueue.main.async {
             self.spinningProgressIndicator.stopAnimation(self)
             
             // Check for local build
-            if buildVer == ".0.0" {
-                self.statusLabel.stringValue = "🟢 86Box \(appVer) (local build) is installed."
+            if self.emulatorBuildVer == ".0.0" {
+                self.statusLabel.stringValue = "🟢 86Box \(self.emulatorAppVer) (local build) is installed."
                 return
             }
             
             // Compare Jenkins version with local version
-            if onlineVer != buildVer {
+            if onlineVer != self.emulatorBuildVer {
                 // Version mismatch
-                self.statusLabel.stringValue = buildVer != "0" ? onlineVer != "0" ?
-                "🟠 86Box \(appVer) (build \(buildVer)) is installed. New update is available (build \(onlineVer))." :
-                "🟢 86Box \(appVer) (build \(buildVer)) is installed." :
+                self.statusLabel.stringValue = self.emulatorBuildVer != "0" ? onlineVer != "0" ?
+                "🟠 86Box \(self.emulatorAppVer) (build \(self.emulatorBuildVer)) is installed. New update is available (build \(onlineVer))." :
+                "🟢 86Box \(self.emulatorAppVer) (build \(self.emulatorBuildVer)) is installed." :
                 "🔴 86Box is not installed."
             }
             else {
                 // Version match
-                self.statusLabel.stringValue = buildVer != "0" ? onlineVer != "0" ?
-                "🟢 86Box \(appVer) (build \(buildVer)) is installed and up-to-date." :
-                "🟢 86Box \(appVer) (build \(buildVer)) is installed." :
+                self.statusLabel.stringValue = self.emulatorBuildVer != "0" ? onlineVer != "0" ?
+                "🟢 86Box \(self.emulatorAppVer) (build \(self.emulatorBuildVer)) is installed and up-to-date." :
+                "🟢 86Box \(self.emulatorAppVer) (build \(self.emulatorBuildVer)) is installed." :
                 "🔴 86Box is not installed."
             }
         }
