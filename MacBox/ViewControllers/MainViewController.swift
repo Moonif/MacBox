@@ -201,12 +201,7 @@ class MainViewController: NSViewController {
             if let bundle = Bundle(url: bundleURL) {
                 // Get the 86Box bundle version
                 if let bundleVersion = bundle.infoDictionary?["CFBundleVersion"] as? String {
-                    // Return only the build version
-                    buildVer = String((bundleVersion).suffix(4))
-                    // Check if locally built
-                    if buildVer == ".0.0" {
-                        buildVer = String((bundleVersion).prefix(3))
-                    }
+                    buildVer = bundleVersion
                 }
             }
         }
@@ -248,28 +243,32 @@ class MainViewController: NSViewController {
     
     // Set the 86Box version status label
     private func setVersionStatusLabel (localVer: String, onlineVer: String) {
+        // Parse the app bundle version
+        let buildVer = String((localVer).suffix(4))
+        let appVer = String((localVer).prefix(3))
+        
         DispatchQueue.main.async {
             self.spinningProgressIndicator.stopAnimation(self)
             
             // Check for local build
-            if localVer.count == 3 {
-                self.statusLabel.stringValue = "🟢 86Box \(localVer) (local build) is installed."
+            if buildVer == ".0.0" {
+                self.statusLabel.stringValue = "🟢 86Box \(appVer) (local build) is installed."
                 return
             }
             
             // Compare Jenkins version with local version
-            if onlineVer != localVer {
+            if onlineVer != buildVer {
                 // Version mismatch
-                self.statusLabel.stringValue = localVer != "0" ? onlineVer != "0" ?
-                "🟠 86Box (build \(localVer)) is installed. New update is available (build \(onlineVer))." :
-                "🟢 86Box (build \(localVer)) is installed." :
+                self.statusLabel.stringValue = buildVer != "0" ? onlineVer != "0" ?
+                "🟠 86Box \(appVer) (build \(buildVer)) is installed. New update is available (build \(onlineVer))." :
+                "🟢 86Box \(appVer) (build \(buildVer)) is installed." :
                 "🔴 86Box is not installed."
             }
             else {
                 // Version match
-                self.statusLabel.stringValue = localVer != "0" ? onlineVer != "0" ?
-                "🟢 86Box (build \(localVer)) is installed and up-to-date." :
-                "🟢 86Box (build \(localVer)) is installed." :
+                self.statusLabel.stringValue = buildVer != "0" ? onlineVer != "0" ?
+                "🟢 86Box \(appVer) (build \(buildVer)) is installed and up-to-date." :
+                "🟢 86Box \(appVer) (build \(buildVer)) is installed." :
                 "🔴 86Box is not installed."
             }
         }
@@ -395,14 +394,33 @@ class MainViewController: NSViewController {
             // Show confirmation alert
             let alert = NSAlert()
             
-            alert.messageText = "Do you want to delete the selected VM?"
+            alert.messageText = "Do you want to remove the selected VM?"
+            alert.informativeText = "This will only remove it from MacBox. If you also want to remove the VM files, check the option below."
             alert.alertStyle = .critical
-            alert.addButton(withTitle: "Delete").bezelColor = .controlAccentColor
+            alert.addButton(withTitle: "Remove").bezelColor = .controlAccentColor
             alert.addButton(withTitle: "Cancel")
             
+            // Add delete option accessory view
+            let deleteOptionButton = NSButton(checkboxWithTitle: "Send the selected VM and all its files to trash", target: nil, action: nil)
+            alert.accessoryView = deleteOptionButton
+            
+            // Show the alert
             let alertResult = alert.runModal()
+            
+            // User pressed the Remove button
             if alertResult == .alertFirstButtonReturn {
-                // User pressed the Delete button
+                // Send vm files to trash
+                if deleteOptionButton.state == .on {
+                    if let vmPath = vmList[currentSelectedVM ?? 0].path {
+                        do {
+                            try FileManager.default.trashItem(at: URL(fileURLWithPath:vmPath), resultingItemURL: nil)
+                        } catch {
+                            print("Error: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                
+                // Remove vm from list
                 vmList.remove(at: currentSelectedVM!)
                 vmsTableView.reloadData()
                 writeConfigFile()
