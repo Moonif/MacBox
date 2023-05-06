@@ -203,6 +203,10 @@ class MainViewController: NSViewController {
                 if let bundleVersion = bundle.infoDictionary?["CFBundleVersion"] as? String {
                     // Return only the build version
                     buildVer = String((bundleVersion).suffix(4))
+                    // Check if locally built
+                    if buildVer == ".0.0" {
+                        buildVer = String((bundleVersion).prefix(3))
+                    }
                 }
             }
         }
@@ -246,6 +250,12 @@ class MainViewController: NSViewController {
     private func setVersionStatusLabel (localVer: String, onlineVer: String) {
         DispatchQueue.main.async {
             self.spinningProgressIndicator.stopAnimation(self)
+            
+            // Check for local build
+            if localVer.count == 3 {
+                self.statusLabel.stringValue = "🟢 86Box \(localVer) (local build) is installed."
+                return
+            }
             
             // Compare Jenkins version with local version
             if onlineVer != localVer {
@@ -430,8 +440,19 @@ class MainViewController: NSViewController {
             var vmAppVersion = "net.86Box.86Box"
             var vmAppArg = "-b"
             if let customAppPath = vmList[currentSelectedVM ?? 0].appPath {
-                vmAppVersion = customAppPath
-                vmAppArg = "-a"
+                if FileManager.default.fileExists(atPath: customAppPath) {
+                    vmAppVersion = customAppPath
+                    vmAppArg = "-a"
+                }
+                else {
+                    // Custom app version was not found (Probably got moved or deleted)
+                    let alert = NSAlert()
+                    
+                    alert.messageText = "Selected 86Box file is not found. VM will open using default version."
+                    alert.alertStyle = .critical
+                    
+                    alert.runModal()
+                }
             }
             
             // Set process arguments
@@ -599,7 +620,37 @@ class MainViewController: NSViewController {
                     vmSpecMachineLogo.image = NSImage(named: machineLogo)
                 }
                 else {
-                    vmSpecMachineLogo.image = nil
+                    // Check for used machine name and set a logo by default
+                    switch vmSpecMachine.stringValue {
+                    case _ where vmSpecMachine.stringValue.hasPrefix("IBM"):
+                        vmSpecMachineLogo.image = NSImage(named: "IBM_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Compaq"):
+                        vmSpecMachineLogo.image = NSImage(named: "Compaq_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Amstrad"):
+                        vmSpecMachineLogo.image = NSImage(named: "Amstrad_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Commodore"):
+                        vmSpecMachineLogo.image = NSImage(named: "Commodore_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Epson"):
+                        vmSpecMachineLogo.image = NSImage(named: "Epson_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("NEC"):
+                        vmSpecMachineLogo.image = NSImage(named: "NEC_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Packard Bell"):
+                        vmSpecMachineLogo.image = NSImage(named: "Pb_logo")
+                        break
+                    case _ where vmSpecMachine.stringValue.hasPrefix("Tandy"):
+                        vmSpecMachineLogo.image = NSImage(named: "Tandy_logo")
+                        break
+                    default:
+                        // No machine logo
+                        vmSpecMachineLogo.image = nil
+                        break
+                    }
                 }
             }
             else {
