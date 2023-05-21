@@ -53,7 +53,7 @@ class MainViewController: NSViewController {
         vmNameTextField.delegate = self
         vmDescriptionTextView.delegate = self
         // Register table view for drag and drop
-        vmsTableView.registerForDraggedTypes(([dragDropType]))
+        vmsTableView.registerForDraggedTypes([dragDropType])
         
         // Config views
         configView()
@@ -289,6 +289,12 @@ class MainViewController: NSViewController {
                 // Fallback on earlier versions
                 defaultPath = homeDirURL.appendingPathComponent("\(vm.name?.replacingOccurrences(of: "/", with: "")  ?? "")")
             }
+            
+            // Check if path was used before
+            if FileManager.default.fileExists(atPath: defaultPath.path) {
+                defaultPath = homeDirURL.appendingPathComponent(UUID().uuidString)
+            }
+            
             fixedVM.path = defaultPath.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
         }
         

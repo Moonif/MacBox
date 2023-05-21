@@ -44,19 +44,22 @@ class IniParser {
     }
 
     func parseConfig(_ filename : String) -> Config {
-        let f = try! String(contentsOfFile: filename)
         var config = Config()
-        var currentSectionName = "main"
-        for line in f.components(separatedBy: "\n") {
-            let line = trim(line)
-            if line.hasPrefix("[") && line.hasSuffix("]") {
-                currentSectionName = parseSectionHeader(line)
-            } else if let (k, v) = parseLine(line) {
-                var section = config[currentSectionName] ?? [:]
-                section[k] = v
-                config[currentSectionName] = section
+        
+        if let f = try? String(contentsOfFile: filename) {
+            var currentSectionName = "main"
+            for l in f.components(separatedBy: "\n") {
+                let line = trim(l)
+                if line.hasPrefix("[") && line.hasSuffix("]") {
+                    currentSectionName = parseSectionHeader(line)
+                } else if let (k, v) = parseLine(line) {
+                    var section = config[currentSectionName] ?? [:]
+                    section[k] = v
+                    config[currentSectionName] = section
+                }
             }
         }
+        
         return config
     }
 }
