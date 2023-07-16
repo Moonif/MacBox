@@ -85,9 +85,11 @@ class MainViewController: NSViewController {
         vmSpecHDD.stringValue = "-"
         vmSpecMachineLogo.image = nil
         
-        // Add show in finder for table view cells
+        // Add right-click actions for table view cells
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
+        menu.addItem(.separator())
+        menu.addItem(NSMenuItem(title: "Duplicate", action: #selector(tableViewDuplicateAction(_:)), keyEquivalent: ""))
         vmsTableView.menu = menu
         
         // Add double click for table view cells
@@ -446,6 +448,47 @@ class MainViewController: NSViewController {
         }
     }
     
+    // Copy the selected VM
+    private func copyVM(row: Int) {
+        let vmPathURL = URL(fileURLWithPath: vmList[row].path ?? "")
+        
+        // VM copy path
+        var vmCopyPathURL = URL(string: "")
+        
+        if #available(macOS 13.0, *) {
+            vmCopyPathURL = homeDirURL.appending(component: vmPathURL.lastPathComponent + "(Copy)")
+        } else {
+            // Fallback on earlier versions
+            vmCopyPathURL = homeDirURL.appendingPathComponent(vmPathURL.lastPathComponent + "(Copy)")
+        }
+        
+        if vmCopyPathURL != nil {
+            // Check if path was used before
+            if FileManager.default.fileExists(atPath: vmCopyPathURL?.path ?? "") {
+                vmCopyPathURL = homeDirURL.appendingPathComponent(UUID().uuidString)
+            }
+            
+            // Copy the VM folder
+            do{
+                try FileManager.default.copyItem(atPath: vmPathURL.path, toPath: vmCopyPathURL?.path ?? "")
+                
+                // Create the VM copy
+                var vm = VM()
+                
+                // Set VM properties
+                vm.name = (vmList[row].name ?? "") + "(Copy)"
+                vm.description = vmList[row].description
+                vm.path = vmCopyPathURL?.path
+                vm.logo = vmList[row].logo
+                vm.appPath = vmList[row].appPath
+                // Add the VM
+                addVM(vm: vm)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     // Start VM process
     private func startVM(launchSettings: Bool = false) {
         if currentSelectedVM != nil {
@@ -574,6 +617,13 @@ class MainViewController: NSViewController {
         if vmsTableView.clickedRow >= 0 {
             let vmPathURL = URL(fileURLWithPath: vmList[vmsTableView.clickedRow].path ?? "")
             NSWorkspace.shared.open(vmPathURL)
+        }
+    }
+    
+    // Tableview cell 'Duplicate' action
+    @objc private func tableViewDuplicateAction(_ sender: AnyObject) {
+        if vmsTableView.clickedRow >= 0 {
+            copyVM(row: vmsTableView.clickedRow)
         }
     }
     

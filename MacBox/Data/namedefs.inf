@@ -405,6 +405,8 @@ sansx16=Sanyo SX-16
 vendex=Vendex HeadStart Turbo 888-XT
 znic=Z-NIX PC-1600
 v20xt=PC-XT
+deskpro386=Compaq Deskpro 386 (September 1986)
+deskpro386_01_1988=Compaq Deskpro 386 (January 1988)
 
 [cpu_family]
 8088=Intel 8088
