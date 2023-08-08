@@ -11,4 +11,5 @@ struct VM: Codable {
     var path: String?
     var logo: String?
     var appPath: String?
+    var fullScreen: Bool?
 }

@@ -524,9 +524,14 @@ class MainViewController: NSViewController {
                 }
             }
             
+            // Check fullscreen option
+            let vmFullScreen = vmList[currentSelectedVM ?? 0].fullScreen ?? false
+            
             // Set process arguments
             let args:[String] = launchSettings ?
             ["-W", vmAppArg,vmAppVersion,"--args","-P","\(vmPath)","-S"] :
+            vmFullScreen ?
+            ["-n", "-W", vmAppArg,vmAppVersion,"--args","-P","\(vmPath)","-V",vmName, "-F"] :
             ["-n", "-W", vmAppArg,vmAppVersion,"--args","-P","\(vmPath)","-V",vmName]
             process.arguments = args
             
@@ -596,6 +601,7 @@ class MainViewController: NSViewController {
         else {
             vmAppVersionPopUpButton.selectItem(at: 0)
         }
+        setPopupOptionsMultiselection()
         
         // Set user defaults
         DispatchQueue.main.async {
@@ -739,6 +745,25 @@ class MainViewController: NSViewController {
         }
     }
     
+    // Set the Start button popup options multiselection
+    private func setPopupOptionsMultiselection() {
+        if let selectedVM = currentSelectedVM {
+            if vmList[selectedVM].appPath == nil {
+                vmAppVersionPopUpButton.selectItem(at: 0)
+            }
+            else {
+                vmAppVersionPopUpButton.selectItem(at: 1)
+            }
+            
+            if vmList[selectedVM].fullScreen != nil && vmList[selectedVM].fullScreen == true {
+                vmAppVersionPopUpButton.itemArray[3].state = .on
+            }
+            else {
+                vmAppVersionPopUpButton.itemArray[3].state = .off
+            }
+        }
+    }
+    
 // ------------------------------------
 // IBActions
 // ------------------------------------
@@ -802,7 +827,7 @@ class MainViewController: NSViewController {
                 writeConfigFile()
             }
         }
-        else {
+        else if sender.selectedItem?.identifier == NSUserInterfaceItemIdentifier(rawValue: "customAppId") {
             // Open the file picker
             let filePickerPanel = NSOpenPanel()
             
@@ -830,6 +855,17 @@ class MainViewController: NSViewController {
                 }
             }
         }
+        else {
+            // Set start in full screen option
+            if let selectedVM = currentSelectedVM {
+                vmList[selectedVM].fullScreen = !(vmList[selectedVM].fullScreen ?? false);
+                // Update config file
+                writeConfigFile()
+            }
+        }
+        
+        // Set popup options multiselection
+        setPopupOptionsMultiselection()
     }
 }
 
