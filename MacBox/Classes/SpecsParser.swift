@@ -10,7 +10,7 @@ import Foundation
 class SpecsParser {
     
     // Parse config file and return machine specs in a string format
-    func ParseVMConfigFile(vmConfigPath: String) -> (machine: String, cpu: String, ram: String, hdd: String) {
+    public func parseVMConfigFile(vmConfigPath: String) -> (machine: String, cpu: String, ram: String, hdd: String) {
         var machineString = ""
         var cpuString = ""
         var ramString = ""

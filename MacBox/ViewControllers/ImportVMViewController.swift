@@ -83,10 +83,8 @@ class ImportVMViewController: NSViewController {
                     
                     // Check if path already present in the VMs list
                     let match = self.mainVC.vmList.contains(where: { vm in
-                        if let path = vm.path {
-                            if path == vmPath {
-                                return true
-                            }
+                        if let path = vm.path, path == vmPath {
+                            return true
                         }
                         return false
                     })
@@ -176,17 +174,40 @@ class ImportVMViewController: NSViewController {
         
         if filePickerPanel.runModal() == .OK {
             if let vmDirectoryURL = filePickerPanel.url?.path {
-                let VMConfigFileURL = vmDirectoryURL.appending("/86box.cfg")
-                if FileManager.default.fileExists(atPath: VMConfigFileURL) {
+                let vmConfigFileURL = vmDirectoryURL.appending("/86box.cfg")
+                if FileManager.default.fileExists(atPath: vmConfigFileURL) {
                     // 86Box config file was found
                     importedVMPath = vmDirectoryURL
                     
-                    // Create a VM and add it to the table view
-                    let vm = createVM(name: filePickerPanel.url?.lastPathComponent ?? "Imported VM", description: nil, path: importedVMPath)
-                    mainVC.addVM(vm: vm)
+                    // Check if path already present in the VMs list
+                    let match = self.mainVC.vmList.contains(where: { vm in
+                        if let path = vm.path, path == importedVMPath {
+                            return true
+                        }
+                        return false
+                    })
                     
-                    // Dismiss the add VM tabVC modal view
-                    dismissView()
+                    if !match {
+                        // Create a VM and add it to the table view
+                        let vm = createVM(name: filePickerPanel.url?.lastPathComponent ?? "Imported VM", description: nil, path: importedVMPath)
+                        mainVC.addVM(vm: vm)
+                        
+                        // Dismiss the add VM tabVC modal view
+                        dismissView()
+                    }
+                    else {
+                        // Dismiss the add VM tabVC modal view
+                        dismissView()
+                        
+                        // Show error: Selected VM is already added
+                        let alert = NSAlert()
+                        
+                        alert.messageText = "Selected VM is already added!"
+                        alert.alertStyle = .critical
+                        alert.addButton(withTitle: "OK")
+                        
+                        alert.runModal()
+                    }
                 }
                 else {
                     // No 86Box was found at path
@@ -228,10 +249,8 @@ class ImportVMViewController: NSViewController {
         switch sender.selectedItem?.identifier {
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemHome") :
             searchURL = FileManager.default.homeDirectoryForCurrentUser
-            break
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemDocuments") :
             searchURL = URL(fileURLWithPath: "Documents", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
-            break
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemCustom") :
             // Open the file picker
             let filePickerPanel = NSOpenPanel()
@@ -240,12 +259,9 @@ class ImportVMViewController: NSViewController {
             filePickerPanel.canChooseDirectories = true
             filePickerPanel.canChooseFiles = false
             
-            if filePickerPanel.runModal() == .OK {
-                if let customDirectoryURL = filePickerPanel.url {
-                    searchURL = customDirectoryURL
-                }
+            if filePickerPanel.runModal() == .OK, let customDirectoryURL = filePickerPanel.url {
+                searchURL = customDirectoryURL
             }
-            break
         default:
             break
         }

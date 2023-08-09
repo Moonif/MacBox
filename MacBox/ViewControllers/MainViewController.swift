@@ -214,18 +214,18 @@ class MainViewController: NSViewController {
             }
         }
         
-        fetch86BoxLatestBuildNumber()
+        fetchLatestOnlineBuildNumbers()
     }
     
-    // Fetch the latest stable 86Box build version from Jenkins
-    private func fetch86BoxLatestBuildNumber() {
+    // Fetch the latest stable 86Box build version from Jenkins; also check for latest MacBox github version
+    private func fetchLatestOnlineBuildNumbers() {
         // Check for internet connection
         let monitor = NWPathMonitor()
         let queue = DispatchQueue(label: "InternetConnectionMonitor")
         
         monitor.pathUpdateHandler = { pathUpdateHandler in
             if pathUpdateHandler.status == .satisfied {
-                // We're online, fetch build version from Jenkins
+                // We're online, fetch 86Box build version from Jenkins
                 if let url = URL(string: "https://ci.86box.net/job/86Box/lastStableBuild/buildNumber") {
                     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                         guard let data = data else { return }
@@ -235,6 +235,34 @@ class MainViewController: NSViewController {
                         }
                         else {
                             self.setVersionStatusLabel(onlineVer: "0")
+                        }
+                    }
+                    task.resume()
+                }
+                
+                // We're online, check for latest MacBox github version
+                if let url = URL(string: "https://github.com/Moonif/MacBox/releases/latest") {
+                    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                        guard let response = response else { return }
+                        if let latestGitURL = response.url, let latestTagVersion = latestGitURL.absoluteString.split(separator: "/").last {
+                            let localBuildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? String(latestTagVersion)
+                            // New version found
+                            if localBuildVersion != String(latestTagVersion) {
+                                DispatchQueue.main.async {
+                                    let alert = NSAlert()
+                                    
+                                    alert.messageText = "A new version of MacBox is available!"
+                                    alert.informativeText = "New version: \(latestTagVersion), currently installed version: \(localBuildVersion)"
+                                    alert.alertStyle = .informational
+                                    alert.addButton(withTitle: "Update")
+                                    alert.addButton(withTitle: "Dismiss")
+                                    
+                                    let alertResult = alert.runModal()
+                                    if alertResult == .alertFirstButtonReturn {
+                                        NSWorkspace.shared.open(url)
+                                    }
+                                }
+                            }
                         }
                     }
                     task.resume()
@@ -304,85 +332,83 @@ class MainViewController: NSViewController {
         setAllVMPaths(vmPath: fixedVM.path ?? "")
         
         // Copy template config file
-        if vmTemplate != nil {
-            if let templateConfigPath = vmTemplate?.configPath {
-                let ini = IniParser()
-                
-                // Copy config file
-                let vmConfigPath = fixedVM.path?.appending("/86box.cfg") ?? ""
-                do{
-                    try FileManager.default.copyItem(atPath: templateConfigPath, toPath: vmConfigPath)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-                
-                // Copy shader file
-                if vmTemplate?.useShader == true {
-                    // Get VM template shader path
-                    if let templateInfoPath = vmTemplate?.infoPath {
-                        if let vmShaderFileName = ini.parseConfig(templateInfoPath)["Shader"]?["video_gl_shader"] {
-                            // Get the shader file from the main bundle
-                            if let vmTemplateBundleShaderPath = Bundle.main.path(forResource: vmShaderFileName, ofType: nil, inDirectory: "Shaders") {
-                                // Copy shader file to VM shaders directory
-                                let vmShaderPath = fixedVM.path?.appending("/shaders/\(vmShaderFileName)") ?? ""
-                                do{
-                                    try FileManager.default.copyItem(atPath: vmTemplateBundleShaderPath, toPath: vmShaderPath)
+        if vmTemplate != nil, let templateConfigPath = vmTemplate?.configPath {
+            let ini = IniParser()
+            
+            // Copy config file
+            let vmConfigPath = fixedVM.path?.appending("/86box.cfg") ?? ""
+            do{
+                try FileManager.default.copyItem(atPath: templateConfigPath, toPath: vmConfigPath)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+            
+            // Copy shader file
+            if vmTemplate?.useShader == true {
+                // Get VM template shader path
+                if let templateInfoPath = vmTemplate?.infoPath {
+                    if let vmShaderFileName = ini.parseConfig(templateInfoPath)["Shader"]?["video_gl_shader"] {
+                        // Get the shader file from the main bundle
+                        if let vmTemplateBundleShaderPath = Bundle.main.path(forResource: vmShaderFileName, ofType: nil, inDirectory: "Shaders") {
+                            // Copy shader file to VM shaders directory
+                            let vmShaderPath = fixedVM.path?.appending("/shaders/\(vmShaderFileName)") ?? ""
+                            do{
+                                try FileManager.default.copyItem(atPath: vmTemplateBundleShaderPath, toPath: vmShaderPath)
+                            } catch {
+                                print("Error: \(error.localizedDescription)")
+                            }
+                            // Get shader config
+                            let vmShaderRenderer = ini.parseConfig(templateInfoPath)["Shader"]?["vid_renderer"] ?? ""
+                            let vmShaderOverscan = ini.parseConfig(templateInfoPath)["Shader"]?["enable_overscan"] ?? "0"
+                            let vmShaderCGAContrast = ini.parseConfig(templateInfoPath)["Shader"]?["vid_cga_contrast"] ?? "0"
+                            // Write shader config
+                            var vmConfigURL: URL?
+                            if #available(macOS 13.0, *) {
+                                vmConfigURL = URL(filePath: vmConfigPath)
+                            } else {
+                                // Fallback on earlier versions
+                                vmConfigURL = URL(fileURLWithPath: vmConfigPath)
+                            }
+                            if let url = vmConfigURL {
+                                // Read and create VM config file
+                                var shaderConfigString = ""
+                                do {
+                                    try shaderConfigString = String(contentsOfFile: url.path, encoding: .utf8)
+                                    shaderConfigString.append("\n[General]\nvid_renderer = \(vmShaderRenderer)\nvideo_gl_shader = \(vmShaderPath)\nenable_overscan = \(vmShaderOverscan)\nvid_cga_contrast = \(vmShaderCGAContrast)\n")
                                 } catch {
                                     print("Error: \(error.localizedDescription)")
                                 }
-                                // Get shader config
-                                let vmShaderRenderer = ini.parseConfig(templateInfoPath)["Shader"]?["vid_renderer"] ?? ""
-                                let vmShaderOverscan = ini.parseConfig(templateInfoPath)["Shader"]?["enable_overscan"] ?? "0"
-                                let vmShaderCGAContrast = ini.parseConfig(templateInfoPath)["Shader"]?["vid_cga_contrast"] ?? "0"
-                                // Write shader config
-                                var vmConfigURL: URL?
-                                if #available(macOS 13.0, *) {
-                                    vmConfigURL = URL(filePath: vmConfigPath)
-                                } else {
-                                    // Fallback on earlier versions
-                                    vmConfigURL = URL(fileURLWithPath: vmConfigPath)
-                                }
-                                if let url = vmConfigURL {
-                                    // Read and create VM config file
-                                    var shaderConfigString = ""
+                                
+                                // Write VM config file
+                                if shaderConfigString != "" {
                                     do {
-                                        try shaderConfigString = String(contentsOfFile: url.path, encoding: .utf8)
-                                        shaderConfigString.append("\n[General]\nvid_renderer = \(vmShaderRenderer)\nvideo_gl_shader = \(vmShaderPath)\nenable_overscan = \(vmShaderOverscan)\nvid_cga_contrast = \(vmShaderCGAContrast)\n")
+                                        try shaderConfigString.write(to: url, atomically: true, encoding: .utf8)
                                     } catch {
                                         print("Error: \(error.localizedDescription)")
-                                    }
-                                    
-                                    // Write VM config file
-                                    if shaderConfigString != "" {
-                                        do {
-                                            try shaderConfigString.write(to: url, atomically: true, encoding: .utf8)
-                                        } catch {
-                                            print("Error: \(error.localizedDescription)")
-                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-                
-                // Create disk if available
-                let hddParams = ini.parseConfig(templateConfigPath)["Hard disks"]?["hdd_01_parameters"] ?? ""
-                let hddParamsSplit = hddParams.split(separator: ",")
-                var hddS: Int64 = 0
-                var hddH: Int64 = 0
-                var hddC: Int64 = 0
-                if hddParamsSplit.count > 0 {
-                    hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
-                    hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
-                    hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
-                }
-                // Calculate hdd size
-                let vmTemplateHDDSize = hddS * hddH * hddC * 512
-                if vmTemplateHDDSize > 0 {
-                    let rawData = Data(count: Int(vmTemplateHDDSize))
-                    FileManager.default.createFile(atPath: fixedVM.path?.appending("/disks/hdd.IMG") ?? "", contents: rawData, attributes: nil)
-                }
+            }
+            
+            // Create disk if available
+            let hddParams = ini.parseConfig(templateConfigPath)["Hard disks"]?["hdd_01_parameters"] ?? ""
+            let hddParamsSplit = hddParams.split(separator: ",")
+            var hddS: Int64 = 0
+            var hddH: Int64 = 0
+            var hddC: Int64 = 0
+            if hddParamsSplit.count > 0 {
+                hddS = Int64(hddParamsSplit[0].trimmingCharacters(in: .whitespaces)) ?? 0
+                hddH = Int64(hddParamsSplit[1].trimmingCharacters(in: .whitespaces)) ?? 0
+                hddC = Int64(hddParamsSplit[2].trimmingCharacters(in: .whitespaces)) ?? 0
+            }
+            // Calculate hdd size
+            let vmTemplateHDDSize = hddS * hddH * hddC * 512
+            if vmTemplateHDDSize > 0 {
+                let rawData = Data(count: Int(vmTemplateHDDSize))
+                FileManager.default.createFile(atPath: fixedVM.path?.appending("/disks/hdd.IMG") ?? "", contents: rawData, attributes: nil)
             }
         }
         
@@ -690,7 +716,7 @@ class MainViewController: NSViewController {
             if FileManager.default.fileExists(atPath: currentVMConfigPath ?? "") {
                 // Parse config file and return string values
                 let specsParser = SpecsParser()
-                let parsedSpecs = specsParser.ParseVMConfigFile(vmConfigPath: currentVMConfigPath ?? "")
+                let parsedSpecs = specsParser.parseVMConfigFile(vmConfigPath: currentVMConfigPath ?? "")
                 // Set specs strings
                 vmSpecMachine.stringValue = parsedSpecs.machine
                 vmSpecCPU.stringValue = parsedSpecs.cpu
@@ -706,32 +732,23 @@ class MainViewController: NSViewController {
                     switch vmSpecMachine.stringValue {
                     case _ where vmSpecMachine.stringValue.hasPrefix("IBM"):
                         vmSpecMachineLogo.image = NSImage(named: "IBM_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Compaq"):
                         vmSpecMachineLogo.image = NSImage(named: "Compaq_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Amstrad"):
                         vmSpecMachineLogo.image = NSImage(named: "Amstrad_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Commodore"):
                         vmSpecMachineLogo.image = NSImage(named: "Commodore_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Epson"):
                         vmSpecMachineLogo.image = NSImage(named: "Epson_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("NEC"):
                         vmSpecMachineLogo.image = NSImage(named: "NEC_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Packard Bell"):
                         vmSpecMachineLogo.image = NSImage(named: "Pb_logo")
-                        break
                     case _ where vmSpecMachine.stringValue.hasPrefix("Tandy"):
                         vmSpecMachineLogo.image = NSImage(named: "Tandy_logo")
-                        break
                     default:
                         // No machine logo
                         vmSpecMachineLogo.image = nil
-                        break
                     }
                 }
             }
