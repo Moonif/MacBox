@@ -973,6 +973,11 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
         
         return true
     }
+    
+    // Disable events for table view
+    func tableView(_ tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool {
+        return false
+    }
 }
 
 // ------------------------------------
