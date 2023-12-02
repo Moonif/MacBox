@@ -161,6 +161,7 @@ class AddVMViewController: NSViewController {
         // Check if VM name was provided
         if vmNameTextField.stringValue.isEmpty {
             vmNameTextField.backgroundColor = .systemRed
+            vmNameTextField.becomeFirstResponder()
             return
         }
         

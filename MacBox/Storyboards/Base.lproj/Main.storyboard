@@ -215,6 +215,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Cf8-ft-aZo"/>
                                         </constraints>
+                                        <accessibility description="Start VM" help="Start the selected VM"/>
                                         <connections>
                                             <action selector="startVMButtonAction:" target="XfG-lQ-9wD" id="DdD-Sx-mdr"/>
                                         </connections>
@@ -228,6 +229,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="DPQ-Yz-Dco"/>
                                         </constraints>
+                                        <accessibility description="Remove Selected VM" help="Remove the selected VM"/>
                                         <connections>
                                             <action selector="deleteVMButtonAction:" target="XfG-lQ-9wD" id="wK5-dH-hEi"/>
                                         </connections>
@@ -239,6 +241,7 @@
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <accessibility description="VM Name" help="VM Name - Can be edited"/>
                                     </textField>
                                     <scrollView focusRingType="exterior" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsQ-9I-cBw">
                                         <rect key="frame" x="0.0" y="229" width="280" height="120"/>
@@ -254,6 +257,7 @@
                                                     <size key="minSize" width="280" height="120"/>
                                                     <size key="maxSize" width="280" height="10000000"/>
                                                     <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <accessibility description="VM Description" help="VM Description - Can be edited"/>
                                                 </textView>
                                             </subviews>
                                         </clipView>
@@ -275,6 +279,7 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <accessibility description="VM Settings" help="Open the VM's settings window"/>
                                         <connections>
                                             <action selector="vmSettingsButtonAction:" target="XfG-lQ-9wD" id="ehb-AI-TSV"/>
                                         </connections>
@@ -465,6 +470,7 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <accessibility description="86Box version status" help="Open 86Box Jenkins page"/>
                                         <connections>
                                             <action selector="versionStatusButtonAction:" target="XfG-lQ-9wD" id="AJ7-su-VlZ"/>
                                         </connections>
@@ -548,6 +554,7 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="VM Name" help="Enter a name for your new VM"/>
                             </textField>
                             <scrollView focusRingType="exterior" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW7-Ek-eQg">
                                 <rect key="frame" x="20" y="161" width="300" height="60"/>
@@ -563,6 +570,7 @@
                                             <size key="minSize" width="298" height="58"/>
                                             <size key="maxSize" width="419" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <accessibility description="VM Description" help="Enter a description for your new VM"/>
                                         </textView>
                                     </subviews>
                                 </clipView>
@@ -618,11 +626,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="mNt-OR-DU1"/>
                                 </constraints>
-                                <comboBoxCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Virtual Machine Template" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="10" id="tku-7W-0ix">
+                                <comboBoxCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Virtual Machine Template" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="10" id="tku-7W-0ix">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
+                                <accessibility description="Virtual Machine Templates Dropdown box" help="List of VM templates, press the down arrow to open the list"/>
                             </comboBox>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cr6-cW-WdM">
                                 <rect key="frame" x="335" y="281" width="73" height="13"/>
