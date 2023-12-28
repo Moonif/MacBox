@@ -72,19 +72,10 @@ class MainViewController: NSViewController {
     
     // Config views initial properties
     private func configView() {
-        startVMButton.isEnabled = false
-        vmSettingsButton.isEnabled = false
-        deleteVMButton.isEnabled = false
         spinningProgressIndicator.startAnimation(self)
         statusLabel.stringValue = ""
-        
-        // Specs text
-        vmSpecMachine.stringValue = "-"
-        vmSpecCPU.stringValue = "-"
-        vmSpecRAM.stringValue = "-"
-        vmSpecHDD.stringValue = "-"
-        vmSpecMachineLogo.image = nil
-        
+        resetVmInfoView()
+
         // Add right-click actions for table view cells
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
@@ -95,7 +86,23 @@ class MainViewController: NSViewController {
         // Add double click for table view cells
         vmsTableView.doubleAction = #selector(tableViewDoubleClickAction(_:))
     }
-    
+
+    // Resets VMInfoView to initial values
+    private func resetVmInfoView() {
+        startVMButton.isEnabled = false
+        vmSettingsButton.isEnabled = false
+        deleteVMButton.isEnabled = false
+        vmNameTextField.stringValue = "-"
+        vmDescriptionTextView.string = ""
+
+        // Specs text
+        vmSpecMachine.stringValue = "-"
+        vmSpecCPU.stringValue = "-"
+        vmSpecRAM.stringValue = "-"
+        vmSpecHDD.stringValue = "-"
+        vmSpecMachineLogo.image = nil
+    }
+
     // Initialize MacBox directory and config files
     private func initFiles() {
         // Create the MacBox directory at the User's Home directory
@@ -460,16 +467,6 @@ class MainViewController: NSViewController {
                 vmList.remove(at: currentSelectedVM!)
                 vmsTableView.reloadData()
                 writeConfigFile()
-                
-                if vmList.count > 0 {
-                    currentSelectedVM = vmsTableView.selectedRow
-                }
-                else {
-                    currentSelectedVM = nil
-                    startVMButton.isEnabled = false
-                    vmSettingsButton.isEnabled = false
-                    deleteVMButton.isEnabled = false
-                }
             }
         }
     }
@@ -977,6 +974,16 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
     // Disable events for table view
     func tableView(_ tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool {
         return false
+    }
+
+    // Handle row deletions
+    func tableView(_ tableView: NSTableView, didRemove rowView: NSTableRowView, forRow row: Int) {
+        if tableView.numberOfRows > 0 {
+            currentSelectedVM = tableView.selectedRow
+        } else {
+            currentSelectedVM = nil
+            resetVmInfoView()
+        }
     }
 }
 
