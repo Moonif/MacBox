@@ -412,6 +412,11 @@ thunderbolt=Micronics Thunderbolt
 gw2kvenus=Gateway 2000 Venus
 m773=PC Chips M773
 super286c=Hyundai Super286C
+nec_mate_unk=NEC Mate NX MA30D/23D
+dell_430vx=Dell Hannibal+
+lgibm440fx=LG IBM Multinet x61 (MSI MS-6106)
+mate_nx_ma30d_23d=NEC Mate NX MA30D/23D
+lc500j34dr=NEC LaVie C PC-LC500J34DR
 
 [cpu_family]
 8088=Intel 8088

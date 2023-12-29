@@ -769,7 +769,7 @@ class MainViewController: NSViewController {
                 vmAppVersionPopUpButton.selectItem(at: 1)
             }
             
-            if vmList[selectedVM].fullScreen != nil && vmList[selectedVM].fullScreen == true {
+            if vmList[selectedVM].fullScreen != nil && vmList[selectedVM].fullScreen! {
                 vmAppVersionPopUpButton.itemArray[3].state = .on
             }
             else {
@@ -918,6 +918,10 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
     
     // Set drag and drop for table cells
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let indexSet = IndexSet(integer: row)
+        vmsTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+        selectTableRow(row: row)
+        
         let item = NSPasteboardItem()
         item.setString(String(row), forType: self.dragDropType)
         return item
@@ -952,6 +956,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
                 vmList.insert(vm, at: row - 1)
                 // Move and animate table view cell
                 tableView.moveRow(at: oldIndex + oldIndexOffset, to: row - 1)
+                currentSelectedVM = row - 1
                 oldIndexOffset -= 1
             }
             else {
@@ -960,6 +965,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource {
                 vmList.insert(vm, at: row + newIndexOffset)
                 // Move and animate table view cell
                 tableView.moveRow(at: oldIndex, to: row + newIndexOffset)
+                currentSelectedVM = row + newIndexOffset
                 newIndexOffset += 1
             }
         }
