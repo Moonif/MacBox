@@ -417,6 +417,7 @@ dell_430vx=Dell Hannibal+
 lgibm440fx=LG IBM Multinet x61 (MSI MS-6106)
 mate_nx_ma30d_23d=NEC Mate NX MA30D/23D
 lc500j34dr=NEC LaVie C PC-LC500J34DR
+lgibm440bx=LG IBM Multinet i x7G (MSI MS-6119)
 
 [cpu_family]
 8088=Intel 8088
