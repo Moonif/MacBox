@@ -11,6 +11,7 @@
 		F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */; };
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
+		F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */; };
 		F99FFC5629F5364300099CAB /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F99FFC5529F5364300099CAB /* Shaders */; };
 		F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */ = {isa = PBXBuildFile; fileRef = F9A04BAD29EEF26F00DC813D /* namedefs.inf */; };
 		F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A04BB029EF0F5400DC813D /* FileManager.swift */; };
@@ -29,6 +30,7 @@
 		F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVMProcess.swift; sourceTree = "<group>"; };
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
+		F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubResponseObject.swift; sourceTree = "<group>"; };
 		F99FFC5529F5364300099CAB /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		F9A04BAD29EEF26F00DC813D /* namedefs.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = namedefs.inf; sourceTree = "<group>"; };
 		F9A04BB029EF0F5400DC813D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		F95DC0442B4BD28C006ECF05 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
 		F9A04BAC29EEF26100DC813D /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 				F959EF7729E3585800934DA5 /* ViewControllers */,
 				F959EF7629E3580700934DA5 /* Storyboards */,
 				F959EF7529E357F500934DA5 /* Classes */,
+				F95DC0442B4BD28C006ECF05 /* Structs */,
 				F9D1BE1429EB0F1D000C7E5F /* Utils */,
 				F99FFC5529F5364300099CAB /* Shaders */,
 				F918A5A029F19CE500E15E32 /* Templates */,
@@ -221,6 +232,7 @@
 				F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */,
 				F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */,
 				F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */,
+				F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */,
 				F934D58D29E424EE00F0D450 /* VM.swift in Sources */,
 				F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */,
 				F9D6078329E2BABE002541BF /* AppDelegate.swift in Sources */,
@@ -380,7 +392,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -414,7 +426,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -248,28 +248,48 @@ class MainViewController: NSViewController {
                 }
                 
                 // We're online, check for latest MacBox github version
-                if let url = URL(string: "https://github.com/Moonif/MacBox/releases/latest") {
-                    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-                        guard let response = response else { return }
-                        if let latestGitURL = response.url, let latestTagVersion = latestGitURL.absoluteString.split(separator: "/").last {
-                            let localBuildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? String(latestTagVersion)
-                            // New version found
-                            if localBuildVersion != String(latestTagVersion) {
-                                DispatchQueue.main.async {
-                                    let alert = NSAlert()
-                                    
-                                    alert.messageText = "A new version of MacBox is available!"
-                                    alert.informativeText = "New version: \(latestTagVersion), currently installed version: \(localBuildVersion)"
-                                    alert.alertStyle = .informational
-                                    alert.addButton(withTitle: "Update")
-                                    alert.addButton(withTitle: "Dismiss")
-                                    
-                                    let alertResult = alert.runModal()
-                                    if alertResult == .alertFirstButtonReturn {
-                                        NSWorkspace.shared.open(url)
+                if let url = URL(string: "https://api.github.com/repos/Moonif/MacBox/releases/latest") {
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "GET"
+                    request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+                    request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+                    
+                    let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                        guard let data = data else { return }
+                        
+                        do {
+                            // Try getting the MacBox repo info from GitHub
+                            let githubJsonResponse = try JSONDecoder().decode(GithubResponseObject.self, from: data)
+                            
+                            // Compare versions
+                            if let latestTagVersion = githubJsonResponse.tag_name {
+                                let localBuildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? String(latestTagVersion)
+                                
+                                if localBuildVersion != String(latestTagVersion) {
+                                    // New version found
+                                    DispatchQueue.main.async {
+                                        let alert = NSAlert()
+                                        
+                                        var alertInfoText = "New version: \(latestTagVersion), currently installed version: \(localBuildVersion)"
+                                        if let releaseBodyText = githubJsonResponse.body {
+                                            alertInfoText += "\n\nWhat's new:\n" + releaseBodyText
+                                        }
+                                        
+                                        alert.messageText = "A new version of MacBox is available!"
+                                        alert.informativeText = alertInfoText
+                                        alert.alertStyle = .informational
+                                        alert.addButton(withTitle: "Update")
+                                        alert.addButton(withTitle: "Dismiss")
+                                        
+                                        let alertResult = alert.runModal()
+                                        if alertResult == .alertFirstButtonReturn {
+                                            NSWorkspace.shared.open(url)
+                                        }
                                     }
                                 }
                             }
+                        } catch {
+                            print(error.localizedDescription)
                         }
                     }
                     task.resume()
