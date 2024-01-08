@@ -78,9 +78,7 @@ class MainViewController: NSViewController {
 
         // Add right-click actions for table view cells
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
-        menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "Duplicate", action: #selector(tableViewDuplicateAction(_:)), keyEquivalent: ""))
+        menu.delegate = self
         vmsTableView.menu = menu
         
         // Add double click for table view cells
@@ -1058,6 +1056,26 @@ extension MainViewController: NSTextViewDelegate {
                     writeConfigFile()
                 }
             }
+        }
+    }
+}
+
+// ------------------------------------
+// Table Menu Delegate
+// ------------------------------------
+extension MainViewController: NSMenuDelegate {
+    func menuNeedsUpdate(_ menu: NSMenu) {
+        menu.removeAllItems()
+        
+        if vmsTableView.clickedRow >= 0 {
+            // Clicked on a VM cell
+            menu.addItem(NSMenuItem(title: "Show in Finder", action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
+            menu.addItem(.separator())
+            menu.addItem(NSMenuItem(title: "Duplicate", action: #selector(tableViewDuplicateAction(_:)), keyEquivalent: ""))
+        }
+        else {
+            // Clicked on an empty cell
+            menu.addItem(NSMenuItem(title: "Add a Virtual Machine", action: #selector(addVMButtonAction(_:)), keyEquivalent: ""))
         }
     }
 }
