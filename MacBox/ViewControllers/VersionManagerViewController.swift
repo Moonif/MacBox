@@ -42,6 +42,8 @@ class VersionManagerViewController: NSViewController {
     private let userDefaults = UserDefaults.standard
     private let fileManager = FileManager.default
     private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    private let dateInputFormatString = "yyyy-MM-dd'T'HH:mm:ssZ"
+    private let dateOutputFormatString = "MMM dd, yyyy"
     var isStableChannel: Bool = false
     var emulatorAppVer: String = "0"
     var emulatorBuildVer: String = "0"
@@ -111,9 +113,9 @@ class VersionManagerViewController: NSViewController {
     private func populateEmulatorUpdateInfo() {
         let versionInfoObject = MainViewController.instance.versionInfoObject
         
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = dateInputFormatString
         let date: Date? = dateFormatter.date(from: versionInfoObject.emulatorUpdateObject?.published_at ?? "")
-        let formattedDate = date?.getFormattedDate(format: "MMM dd, yyyy")
+        let formattedDate = date?.getFormattedDate(format: dateOutputFormatString)
         
         var relativeDate = ""
         if #available(macOS 10.15, *) {
@@ -141,9 +143,9 @@ class VersionManagerViewController: NSViewController {
     private func populateRomsUpdateInfo() {
         let versionInfoObject = MainViewController.instance.versionInfoObject
         
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = dateInputFormatString
         let date: Date? = dateFormatter.date(from: versionInfoObject.romsUpdateObject?.commit?.author?.date ?? "")
-        let formattedDate = date?.getFormattedDate(format: "MMM dd, yyyy")
+        let formattedDate = date?.getFormattedDate(format: dateOutputFormatString)
         
         var relativeDate = ""
         if #available(macOS 10.15, *) {
@@ -164,9 +166,9 @@ class VersionManagerViewController: NSViewController {
     private func populateMacBoxUpdateInfo() {
         let versionInfoObject = MainViewController.instance.versionInfoObject
         
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = dateInputFormatString
         let date: Date? = dateFormatter.date(from: versionInfoObject.macboxUpdateObject?.published_at ?? "")
-        let formattedDate = date?.getFormattedDate(format: "MMM dd, yyyy")
+        let formattedDate = date?.getFormattedDate(format: dateOutputFormatString)
         
         var relativeDate = ""
         if #available(macOS 10.15, *) {
@@ -502,13 +504,13 @@ class VersionManagerViewController: NSViewController {
     // Fetch MacBox updated macOS binary
     private func fetchMacBoxUpdateBinary() {
         let versionInfoObject = MainViewController.instance.versionInfoObject
-        
+            
         for asset in versionInfoObject.macboxUpdateObject?.assets ?? [] {
-            if let downloadURL = asset.browser_download_url {
-                if let url = URL(string: downloadURL) {
-                    downloadMacBoxBinary(url: url)
-                }
+            guard let downloadURL = asset.browser_download_url,
+                  let url = URL(string: downloadURL) else {
+                continue
             }
+            downloadMacBoxBinary(url: url)
         }
     }
     
@@ -571,11 +573,12 @@ class VersionManagerViewController: NSViewController {
             
             // Show the alert
             let alertResult = alert.runModal()
+            let taskLaunchPath = "/usr/bin/open"
             
             if alertResult == .alertFirstButtonReturn {
                 let macboxAppPath = Bundle.main.bundlePath
                 let task = Process()
-                task.launchPath = "/usr/bin/open"
+                task.launchPath = taskLaunchPath
                 task.arguments = [macboxAppPath]
                 task.launch()
                 exit(0)
@@ -676,13 +679,15 @@ extension VersionManagerViewController: URLSessionDownloadDelegate {
     
     // Handle download error
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        if let info = downloadTasks.first(where: { $0.downloadTask == task }) {
-            if let error = error {
-                info.progressIndicator.isHidden = true
-                info.updateButton.isHidden = false
-                
-                print("Error: \(error.localizedDescription)")
-            }
+        guard let info = downloadTasks.first(where: { $0.downloadTask == task }),
+              let error = error
+        else {
+            return
         }
+            
+        info.progressIndicator.isHidden = true
+        info.updateButton.isHidden = false
+            
+        print("Error: \(error.localizedDescription)")
     }
 }
