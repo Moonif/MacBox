@@ -1,0 +1,1242 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0Gb-mC-S6K.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Searching your Mac for 86Box config files...\"; ObjectID = \"0Gb-mC-S6K\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Searching your Mac for 86Box config files..."
+          }
+        }
+      }
+    },
+    "0hx-cy-mCq.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"86Box\"; ObjectID = \"0hx-cy-mCq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box"
+          }
+        }
+      }
+    },
+    "0Tx-C2-Qvm.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Found 86Box Virtual Machines\"; ObjectID = \"0Tx-C2-Qvm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Found 86Box Virtual Machines"
+          }
+        }
+      }
+    },
+    "1aL-uu-Y7l.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Specifications\"; ObjectID = \"1aL-uu-Y7l\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Specifications"
+          }
+        }
+      }
+    },
+    "1Ha-E1-Vz8.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"HDD\"; ObjectID = \"1Ha-E1-Vz8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HDD"
+          }
+        }
+      }
+    },
+    "1Xt-HY-uBw.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"MacBox\"; ObjectID = \"1Xt-HY-uBw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "MacBox"
+          }
+        }
+      }
+    },
+    "3m7-wE-vgY.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"Virtual Machine Name\"; ObjectID = \"3m7-wE-vgY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Virtual Machine Name"
+          }
+        }
+      }
+    },
+    "3tX-nF-MxG.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Specifications\"; ObjectID = \"3tX-nF-MxG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Specifications"
+          }
+        }
+      }
+    },
+    "4sb-4s-VLi.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Quit MacBox\"; ObjectID = \"4sb-4s-VLi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Quit MacBox"
+          }
+        }
+      }
+    },
+    "5kV-Vb-QxS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"About MacBox\"; ObjectID = \"5kV-Vb-QxS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "About MacBox"
+          }
+        }
+      }
+    },
+    "6bh-fT-Ljl.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Add Manually\"; ObjectID = \"6bh-fT-Ljl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add Manually"
+          }
+        }
+      }
+    },
+    "6DB-RP-y3A.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"86Box\"; ObjectID = \"6DB-RP-y3A\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box"
+          }
+        }
+      }
+    },
+    "8lW-cB-nO3.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"MacBox\"; ObjectID = \"8lW-cB-nO3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "MacBox"
+          }
+        }
+      }
+    },
+    "9FM-9z-CaN.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"RAM\"; ObjectID = \"9FM-9z-CaN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "RAM"
+          }
+        }
+      }
+    },
+    "9fX-kD-Vdt.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Update\"; ObjectID = \"9fX-kD-Vdt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update"
+          }
+        }
+      }
+    },
+    "77S-ae-5dA.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"VM Name\"; ObjectID = \"77S-ae-5dA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Name"
+          }
+        }
+      }
+    },
+    "AG8-jo-aoT.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"RAM\"; ObjectID = \"AG8-jo-aoT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "RAM"
+          }
+        }
+      }
+    },
+    "aLF-ub-4OH.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"System\"; ObjectID = \"aLF-ub-4OH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "System"
+          }
+        }
+      }
+    },
+    "aRi-Wi-bFy.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"HDD\"; ObjectID = \"aRi-Wi-bFy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HDD"
+          }
+        }
+      }
+    },
+    "asJ-Vr-WDf.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"RAM\"; ObjectID = \"asJ-Vr-WDf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "RAM"
+          }
+        }
+      }
+    },
+    "AYu-sK-qS6.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Main Menu\"; ObjectID = \"AYu-sK-qS6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Main Menu"
+          }
+        }
+      }
+    },
+    "BOF-NM-1cW.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Settings…\"; ObjectID = \"BOF-NM-1cW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Settings…"
+          }
+        }
+      }
+    },
+    "bru-xq-RxK.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSTextField\"; ibExternalAccessibilityDescription = \"VM Name\"; ObjectID = \"bru-xq-RxK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Name"
+          }
+        }
+      }
+    },
+    "bru-xq-RxK.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSTextField\"; ibExternalAccessibilityHelp = \"VM Name - Can be edited\"; ObjectID = \"bru-xq-RxK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Name - Can be edited"
+          }
+        }
+      }
+    },
+    "BSC-MU-7fn.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSTextField\"; ibExternalAccessibilityDescription = \"VM Name\"; ObjectID = \"BSC-MU-7fn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Name"
+          }
+        }
+      }
+    },
+    "BSC-MU-7fn.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSTextField\"; ibExternalAccessibilityHelp = \"Enter a name for your new VM\"; ObjectID = \"BSC-MU-7fn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter a name for your new VM"
+          }
+        }
+      }
+    },
+    "cub-uH-sDi.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"CPU\"; ObjectID = \"cub-uH-sDi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "CPU"
+          }
+        }
+      }
+    },
+    "czY-sb-kAd.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Dark\"; ObjectID = \"czY-sb-kAd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dark"
+          }
+        }
+      }
+    },
+    "d0N-cb-ERR.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"MacBox\"; ObjectID = \"d0N-cb-ERR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "MacBox"
+          }
+        }
+      }
+    },
+    "d2D-Bk-fw6.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Description\"; ObjectID = \"d2D-Bk-fw6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Description"
+          }
+        }
+      }
+    },
+    "DbM-P4-cq0.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Start VM\"; ObjectID = \"DbM-P4-cq0\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Start VM"
+          }
+        }
+      }
+    },
+    "dku-Fs-jda.label" : {
+      "comment" : "Class = \"NSToolbarItem\"; label = \"Add VM\"; ObjectID = \"dku-Fs-jda\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add VM"
+          }
+        }
+      }
+    },
+    "dku-Fs-jda.paletteLabel" : {
+      "comment" : "Class = \"NSToolbarItem\"; paletteLabel = \"Add VM\"; ObjectID = \"dku-Fs-jda\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add VM"
+          }
+        }
+      }
+    },
+    "dz5-Ik-wZS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Search: Home\"; ObjectID = \"dz5-Ik-wZS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search: Home"
+          }
+        }
+      }
+    },
+    "Ebz-Nf-Gjn.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Default 86Box Version\"; ObjectID = \"Ebz-Nf-Gjn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Default 86Box Version"
+          }
+        }
+      }
+    },
+    "eQ4-EJ-8CD.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Name\"; ObjectID = \"eQ4-EJ-8CD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "f85-j5-Sxi.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"Machine and CPU\"; ObjectID = \"f85-j5-Sxi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Machine and CPU"
+          }
+        }
+      }
+    },
+    "FBJ-71-FyH.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Appearance\"; ObjectID = \"FBJ-71-FyH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Appearance"
+          }
+        }
+      }
+    },
+    "frC-m7-xbP.label" : {
+      "comment" : "Class = \"NSTabViewItem\"; label = \"Import Existing VM\"; ObjectID = \"frC-m7-xbP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Import Existing VM"
+          }
+        }
+      }
+    },
+    "fS9-PG-1gU.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Experimental\"; ObjectID = \"fS9-PG-1gU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Experimental"
+          }
+        }
+      }
+    },
+    "Ges-Pj-fot.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Update Channel\"; ObjectID = \"Ges-Pj-fot\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update Channel"
+          }
+        }
+      }
+    },
+    "HWW-PB-l51.label" : {
+      "comment" : "Class = \"NSTabViewItem\"; label = \"Create New VM\"; ObjectID = \"HWW-PB-l51\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Create New VM"
+          }
+        }
+      }
+    },
+    "hxY-nJ-PyD.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"Start VM\"; ObjectID = \"hxY-nJ-PyD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Start VM"
+          }
+        }
+      }
+    },
+    "hxY-nJ-PyD.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityHelp = \"Start the selected VM\"; ObjectID = \"hxY-nJ-PyD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Start the selected VM"
+          }
+        }
+      }
+    },
+    "hz9-B4-Xy5.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Services\"; ObjectID = \"hz9-B4-Xy5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Services"
+          }
+        }
+      }
+    },
+    "iAl-vP-Cp6.label" : {
+      "comment" : "Class = \"NSToolbarItem\"; label = \"Printer Tray\"; ObjectID = \"iAl-vP-Cp6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Printer Tray"
+          }
+        }
+      }
+    },
+    "iAl-vP-Cp6.paletteLabel" : {
+      "comment" : "Class = \"NSToolbarItem\"; paletteLabel = \"Printer Tray\"; ObjectID = \"iAl-vP-Cp6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Printer Tray"
+          }
+        }
+      }
+    },
+    "Ic1-W7-XQj.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"RAM\"; ObjectID = \"Ic1-W7-XQj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "RAM"
+          }
+        }
+      }
+    },
+    "Ice-RX-OAt.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Add\"; ObjectID = \"Ice-RX-OAt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "IQv-IB-iLA.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"MacBox\"; ObjectID = \"IQv-IB-iLA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "MacBox"
+          }
+        }
+      }
+    },
+    "j1y-aQ-QDB.title" : {
+      "comment" : "Class = \"NSViewController\"; title = \"Version Manager\"; ObjectID = \"j1y-aQ-QDB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version Manager"
+          }
+        }
+      }
+    },
+    "JkC-z3-cIL.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Description\"; ObjectID = \"JkC-z3-cIL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Description"
+          }
+        }
+      }
+    },
+    "Jye-et-3Sc.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Custom 86Box Version\"; ObjectID = \"Jye-et-3Sc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Custom 86Box Version"
+          }
+        }
+      }
+    },
+    "kbG-Ea-92e.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"86Box ROMs\"; ObjectID = \"kbG-Ea-92e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box ROMs"
+          }
+        }
+      }
+    },
+    "Kd2-mp-pUS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Show All\"; ObjectID = \"Kd2-mp-pUS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show All"
+          }
+        }
+      }
+    },
+    "kJI-5n-E1G.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Box\"; ObjectID = \"kJI-5n-E1G\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Box"
+          }
+        }
+      }
+    },
+    "kSa-Mr-o6a.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"HDD\"; ObjectID = \"kSa-Mr-o6a\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HDD"
+          }
+        }
+      }
+    },
+    "lBa-31-8GP.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Name\"; ObjectID = \"lBa-31-8GP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "lrV-sV-bI1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"HDD\"; ObjectID = \"lrV-sV-bI1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HDD"
+          }
+        }
+      }
+    },
+    "mFq-ha-EFv.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Box\"; ObjectID = \"mFq-ha-EFv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Box"
+          }
+        }
+      }
+    },
+    "mli-QT-gZz.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Light\"; ObjectID = \"mli-QT-gZz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Light"
+          }
+        }
+      }
+    },
+    "MyA-zx-Jcf.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSImageView\"; ibShadowedToolTip = \"Machine and CPU\"; ObjectID = \"MyA-zx-Jcf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Machine and CPU"
+          }
+        }
+      }
+    },
+    "n8a-zb-1Hj.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Update\"; ObjectID = \"n8a-zb-1Hj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update"
+          }
+        }
+      }
+    },
+    "nCg-K1-BKO.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Start in Full Screen\"; ObjectID = \"nCg-K1-BKO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Start in Full Screen"
+          }
+        }
+      }
+    },
+    "Neh-7r-MFd.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSComboBox\"; ibExternalAccessibilityDescription = \"Virtual Machine Templates Dropdown box\"; ObjectID = \"Neh-7r-MFd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Virtual Machine Templates Dropdown box"
+          }
+        }
+      }
+    },
+    "Neh-7r-MFd.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSComboBox\"; ibExternalAccessibilityHelp = \"List of VM templates, press the down arrow to open the list\"; ObjectID = \"Neh-7r-MFd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "List of VM templates, press the down arrow to open the list"
+          }
+        }
+      }
+    },
+    "nMG-GR-dca.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Custom\"; ObjectID = \"nMG-GR-dca\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Custom"
+          }
+        }
+      }
+    },
+    "NMo-om-nkz.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Services\"; ObjectID = \"NMo-om-nkz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Services"
+          }
+        }
+      }
+    },
+    "Nuf-kZ-aMF.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"Remove Selected VM\"; ObjectID = \"Nuf-kZ-aMF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remove Selected VM"
+          }
+        }
+      }
+    },
+    "Nuf-kZ-aMF.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityHelp = \"Remove the selected VM\"; ObjectID = \"Nuf-kZ-aMF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remove the selected VM"
+          }
+        }
+      }
+    },
+    "Nuf-kZ-aMF.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"Remove Selected VM\"; ObjectID = \"Nuf-kZ-aMF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remove Selected VM"
+          }
+        }
+      }
+    },
+    "O5p-UC-4SD.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSTextView\"; ibExternalAccessibilityDescription = \"VM Description\"; ObjectID = \"O5p-UC-4SD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Description"
+          }
+        }
+      }
+    },
+    "O5p-UC-4SD.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSTextView\"; ibExternalAccessibilityHelp = \"Enter a description for your new VM\"; ObjectID = \"O5p-UC-4SD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter a description for your new VM"
+          }
+        }
+      }
+    },
+    "Olw-nP-bQN.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Hide MacBox\"; ObjectID = \"Olw-nP-bQN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide MacBox"
+          }
+        }
+      }
+    },
+    "PdS-tT-imz.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Machine\"; ObjectID = \"PdS-tT-imz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Machine"
+          }
+        }
+      }
+    },
+    "pkl-zc-6EC.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Template\"; ObjectID = \"pkl-zc-6EC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Template"
+          }
+        }
+      }
+    },
+    "Puu-46-AAb.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Experimental\"; ObjectID = \"Puu-46-AAb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Experimental"
+          }
+        }
+      }
+    },
+    "qIx-Pa-bKT.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Search: Custom\"; ObjectID = \"qIx-Pa-bKT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search: Custom"
+          }
+        }
+      }
+    },
+    "Qwo-1T-3jX.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Stable\"; ObjectID = \"Qwo-1T-3jX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stable"
+          }
+        }
+      }
+    },
+    "RSq-qQ-pZk.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Stable\"; ObjectID = \"RSq-qQ-pZk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stable"
+          }
+        }
+      }
+    },
+    "s4Y-BK-Wd1.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Box\"; ObjectID = \"s4Y-BK-Wd1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Box"
+          }
+        }
+      }
+    },
+    "SgG-fR-vKm.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"VM Settings\"; ObjectID = \"SgG-fR-vKm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Settings"
+          }
+        }
+      }
+    },
+    "SgG-fR-vKm.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityHelp = \"Open the VM's settings window\"; ObjectID = \"SgG-fR-vKm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open the VM's settings window"
+          }
+        }
+      }
+    },
+    "t4I-pE-3dU.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Auto\"; ObjectID = \"t4I-pE-3dU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Auto"
+          }
+        }
+      }
+    },
+    "tku-7W-0ix.placeholderString" : {
+      "comment" : "Class = \"NSComboBoxCell\"; placeholderString = \"Virtual Machine Template\"; ObjectID = \"tku-7W-0ix\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Virtual Machine Template"
+          }
+        }
+      }
+    },
+    "tUe-cO-PZc.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"Version status\"; ObjectID = \"tUe-cO-PZc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version status"
+          }
+        }
+      }
+    },
+    "tUe-cO-PZc.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityHelp = \"Open version manager\"; ObjectID = \"tUe-cO-PZc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open version manager"
+          }
+        }
+      }
+    },
+    "Txq-Br-qI7.title" : {
+      "comment" : "Class = \"NSTabViewController\"; title = \"Add a Virtual Machine\"; ObjectID = \"Txq-Br-qI7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add a Virtual Machine"
+          }
+        }
+      }
+    },
+    "u7A-p6-vpC.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Apply Shader\"; ObjectID = \"u7A-p6-vpC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Apply Shader"
+          }
+        }
+      }
+    },
+    "uPw-97-Cpw.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Search: Documents\"; ObjectID = \"uPw-97-Cpw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Search: Documents"
+          }
+        }
+      }
+    },
+    "uQy-DD-JDr.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"MacBox\"; ObjectID = \"uQy-DD-JDr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "MacBox"
+          }
+        }
+      }
+    },
+    "Vdr-fp-XzO.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Hide Others\"; ObjectID = \"Vdr-fp-XzO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hide Others"
+          }
+        }
+      }
+    },
+    "VIo-Xn-A7O.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Default Path\"; ObjectID = \"VIo-Xn-A7O\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Default Path"
+          }
+        }
+      }
+    },
+    "WQr-eD-ziO.title" : {
+      "comment" : "Class = \"NSViewController\"; title = \"Settings\"; ObjectID = \"WQr-eD-ziO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "XMD-ks-vOR.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Add\"; ObjectID = \"XMD-ks-vOR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "Y8n-cR-owL.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Update\"; ObjectID = \"Y8n-cR-owL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Update"
+          }
+        }
+      }
+    },
+    "yEI-AJ-Fok.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"CPU\"; ObjectID = \"yEI-AJ-Fok\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "CPU"
+          }
+        }
+      }
+    },
+    "YpZ-1Y-BHP.label" : {
+      "comment" : "Class = \"NSToolbarItem\"; label = \"Screenshots\"; ObjectID = \"YpZ-1Y-BHP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screenshots"
+          }
+        }
+      }
+    },
+    "YpZ-1Y-BHP.paletteLabel" : {
+      "comment" : "Class = \"NSToolbarItem\"; paletteLabel = \"Screenshots\"; ObjectID = \"YpZ-1Y-BHP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screenshots"
+          }
+        }
+      }
+    },
+    "Z6c-Qo-Ahd.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Machine\"; ObjectID = \"Z6c-Qo-Ahd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Machine"
+          }
+        }
+      }
+    },
+    "ZEm-MO-8Mg.ibExternalAccessibilityDescription" : {
+      "comment" : "Class = \"NSTextView\"; ibExternalAccessibilityDescription = \"VM Description\"; ObjectID = \"ZEm-MO-8Mg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Description"
+          }
+        }
+      }
+    },
+    "ZEm-MO-8Mg.ibExternalAccessibilityHelp" : {
+      "comment" : "Class = \"NSTextView\"; ibExternalAccessibilityHelp = \"VM Description - Can be edited\"; ObjectID = \"ZEm-MO-8Mg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "VM Description - Can be edited"
+          }
+        }
+      }
+    },
+    "Zfy-9P-9aq.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"v0.0.0\"; ObjectID = \"Zfy-9P-9aq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "v0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

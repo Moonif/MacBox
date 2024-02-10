@@ -421,6 +421,9 @@ lgibm440bx=LG IBM Multinet i x7G (MSI MS-6119)
 cb52x_si=Daewoo CB52X-SI
 r534f=Rise R534F
 m560=PC Chips M560
+tomahawk=Gateway Tomahawk
+ECS_386V=ECS Panda 386V
+4gpv5=A-Trend 4GPV5
 
 [cpu_family]
 8088=Intel 8088

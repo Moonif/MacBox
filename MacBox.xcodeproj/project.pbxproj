@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,18 +11,26 @@
 		F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */; };
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
+		F944ACA12B55BF230048455C /* VersionManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F944ACA02B55BF230048455C /* VersionManagerViewController.swift */; };
 		F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */; };
+		F97BF9B02B5EFF71003AB087 /* VersionInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97BF9AF2B5EFF71003AB087 /* VersionInfoObject.swift */; };
+		F989DA832B754D1300F074F8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F989DA822B754D1300F074F8 /* Localizable.xcstrings */; };
 		F99FFC5629F5364300099CAB /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = F99FFC5529F5364300099CAB /* Shaders */; };
 		F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */ = {isa = PBXBuildFile; fileRef = F9A04BAD29EEF26F00DC813D /* namedefs.inf */; };
 		F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A04BB029EF0F5400DC813D /* FileManager.swift */; };
 		F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B09E6329E9DBC800C86A0F /* IniParser.swift */; };
 		F9BB907629F14C7E000B4C5F /* VMTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB907529F14C7E000B4C5F /* VMTemplate.swift */; };
 		F9BDB5CC29EC139A00D7331F /* ImportVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDB5CB29EC139A00D7331F /* ImportVMViewController.swift */; };
+		F9D3370F2B6A8DD500CE75A0 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3370E2B6A8DD500CE75A0 /* URL.swift */; };
 		F9D6078329E2BABE002541BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6078229E2BABE002541BF /* AppDelegate.swift */; };
 		F9D6078529E2BABE002541BF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D6078429E2BABE002541BF /* MainViewController.swift */; };
 		F9D6078729E2BABF002541BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9D6078629E2BABF002541BF /* Assets.xcassets */; };
 		F9D6078A29E2BABF002541BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D6078829E2BABF002541BF /* Main.storyboard */; };
+		F9DBA4CC2B511A60009C452C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DBA4CB2B511A60009C452C /* SettingsViewController.swift */; };
 		F9DC6A4229F874770076FC50 /* SpecsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DC6A4129F874770076FC50 /* SpecsParser.swift */; };
+		F9F47FAD2B571DBF008EDF4E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F47FAC2B571DBF008EDF4E /* Date.swift */; };
+		F9F47FAF2B573444008EDF4E /* JenkinsResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F47FAE2B573444008EDF4E /* JenkinsResponseObject.swift */; };
+		F9F47FB72B581BB0008EDF4E /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = F9F47FB62B581BB0008EDF4E /* ZIPFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,20 +38,28 @@
 		F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVMProcess.swift; sourceTree = "<group>"; };
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
+		F944ACA02B55BF230048455C /* VersionManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManagerViewController.swift; sourceTree = "<group>"; };
 		F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubResponseObject.swift; sourceTree = "<group>"; };
+		F97BF9AF2B5EFF71003AB087 /* VersionInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoObject.swift; sourceTree = "<group>"; };
+		F989DA822B754D1300F074F8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F989DA842B754D2400F074F8 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
 		F99FFC5529F5364300099CAB /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
 		F9A04BAD29EEF26F00DC813D /* namedefs.inf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = namedefs.inf; sourceTree = "<group>"; };
 		F9A04BB029EF0F5400DC813D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		F9B09E6329E9DBC800C86A0F /* IniParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IniParser.swift; sourceTree = "<group>"; };
 		F9BB907529F14C7E000B4C5F /* VMTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTemplate.swift; sourceTree = "<group>"; };
 		F9BDB5CB29EC139A00D7331F /* ImportVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVMViewController.swift; sourceTree = "<group>"; };
+		F9D3370E2B6A8DD500CE75A0 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		F9D6077F29E2BABE002541BF /* MacBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D6078229E2BABE002541BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9D6078429E2BABE002541BF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F9D6078629E2BABF002541BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9D6078929E2BABF002541BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9D6078B29E2BABF002541BF /* MacBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacBox.entitlements; sourceTree = "<group>"; };
+		F9DBA4CB2B511A60009C452C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9DC6A4129F874770076FC50 /* SpecsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecsParser.swift; sourceTree = "<group>"; };
+		F9F47FAC2B571DBF008EDF4E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F9F47FAE2B573444008EDF4E /* JenkinsResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JenkinsResponseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F47FB72B581BB0008EDF4E /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +99,8 @@
 				F9D6078429E2BABE002541BF /* MainViewController.swift */,
 				F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */,
 				F9BDB5CB29EC139A00D7331F /* ImportVMViewController.swift */,
+				F9DBA4CB2B511A60009C452C /* SettingsViewController.swift */,
+				F944ACA02B55BF230048455C /* VersionManagerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -89,9 +108,19 @@
 		F95DC0442B4BD28C006ECF05 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				F97BF9AF2B5EFF71003AB087 /* VersionInfoObject.swift */,
 				F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */,
+				F9F47FAE2B573444008EDF4E /* JenkinsResponseObject.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		F989DA812B754CDF00F074F8 /* Strings Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F989DA822B754D1300F074F8 /* Localizable.xcstrings */,
+			);
+			path = "Strings Localization";
 			sourceTree = "<group>";
 		};
 		F9A04BAC29EEF26100DC813D /* Data */ = {
@@ -106,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				F9A04BB029EF0F5400DC813D /* FileManager.swift */,
+				F9F47FAC2B571DBF008EDF4E /* Date.swift */,
+				F9D3370E2B6A8DD500CE75A0 /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,6 +171,7 @@
 				F9A04BAF29EF0F4300DC813D /* Extensions */,
 				F9A04BAC29EEF26100DC813D /* Data */,
 				F959EF7729E3585800934DA5 /* ViewControllers */,
+				F989DA812B754CDF00F074F8 /* Strings Localization */,
 				F959EF7629E3580700934DA5 /* Storyboards */,
 				F959EF7529E357F500934DA5 /* Classes */,
 				F95DC0442B4BD28C006ECF05 /* Structs */,
@@ -169,6 +201,9 @@
 			dependencies = (
 			);
 			name = MacBox;
+			packageProductDependencies = (
+				F9F47FB62B581BB0008EDF4E /* ZIPFoundation */,
+			);
 			productName = MacBox;
 			productReference = F9D6077F29E2BABE002541BF /* MacBox.app */;
 			productType = "com.apple.product-type.application";
@@ -181,7 +216,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					F9D6077E29E2BABE002541BF = {
 						CreatedOnToolsVersion = 14.3;
@@ -197,6 +232,9 @@
 				Base,
 			);
 			mainGroup = F9D6077629E2BABE002541BF;
+			packageReferences = (
+				F9F47FB52B581BB0008EDF4E /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
 			productRefGroup = F9D6078029E2BABE002541BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,6 +251,7 @@
 			files = (
 				F918A5A129F19CE500E15E32 /* Templates in Resources */,
 				F99FFC5629F5364300099CAB /* Shaders in Resources */,
+				F989DA832B754D1300F074F8 /* Localizable.xcstrings in Resources */,
 				F9D6078729E2BABF002541BF /* Assets.xcassets in Resources */,
 				F9A04BAE29EEF26F00DC813D /* namedefs.inf in Resources */,
 				F9D6078A29E2BABF002541BF /* Main.storyboard in Resources */,
@@ -233,10 +272,16 @@
 				F92DF7CE2A00021800450E04 /* RunningVMProcess.swift in Sources */,
 				F9A04BB129EF0F5400DC813D /* FileManager.swift in Sources */,
 				F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */,
+				F9D3370F2B6A8DD500CE75A0 /* URL.swift in Sources */,
 				F934D58D29E424EE00F0D450 /* VM.swift in Sources */,
+				F9F47FAF2B573444008EDF4E /* JenkinsResponseObject.swift in Sources */,
 				F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */,
+				F9F47FAD2B571DBF008EDF4E /* Date.swift in Sources */,
+				F97BF9B02B5EFF71003AB087 /* VersionInfoObject.swift in Sources */,
 				F9D6078329E2BABE002541BF /* AppDelegate.swift in Sources */,
 				F9DC6A4229F874770076FC50 /* SpecsParser.swift in Sources */,
+				F9DBA4CC2B511A60009C452C /* SettingsViewController.swift in Sources */,
+				F944ACA12B55BF230048455C /* VersionManagerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +292,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F9D6078929E2BABF002541BF /* Base */,
+				F989DA842B754D2400F074F8 /* mul */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -287,9 +333,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -304,6 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -347,9 +396,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -358,6 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -379,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = CQFP794WX5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -391,8 +444,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.3.9;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -413,6 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = CQFP794WX5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -425,8 +479,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.3.9;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -457,6 +511,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F9F47FB52B581BB0008EDF4E /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.17;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9F47FB62B581BB0008EDF4E /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9F47FB52B581BB0008EDF4E /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9D6077729E2BABE002541BF /* Project object */;
 }

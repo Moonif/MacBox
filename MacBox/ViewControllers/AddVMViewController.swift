@@ -22,8 +22,8 @@ class AddVMViewController: NSViewController {
     @IBOutlet weak var vmTemplateShaderOption: NSButton!
     
     // Variables
+    private let fileManager = FileManager.default
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
-    var mainVC = MainViewController()
     var vmTemplateList: [VMTemplate] = []
     var currentVMTemplate: VMTemplate?
     
@@ -61,7 +61,7 @@ class AddVMViewController: NSViewController {
         vmSpecHDD.stringValue = "-"
         vmSpecMachineLogo.image = nil
         // Patch status text
-        vmPathStatusTextField.stringValue = "VM will be created at: \"\(homeDirURL.path)\"."
+        vmPathStatusTextField.stringValue = String(format: NSLocalizedString("VM will be created at: \"%@\".", comment: ""), homeDirURL.path)
         // Shader option
         vmTemplateShaderOption.isTransparent = true
     }
@@ -84,7 +84,7 @@ class AddVMViewController: NSViewController {
             vmTemplate.infoPath = path.appending("/macbox.inf")
             vmTemplate.configPath = path.appending("/86box.cfg")
             
-            if FileManager.default.fileExists(atPath: vmTemplate.infoPath ?? "") {
+            if fileManager.fileExists(atPath: vmTemplate.infoPath ?? "") {
                 let ini = IniParser()
                 
                 let vmTemplateDescription = ini.parseConfig(vmTemplate.infoPath ?? "")["General"]?["Description"] ?? ""
@@ -166,14 +166,14 @@ class AddVMViewController: NSViewController {
         }
         
         // Check if VM name was already taken
-        for vmListEntry in mainVC.vmList {
+        for vmListEntry in MainViewController.instance.vmList {
             if vmNameTextField.stringValue == vmListEntry.name {
                 // Show name taken alert
                 let alert = NSAlert()
                 
-                alert.messageText = "VM name is already taken!"
+                alert.messageText = NSLocalizedString("VM name is already taken!", comment: "")
                 alert.alertStyle = .critical
-                alert.addButton(withTitle: "OK")
+                alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
                 
                 let _ = alert.runModal()
                 
@@ -195,7 +195,7 @@ class AddVMViewController: NSViewController {
         }
         
         let vm = createVM(name: vmNameTextField.stringValue, description: vmDescriptionTextView.string, path: nil, logo: logo)
-        mainVC.addVM(vm: vm, vmTemplate: currentVMTemplate)
+        MainViewController.instance.addVM(vm: vm, vmTemplate: currentVMTemplate)
         
         // Dismiss the add VM tabVC modal view
         if let tabVC = self.parent as? NSTabViewController {

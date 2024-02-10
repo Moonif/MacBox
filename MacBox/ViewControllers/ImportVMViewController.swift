@@ -17,7 +17,7 @@ class ImportVMViewController: NSViewController {
     @IBOutlet weak var addButton: NSButton!
     
     // Variables
-    var mainVC = MainViewController()
+    private let fileManager = FileManager.default
     let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     private var searchURL: URL?
     private var cancelSearch: Bool = false
@@ -33,7 +33,7 @@ class ImportVMViewController: NSViewController {
         configFilesTableView.dataSource = self
         
         // Set defaults
-        searchURL = FileManager.default.homeDirectoryForCurrentUser
+        searchURL = fileManager.homeDirectoryForCurrentUser
     }
     
     // Start the search when the view appear
@@ -82,7 +82,7 @@ class ImportVMViewController: NSViewController {
                     let vmPath = "\(url?.path ?? "")/\(element)".dropLast(configFileSuffix.count)
                     
                     // Check if path already present in the VMs list
-                    let match = self.mainVC.vmList.contains(where: { vm in
+                    let match = MainViewController.instance.vmList.contains(where: { vm in
                         if let path = vm.path, path == vmPath {
                             return true
                         }
@@ -104,11 +104,11 @@ class ImportVMViewController: NSViewController {
                     self.searchText.isHidden = true
                     self.foundText.isHidden = false
                     if self.configFilesList.count > 0 {
-                        self.foundText.stringValue = "MacBox found \(self.configFilesList.count) VMs on your Mac, press the \"Add\" button to import them."
+                        self.foundText.stringValue = String(format: NSLocalizedString("MacBox found %d VMs on your Mac, press the \"Add\" button to import them.", comment: ""), self.configFilesList.count)
                         self.addButton.isEnabled = true
                     }
                     else {
-                        self.foundText.stringValue = "MacBox could not find any VM on your Mac."
+                        self.foundText.stringValue = NSLocalizedString("MacBox could not find any VM on your Mac.", comment: "")
                     }
                 }
             }
@@ -153,7 +153,7 @@ class ImportVMViewController: NSViewController {
             // Create a VM and add it to the table view
             let vmPathURL = URL(fileURLWithPath: vmConfigPath)
             let vm = createVM(name: vmPathURL.lastPathComponent, description: nil, path: vmConfigPath)
-            mainVC.addVM(vm: vm)
+            MainViewController.instance.addVM(vm: vm)
         }
         
         // Dismiss the add VM tabVC modal view
@@ -175,12 +175,12 @@ class ImportVMViewController: NSViewController {
         if filePickerPanel.runModal() == .OK {
             if let vmDirectoryURL = filePickerPanel.url?.path {
                 let vmConfigFileURL = vmDirectoryURL.appending("/86box.cfg")
-                if FileManager.default.fileExists(atPath: vmConfigFileURL) {
+                if fileManager.fileExists(atPath: vmConfigFileURL) {
                     // 86Box config file was found
                     importedVMPath = vmDirectoryURL
                     
                     // Check if path already present in the VMs list
-                    let match = self.mainVC.vmList.contains(where: { vm in
+                    let match = MainViewController.instance.vmList.contains(where: { vm in
                         if let path = vm.path, path == importedVMPath {
                             return true
                         }
@@ -190,7 +190,7 @@ class ImportVMViewController: NSViewController {
                     if !match {
                         // Create a VM and add it to the table view
                         let vm = createVM(name: filePickerPanel.url?.lastPathComponent ?? "Imported VM", description: nil, path: importedVMPath)
-                        mainVC.addVM(vm: vm)
+                        MainViewController.instance.addVM(vm: vm)
                         
                         // Dismiss the add VM tabVC modal view
                         dismissView()
@@ -202,9 +202,9 @@ class ImportVMViewController: NSViewController {
                         // Show error: Selected VM is already added
                         let alert = NSAlert()
                         
-                        alert.messageText = "Selected VM is already added!"
+                        alert.messageText = NSLocalizedString("Selected VM is already added!", comment: "")
                         alert.alertStyle = .critical
-                        alert.addButton(withTitle: "OK")
+                        alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
                         
                         alert.runModal()
                     }
@@ -216,9 +216,9 @@ class ImportVMViewController: NSViewController {
                     // Show error: No 86Box was found
                     let alert = NSAlert()
                     
-                    alert.messageText = "No 86Box config files was found!"
+                    alert.messageText = NSLocalizedString("No 86Box config files was found!", comment: "")
                     alert.alertStyle = .critical
-                    alert.addButton(withTitle: "OK")
+                    alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
                     
                     let alertResult = alert.runModal()
                     if alertResult == .alertFirstButtonReturn {
@@ -248,9 +248,9 @@ class ImportVMViewController: NSViewController {
         // Set selected search directory
         switch sender.selectedItem?.identifier {
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemHome") :
-            searchURL = FileManager.default.homeDirectoryForCurrentUser
+            searchURL = fileManager.homeDirectoryForCurrentUser
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemDocuments") :
-            searchURL = URL(fileURLWithPath: "Documents", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+            searchURL = URL(fileURLWithPath: "Documents", isDirectory: true, relativeTo: fileManager.homeDirectoryForCurrentUser)
         case NSUserInterfaceItemIdentifier(rawValue: "searchItemCustom") :
             // Open the file picker
             let filePickerPanel = NSOpenPanel()

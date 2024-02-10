@@ -1,0 +1,108 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "86Box is not installed." : {
+
+    },
+    "86Box v%@ (Build %@)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        }
+      }
+    },
+    "86Box v%@ (Build %@). Version status: %d %@ available." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        }
+      }
+    },
+    "86Box v%@ (Build %@). Version status: up-to-date." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        }
+      }
+    },
+    "86Box v%@ (Local Build)" : {
+
+    },
+    "Add a Virtual Machine" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Do you want to remove the selected VM?" : {
+
+    },
+    "Duplicate" : {
+
+    },
+    "Install" : {
+
+    },
+    "MacBox could not find any VM on your Mac." : {
+
+    },
+    "MacBox found %d VMs on your Mac, press the \"Add\" button to import them." : {
+
+    },
+    "MacBox will now restart in order to apply the update" : {
+
+    },
+    "No 86Box config files was found!" : {
+
+    },
+    "OK" : {
+
+    },
+    "Remove" : {
+
+    },
+    "Restart" : {
+
+    },
+    "Selected 86Box file is not found. VM will open using default version." : {
+
+    },
+    "Selected VM is already added!" : {
+
+    },
+    "Send the selected VM and all its files to trash" : {
+
+    },
+    "Show in Finder" : {
+
+    },
+    "This will only remove it from MacBox. If you also want to remove the VM files, check the option below." : {
+
+    },
+    "update" : {
+
+    },
+    "Update" : {
+
+    },
+    "updates" : {
+
+    },
+    "VM name is already taken!" : {
+
+    },
+    "VM will be created at: \"%@\"." : {
+
+    }
+  },
+  "version" : "1.0"
+}
