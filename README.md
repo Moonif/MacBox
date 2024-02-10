@@ -7,8 +7,15 @@ MacBox is an optional manager app for the [86Box emulator](https://github.com/86
 
 ![MacBox](https://github.com/Moonif/MacBox/raw/main/Screenshots/MacBox.png)
 
+# Features
+* Create and manage multiple virtual machines.
+* You can create virtual machines from templates based on real hardware settings.
+* Easily import previously created 86Box virtual machines into MacBox.
+* Keep your 86Box, ROMs and MacBox up-to-date with the built-in version manager.
+* Set a custom 86Box version for each virtual machine.
+
 # Screenshot
-![MacBoxTemplates](https://github.com/Moonif/MacBox/raw/main/Screenshots/MacBox_CompaqPortable.png)
+![MacBoxTemplates](https://github.com/Moonif/MacBox/raw/main/Screenshots/Screenshot.png)
 
 # System requirements
 * macOS Mojave 10.14 or higher.
