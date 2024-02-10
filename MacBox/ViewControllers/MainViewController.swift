@@ -259,7 +259,7 @@ class MainViewController: NSViewController {
     }
     
     // Check if 86Box is installed, and check for updated version
-    func checkFor86Box(url: URL? = nil, appVer: String? = nil, buildVer: String? = nil) {
+    func checkFor86Box(url: URL? = nil, appVer: String? = nil, buildVer: String? = nil, ignoreVersionCheck: Bool = false) {
         var localUrl: URL?
         
         if let url = url {
@@ -288,7 +288,7 @@ class MainViewController: NSViewController {
                 localUrl = versionInfoObject.emulatorCustomUrl
             }
             
-            if let localUrl = localUrl {
+            if let localUrl = localUrl, !ignoreVersionCheck {
                 // Get 86Box info.plist
                 if let bundle = Bundle(url: localUrl) {
                     // Get the 86Box short version
