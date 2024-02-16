@@ -146,6 +146,7 @@ class MainViewController: NSViewController {
     // Resets VMInfoView to initial values
     private func resetVmInfoView() {
         startVMButton.isEnabled = false
+        vmAppVersionPopUpButton.isEnabled = false
         vmSettingsButton.isEnabled = false
         deleteVMButton.isEnabled = false
         vmNameTextField.stringValue = "-"
@@ -896,6 +897,7 @@ class MainViewController: NSViewController {
     private func selectTableRow(row: Int) {
         currentSelectedVM = row
         startVMButton.isEnabled = true
+        vmAppVersionPopUpButton.isEnabled = true
         vmSettingsButton.isEnabled = true
         deleteVMButton.isEnabled = true
         
