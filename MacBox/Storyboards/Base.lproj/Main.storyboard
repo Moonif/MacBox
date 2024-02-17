@@ -1237,7 +1237,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="432" height="546"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="kJI-5n-E1G">
+                            <box titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="kJI-5n-E1G">
                                 <rect key="frame" x="17" y="288" width="398" height="240"/>
                                 <view key="contentView" id="n7D-ZJ-djp">
                                     <rect key="frame" x="4" y="5" width="390" height="232"/>
@@ -1312,7 +1312,7 @@
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCw-gc-569" userLabel="Version">
                                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="14"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="v0.0.0" drawsBackground="YES" usesSingleLineMode="YES" id="Zfy-9P-9aq">
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" drawsBackground="YES" usesSingleLineMode="YES" id="Zfy-9P-9aq">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
@@ -1397,7 +1397,7 @@
                                     </constraints>
                                 </view>
                             </box>
-                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="s4Y-BK-Wd1">
+                            <box titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="s4Y-BK-Wd1">
                                 <rect key="frame" x="17" y="190" width="398" height="96"/>
                                 <view key="contentView" id="fhZ-jh-XMl">
                                     <rect key="frame" x="4" y="5" width="390" height="88"/>
@@ -1474,7 +1474,7 @@
                                     </constraints>
                                 </view>
                             </box>
-                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="mFq-ha-EFv">
+                            <box titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="mFq-ha-EFv">
                                 <rect key="frame" x="17" y="16" width="398" height="172"/>
                                 <view key="contentView" id="DNL-rP-Cdf">
                                     <rect key="frame" x="4" y="5" width="390" height="164"/>

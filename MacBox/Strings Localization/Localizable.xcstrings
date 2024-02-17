@@ -6,7 +6,187 @@
     },
     "86Box v%@ (Build %@)." : {
       "localizations" : {
+        "af" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (بناء %2$@)."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Postav %2$@)."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Byg %2$@)."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box gegen%1$@ (Build %2$@)."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Construir %2$@)."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ ( %2$@ をビルド)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bygg %2$@)."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bouw %2$@)."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Zbuduj %2$@)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Construa %2$@)."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Construa %2$@)."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bygg %2$@)."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Побудувати %2$@)."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Building %2$@)。"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "86Box v%1$@ (Build %2$@)."
@@ -16,7 +196,187 @@
     },
     "86Box v%@ (Build %@). Version status: %d %@ available." : {
       "localizations" : {
+        "af" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (بناء %2$@). حالة الإصدار: %3$d %4$@ متوفرة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Stav verze: %3$d %4$@ k dispozici."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Byg %2$@). Version status: %3$d %4$@ tilgængelig."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box gegen%1$@ (Build %2$@). Versionsstatus: %3$d %4$@ verfügbar."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Έκδοση κατάσταση: %3$d %4$@ διαθέσιμη."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Estado de la versión: %3$d %4$@ disponible."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Statut de la version : %3$d %4$@ disponible."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Stato versione: %3$d %4$@ disponibile."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ ( %2$@をビルド) バージョンステータス: %3$d %4$@ が利用可能です。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bygg %2$@). Versjon status: %3$d %4$@ tilgjengelig."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Versie status: %3$d %4$@ beschikbaar."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Zbuduj %2$@). Stan wersji: %3$d %4$@ dostępny."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Status da versão: %3$d %4$@ disponível."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Status da versão: %3$d %4$@ disponível."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Starea versiunii: %3$d %4$@ disponibile."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Статус версии: %3$d %4$@ доступен."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bygg %2$@). Versionsstatus: %3$d %4$@ tillgänglig."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Побудувати %2$@). Стан версії: %3$d %4$@ доступний."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (building %2$@)。版本状态： %3$d %4$@ 可用"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "86Box v%1$@ (Build %2$@). Version status: %3$d %4$@ available."
@@ -26,7 +386,187 @@
     },
     "86Box v%@ (Build %@). Version status: up-to-date." : {
       "localizations" : {
+        "af" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (بناء %2$@). حالة الإصدار: محدثة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (sestavení %2$@). Stav verze: aktuální."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Byg %2$@). Versionsstatus: up-to-date."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box gegen%1$@ (Build %2$@). Versionsstatus: aktuell."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Κατάσταση έκδοσης: ενημερωμένη."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "en-US" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Construir %2$@). Estado de la versión: actualizado."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Statut de la version : mise à jour."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Stato versione: aggiornato."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ ( %2$@をビルド) バージョンステータス: updated."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Bygg %2$@). Versjon status: oppdatert."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Versie status: up-to-date."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Status wersji: aktualny."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Status da versão: atualizada."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Status da versão: atualizada."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Stare versiune: actualizată."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (сборка %2$@). Статус версии: актуальный."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Build %2$@). Versionsstatus: aktuell."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Будуйте %2$@). Стан версії: найсвіжіша версія."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%1$@ (Building %2$@)。版本状态：最新。"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "86Box v%1$@ (Build %2$@). Version status: up-to-date."
