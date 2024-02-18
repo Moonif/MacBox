@@ -47,6 +47,9 @@ class MainViewController: NSViewController {
     private var currentVMConfigPath: String?
     private let nameTextFieldMaxLimit: Int = 32
     private let dragDropType = NSPasteboard.PasteboardType(rawValue: "private.table-row")
+    // HTTP request default values
+    private let httpHeaderAcceptValue = "application/vnd.github+json"
+    private let httpHeaderContentTypeValue = "application/json; charset=utf-8"
     // 86Box emulator variables
     private var emulatorAppVer: String = "0"
     private var emulatorBuildVer: String = "0"
@@ -442,8 +445,8 @@ class MainViewController: NSViewController {
         if let url = URL(string: "https://api.github.com/repos/86Box/86Box/releases/latest") {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(httpHeaderAcceptValue, forHTTPHeaderField: "Accept")
+            request.setValue(httpHeaderContentTypeValue, forHTTPHeaderField: "Content-Type")
             
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 guard let data = data else { return }
@@ -484,8 +487,8 @@ class MainViewController: NSViewController {
         if let url = URL(string: "https://api.github.com/repos/86Box/roms/commits/master") {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(httpHeaderAcceptValue, forHTTPHeaderField: "Accept")
+            request.setValue(httpHeaderContentTypeValue, forHTTPHeaderField: "Content-Type")
             
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 guard let data = data else { return }
@@ -524,8 +527,8 @@ class MainViewController: NSViewController {
         if let url = URL(string: "https://api.github.com/repos/Moonif/MacBox/releases/latest") {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(httpHeaderAcceptValue, forHTTPHeaderField: "Accept")
+            request.setValue(httpHeaderContentTypeValue, forHTTPHeaderField: "Content-Type")
             
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 guard let data = data else { return }
@@ -828,6 +831,12 @@ class MainViewController: NSViewController {
             // Selected app version
             var vmAppVersion = "net.86Box.86Box"
             var vmAppArg = "-b"
+            
+            if let emulatorAutoPath = versionInfoObject.emulatorAutoUrl?.path {
+                vmAppVersion = emulatorAutoPath
+                vmAppArg = "-a"
+            }
+            
             if let customAppPath = vmList[currentSelectedVM ?? 0].appPath {
                 if fileManager.fileExists(atPath: customAppPath) {
                     vmAppVersion = customAppPath
