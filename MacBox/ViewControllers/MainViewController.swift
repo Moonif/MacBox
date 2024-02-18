@@ -832,7 +832,12 @@ class MainViewController: NSViewController {
             var vmAppVersion = "net.86Box.86Box"
             var vmAppArg = "-b"
             
-            if let emulatorAutoPath = versionInfoObject.emulatorAutoUrl?.path {
+            // Set the emulator path if we already have it
+            if let emulatorCustomPath = versionInfoObject.emulatorCustomUrl?.path {
+                vmAppVersion = emulatorCustomPath
+                vmAppArg = "-a"
+            }
+            else if let emulatorAutoPath = versionInfoObject.emulatorAutoUrl?.path {
                 vmAppVersion = emulatorAutoPath
                 vmAppArg = "-a"
             }

@@ -125,7 +125,7 @@ class SettingsViewController: NSViewController {
                                 setEmulatorPathTextField(text: emulatorCustomPathString ?? "-")
                                 // Update version status in MainVC
                                 MainViewController.instance.versionInfoObject.emulatorCustomUrl = appURL
-                                MainViewController.instance.checkFor86Box(url: nil, appVer: nil, buildVer: nil, ignoreVersionCheck: true)
+                                MainViewController.instance.checkFor86Box()
                             }
                             else {
                                 // Not 86Box; Reset selection
@@ -148,7 +148,7 @@ class SettingsViewController: NSViewController {
                 emulatorCustomPathString = nil
                 // Update version status in MainVC
                 MainViewController.instance.versionInfoObject.emulatorCustomUrl = nil
-                MainViewController.instance.checkFor86Box(url: nil, appVer: nil, buildVer: nil, ignoreVersionCheck: true)
+                MainViewController.instance.checkFor86Box()
             }
         }
     }
