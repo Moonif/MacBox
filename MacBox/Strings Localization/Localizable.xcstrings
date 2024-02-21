@@ -265,7 +265,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box v%1$@ (Build %2$@). Statut de la version : %3$d %4$@ disponible."
+            "value" : "86Box v%1$@ (Build %2$@). État de la version : %3$d %4$@ disponible."
           }
         },
         "he" : {
@@ -455,7 +455,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box v%1$@ (Build %2$@). Statut de la version : mise à jour."
+            "value" : "86Box v%1$@ (Build %2$@). État de la version : à jour."
           }
         },
         "he" : {
