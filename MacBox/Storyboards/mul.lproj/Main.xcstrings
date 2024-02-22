@@ -14606,7 +14606,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسطبل"
+            "value" : "ثابتة"
           }
         },
         "ca" : {
@@ -14630,7 +14630,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stall"
+            "value" : "Stabil"
           }
         },
         "el" : {
@@ -14798,7 +14798,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسطبل"
+            "value" : "ثابتة"
           }
         },
         "ca" : {
@@ -14822,7 +14822,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stall"
+            "value" : "Stabil"
           }
         },
         "el" : {
