@@ -424,6 +424,12 @@ m560=PC Chips M560
 tomahawk=Gateway Tomahawk
 ECS_386V=ECS Panda 386V
 4gpv5=A-Trend 4GPV5
+um8663af=UMC UM8663AF Super I/O
+um8663af_ide=UMC UM8663AF Super I/O (With IDE)
+um8663af_ide_sec=UMC UM8663AF Super I/O (With Secondary IDE)
+um8663bf=UMC UM8663BF Super I/O
+um8663bf_ide=UMC UM8663BF Super I/O (With IDE)
+um8663bf_ide_sec=UMC UM8663BF Super I/O (With Secondary IDE)
 
 [cpu_family]
 8088=Intel 8088
