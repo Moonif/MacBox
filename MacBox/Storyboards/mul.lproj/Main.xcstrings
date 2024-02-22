@@ -74,7 +74,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche de fichiers de configuration 86Box sur votre Mac..."
+            "value" : "Recherche de configurations 86Box sur votre Mac..."
           }
         },
         "he" : {
@@ -2762,7 +2762,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mise à jour"
+            "value" : "Mettre à jour"
           }
         },
         "he" : {
@@ -4106,7 +4106,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paramètres…"
+            "value" : "Réglages…"
           }
         },
         "he" : {
@@ -5066,7 +5066,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "UC"
+            "value" : "CPU"
           }
         },
         "he" : {
@@ -5642,7 +5642,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Libellé"
+            "value" : "Description"
           }
         },
         "he" : {
@@ -6410,7 +6410,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche : Accueil"
+            "value" : "Recherche: Départ"
           }
         },
         "he" : {
@@ -6602,7 +6602,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version 86Box par défaut"
+            "value" : "Version de 86Box par défaut"
           }
         },
         "he" : {
@@ -8714,7 +8714,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imprimante dans la zone de notification"
+            "value" : "Bac d'impression"
           }
         },
         "he" : {
@@ -8906,7 +8906,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imprimante dans la zone de notification"
+            "value" : "Bac d'impression"
           }
         },
         "he" : {
@@ -9866,7 +9866,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Libellé"
+            "value" : "Description"
           }
         },
         "he" : {
@@ -10058,7 +10058,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version 86Box personnalisée"
+            "value" : "Version de 86Box personnalisée"
           }
         },
         "he" : {
@@ -10250,7 +10250,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box ROMs"
+            "value" : "ROMs 86Box"
           }
         },
         "he" : {
@@ -11210,7 +11210,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lumière"
+            "value" : "Clair"
           }
         },
         "he" : {
@@ -11594,7 +11594,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mise à jour"
+            "value" : "Mettre à jour"
           }
         },
         "he" : {
@@ -12170,7 +12170,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liste des modèles de VM, appuyez sur la flèche vers le bas pour ouvrir la liste"
+            "value" : "Liste des modèles de VM, appuyez sur la flèche du bas pour ouvrir la liste"
           }
         },
         "he" : {
@@ -12938,7 +12938,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Supprimer la machine virtuelle sélectionnée"
+            "value" : "Supprimer la VM sélectionnée"
           }
         },
         "he" : {
@@ -13322,7 +13322,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Description de la machine virtuelle"
+            "value" : "Description de la VM"
           }
         },
         "he" : {
@@ -14090,7 +14090,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gabarit"
+            "value" : "Modèle"
           }
         },
         "he" : {
@@ -14474,7 +14474,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche : Personnalisée"
+            "value" : "Recherche: Personnalisée"
           }
         },
         "he" : {
@@ -14666,7 +14666,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Écurie"
+            "value" : "Stable"
           }
         },
         "he" : {
@@ -14858,7 +14858,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Écurie"
+            "value" : "Stable"
           }
         },
         "he" : {
@@ -15050,7 +15050,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paramètres de la VM"
+            "value" : "Réglages de la VM"
           }
         },
         "he" : {
@@ -15242,7 +15242,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrir la fenêtre des paramètres de la machine virtuelle"
+            "value" : "Ouvrir la fenêtre des réglages de la VM"
           }
         },
         "he" : {
@@ -15818,7 +15818,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statut de la version"
+            "value" : "État de la version"
           }
         },
         "he" : {
@@ -16586,7 +16586,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche : Documents"
+            "value" : "Recherche: Documents"
           }
         },
         "he" : {
@@ -17162,7 +17162,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chemin par défaut"
+            "value" : "Emplacement par défaut"
           }
         },
         "he" : {
@@ -17738,7 +17738,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mise à jour"
+            "value" : "Mettre à jour"
           }
         },
         "he" : {
@@ -17930,7 +17930,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "UC"
+            "value" : "CPU"
           }
         },
         "he" : {
@@ -18698,7 +18698,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Description de la machine virtuelle"
+            "value" : "Description de la VM"
           }
         },
         "he" : {
@@ -18890,7 +18890,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Description de la VM - Peut être édité"
+            "value" : "Description de la VM - modifiable"
           }
         },
         "he" : {
