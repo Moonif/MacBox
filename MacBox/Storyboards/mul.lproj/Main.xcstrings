@@ -6458,7 +6458,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Szukaj: Strona główna"
+            "value" : "Szukaj: Folder domowy"
           }
         },
         "pt-BR" : {
@@ -16442,7 +16442,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zastosuj cień"
+            "value" : "Zastosuj Shader"
           }
         },
         "pt-BR" : {
