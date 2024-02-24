@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "86Box is not installed." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box nie jest zainstalowany."
+          }
+        }
+      }
     },
     "86Box v%@ (Build %@)." : {
       "localizations" : {
@@ -575,73 +582,220 @@
       }
     },
     "86Box v%@ (Local Build)" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "86Box v%@ (Local Build)"
+          }
+        }
+      }
     },
     "Add a Virtual Machine" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj maszynę wirtualną."
+          }
+        }
+      }
     },
     "Cancel" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anuluj"
+          }
+        }
+      }
     },
     "Do you want to remove the selected VM?" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czy chcesz usunąć zaznaczone VM ?"
+          }
+        }
+      }
     },
     "Duplicate" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duplikuj"
+          }
+        }
+      }
     },
     "Install" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zainstaluj"
+          }
+        }
+      }
     },
     "MacBox could not find any VM on your Mac." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MacBox nie znalazł żadnej maszyny wirtualnej."
+          }
+        }
+      }
     },
     "MacBox found %d VMs on your Mac, press the \"Add\" button to import them." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MacBox odnalazł %d maszyn(ę) na twoim Macu, naciśnij przycisk \"Dodaj\" aby je zaimportować."
+          }
+        }
+      }
     },
     "MacBox will now restart in order to apply the update" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MacBox zostanie teraz zrestartowany aby wgrać aktualizację."
+          }
+        }
+      }
     },
     "No 86Box config files was found!" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie znaleziono pliku konfiguracyjnego 86Box!"
+          }
+        }
+      }
     },
     "OK" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
     },
     "Remove" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usuń"
+          }
+        }
+      }
     },
     "Restart" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart"
+          }
+        }
+      }
     },
     "Selected 86Box file is not found. VM will open using default version." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybrany plik 86Box nie został odnaleziony. VM zostanie uruchomiony używając wersji domyślnej."
+          }
+        }
+      }
     },
     "Selected VM is already added!" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaznaczona maszyna jest już dodana"
+          }
+        }
+      }
     },
     "Send the selected VM and all its files to trash" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przenieś zaznaczone maszyny oraz wszystkie ich pliki do kosza."
+          }
+        }
+      }
     },
     "Show in Finder" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż w Finderze"
+          }
+        }
+      }
     },
     "This will only remove it from MacBox. If you also want to remove the VM files, check the option below." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zostanie usunięta maszyna tylko z MacBox. Jeśli chcesz usunąć pliki także z dysku, zaznacz opcję poniżej."
+          }
+        }
+      }
     },
     "update" : {
 
     },
     "Update" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizuj"
+          }
+        }
+      }
     },
     "updates" : {
 
     },
     "VM name is already taken!" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta nazwa VM jest już zajęta."
+          }
+        }
+      }
     },
     "VM will be created at: \"%@\"." : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VM zostanie stworzony w \"%@\"."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
