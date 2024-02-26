@@ -642,17 +642,6 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="tUe-cO-PZc">
-                                        <rect key="frame" x="48" y="0.0" width="0.0" height="50"/>
-                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="bNJ-v4-AVq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <accessibility description="Version status" help="Open version manager"/>
-                                        <connections>
-                                            <action selector="versionStatusButtonAction:" target="XfG-lQ-9wD" id="AJ7-su-VlZ"/>
-                                        </connections>
-                                    </button>
                                     <imageView translatesAutoresizingMaskIntoConstraints="NO" id="AdC-SK-urc">
                                         <rect key="frame" x="53" y="16" width="12" height="18"/>
                                         <constraints>
@@ -688,9 +677,19 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="exclamation_mark" id="v7Z-We-oZk"/>
                                         <color key="contentTintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                     </imageView>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="tUe-cO-PZc">
+                                        <rect key="frame" x="20" y="0.0" width="45" height="50"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="bNJ-v4-AVq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <accessibility description="Version status" help="Open version manager"/>
+                                        <connections>
+                                            <action selector="versionStatusButtonAction:" target="XfG-lQ-9wD" id="AJ7-su-VlZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tUe-cO-PZc" firstAttribute="width" secondItem="LQu-5F-fSe" secondAttribute="width" id="3Z4-yg-bzg"/>
                                     <constraint firstItem="tUe-cO-PZc" firstAttribute="top" secondItem="2aX-tV-f45" secondAttribute="top" id="7Aj-4U-sqp"/>
                                     <constraint firstItem="YRz-j1-IkF" firstAttribute="centerY" secondItem="2aX-tV-f45" secondAttribute="centerY" id="9HW-2e-vPv"/>
                                     <constraint firstItem="hiV-fI-Zc2" firstAttribute="bottom" secondItem="h4X-Nf-MzJ" secondAttribute="bottom" id="9Mk-5c-2cl"/>
@@ -699,7 +698,6 @@
                                     <constraint firstItem="AdC-SK-urc" firstAttribute="leading" secondItem="LQu-5F-fSe" secondAttribute="trailing" constant="5" id="EOa-8d-0PQ"/>
                                     <constraint firstItem="YRz-j1-IkF" firstAttribute="leading" secondItem="h4X-Nf-MzJ" secondAttribute="trailing" constant="8" symbolic="YES" id="FyI-fb-Nyb"/>
                                     <constraint firstItem="24n-9v-T3c" firstAttribute="trailing" secondItem="h4X-Nf-MzJ" secondAttribute="trailing" constant="2" id="G7v-oi-UAs"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tUe-cO-PZc" secondAttribute="trailing" constant="20" symbolic="YES" id="Ide-Yc-IDE"/>
                                     <constraint firstItem="24n-9v-T3c" firstAttribute="bottom" secondItem="h4X-Nf-MzJ" secondAttribute="bottom" id="If1-Vc-Mke"/>
                                     <constraint firstItem="LQu-5F-fSe" firstAttribute="centerY" secondItem="2aX-tV-f45" secondAttribute="centerY" id="OcM-zo-vcp"/>
                                     <constraint firstItem="h4X-Nf-MzJ" firstAttribute="leading" secondItem="2aX-tV-f45" secondAttribute="leading" constant="20" symbolic="YES" id="TF4-AK-pMF"/>
@@ -707,9 +705,10 @@
                                     <constraint firstItem="h4X-Nf-MzJ" firstAttribute="centerY" secondItem="2aX-tV-f45" secondAttribute="centerY" id="cEa-QA-gZm"/>
                                     <constraint firstItem="2fY-eo-mIM" firstAttribute="trailing" secondItem="h4X-Nf-MzJ" secondAttribute="trailing" constant="2" id="eil-4e-GTh"/>
                                     <constraint firstItem="LQu-5F-fSe" firstAttribute="leading" secondItem="h4X-Nf-MzJ" secondAttribute="trailing" constant="8" symbolic="YES" id="icX-p7-9bV"/>
+                                    <constraint firstItem="tUe-cO-PZc" firstAttribute="trailing" secondItem="AdC-SK-urc" secondAttribute="trailing" id="jEN-BR-7I7"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LQu-5F-fSe" secondAttribute="trailing" constant="20" symbolic="YES" id="kmS-VL-poV"/>
                                     <constraint firstAttribute="height" constant="50" id="qvv-UO-RaO"/>
-                                    <constraint firstItem="tUe-cO-PZc" firstAttribute="leading" secondItem="h4X-Nf-MzJ" secondAttribute="trailing" constant="8" symbolic="YES" id="qyQ-UI-Hzq"/>
+                                    <constraint firstItem="tUe-cO-PZc" firstAttribute="leading" secondItem="h4X-Nf-MzJ" secondAttribute="leading" id="qyQ-UI-Hzq"/>
                                     <constraint firstItem="2fY-eo-mIM" firstAttribute="bottom" secondItem="h4X-Nf-MzJ" secondAttribute="bottom" id="xBz-3Z-Ojr"/>
                                 </constraints>
                             </customView>
