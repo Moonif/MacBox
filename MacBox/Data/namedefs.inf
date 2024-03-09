@@ -431,6 +431,8 @@ um8663bf=UMC UM8663BF Super I/O
 um8663bf_ide=UMC UM8663BF Super I/O (With IDE)
 um8663bf_ide_sec=UMC UM8663BF Super I/O (With Secondary IDE)
 325ax=Chaintech 325AX
+aptiva_cm=IBM Aptiva CM
+ma23c=NEC Mate NX MA23C
 
 [cpu_family]
 8088=Intel 8088
