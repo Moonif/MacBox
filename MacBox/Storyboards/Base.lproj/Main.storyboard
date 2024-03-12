@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
         <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,18 +83,18 @@
                         <toolbar key="toolbar" implicitIdentifier="1756AC06-50A3-486E-B4F1-68772E058424" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="T2p-DO-2la">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wAl-LD-C7Z"/>
-                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" tag="-1" image="add" sizingBehavior="auto" id="dku-Fs-jda">
+                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" toolTip="Create or Import a Virtual Machine" tag="-1" image="add" sizingBehavior="auto" selectable="YES" id="dku-Fs-jda">
                                     <connections>
                                         <action selector="addVMButtonAction:" target="Oky-zY-oP4" id="Zu3-TD-Eor"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="pGa-oF-eFZ"/>
-                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" tag="-1" image="print" sizingBehavior="auto" id="iAl-vP-Cp6" userLabel="Print Tray">
+                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" toolTip="Show Printer Tray for selected Virtual Machine" tag="-1" image="print" sizingBehavior="auto" selectable="YES" id="iAl-vP-Cp6" userLabel="Print Tray">
                                     <connections>
                                         <action selector="printTrayButtonAction:" target="Oky-zY-oP4" id="Kcd-R2-cyZ"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" tag="-1" image="camera" sizingBehavior="auto" id="YpZ-1Y-BHP">
+                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" toolTip="Show Screenshots folder for selected Virtual Machine" tag="-1" image="camera" sizingBehavior="auto" selectable="YES" id="YpZ-1Y-BHP">
                                     <connections>
                                         <action selector="screenshotsButtonAction:" target="Oky-zY-oP4" id="EHM-Hf-M4x"/>
                                     </connections>
@@ -1286,7 +1286,6 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <size key="minSize" width="348" height="98"/>
                                                         <size key="maxSize" width="422" height="10000000"/>
-                                                        <color key="insertionPointColor" name="textInsertionPointColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
                                             </clipView>
@@ -1523,7 +1522,6 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <size key="minSize" width="348" height="58"/>
                                                         <size key="maxSize" width="350" height="10000000"/>
-                                                        <color key="insertionPointColor" name="textInsertionPointColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
                                             </clipView>

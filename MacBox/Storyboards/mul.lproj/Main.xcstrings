@@ -6337,6 +6337,18 @@
         }
       }
     },
+    "dku-Fs-jda.toolTip" : {
+      "comment" : "Class = \"NSToolbarItem\"; toolTip = \"Create or Import a Virtual Machine\"; ObjectID = \"dku-Fs-jda\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Create or Import a Virtual Machine"
+          }
+        }
+      }
+    },
     "dz5-Ik-wZS.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Search: Home\"; ObjectID = \"dz5-Ik-wZS\";",
       "extractionState" : "extracted_with_value",
@@ -9021,6 +9033,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Printer Tray"
+          }
+        }
+      }
+    },
+    "iAl-vP-Cp6.toolTip" : {
+      "comment" : "Class = \"NSToolbarItem\"; toolTip = \"Show Printer Tray for selected Virtual Machine\"; ObjectID = \"iAl-vP-Cp6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Printer Tray for selected Virtual Machine"
           }
         }
       }
@@ -18429,6 +18453,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Screenshots"
+          }
+        }
+      }
+    },
+    "YpZ-1Y-BHP.toolTip" : {
+      "comment" : "Class = \"NSToolbarItem\"; toolTip = \"Show Screenshots folder for selected Virtual Machine\"; ObjectID = \"YpZ-1Y-BHP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Screenshots folder for selected Virtual Machine"
           }
         }
       }

@@ -1119,6 +1119,11 @@ class MainViewController: NSViewController {
         if let addVMTabViewVC = self.storyboard?.instantiateController(withIdentifier: "AddVMVC") as? NSTabViewController {
             self.presentAsModalWindow(addVMTabViewVC)
         }
+        
+        // Deselect the toolbar button after action
+        if let senderButton = sender as? NSToolbarItem {
+            senderButton.toolbar?.selectedItemIdentifier = nil
+        }
     }
     
     // Print tray toolbar button action
@@ -1126,12 +1131,22 @@ class MainViewController: NSViewController {
         if currentVMPrinterPath != nil {
             NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(currentVMPrinterPath ?? ""))
         }
+        
+        // Deselect the toolbar button after action
+        if let senderButton = sender as? NSToolbarItem {
+            senderButton.toolbar?.selectedItemIdentifier = nil
+        }
     }
     
     // Screenshots toolbar button action
     @IBAction func screenshotsButtonAction(_ sender: Any) {
         if currentVMScreenShotsPath != nil {
             NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: String(currentVMScreenShotsPath ?? ""))
+        }
+        
+        // Deselect the toolbar button after action
+        if let senderButton = sender as? NSToolbarItem {
+            senderButton.toolbar?.selectedItemIdentifier = nil
         }
     }
     
