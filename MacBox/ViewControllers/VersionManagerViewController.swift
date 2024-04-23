@@ -41,7 +41,7 @@ class VersionManagerViewController: NSViewController {
     let dateFormatter = DateFormatter()
     private let userDefaults = UserDefaults.standard
     private let fileManager = FileManager.default
-    private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!)
     private let dateInputFormatString = "yyyy-MM-dd'T'HH:mm:ssZ"
     private let dateOutputFormatString = "MMM dd, yyyy"
     var isStableChannel: Bool = false

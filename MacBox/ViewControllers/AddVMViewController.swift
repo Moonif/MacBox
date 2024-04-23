@@ -23,7 +23,8 @@ class AddVMViewController: NSViewController {
     
     // Variables
     private let fileManager = FileManager.default
-    let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!)
+
     var vmTemplateList: [VMTemplate] = []
     var currentVMTemplate: VMTemplate?
     

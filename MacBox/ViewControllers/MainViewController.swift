@@ -38,7 +38,7 @@ class MainViewController: NSViewController {
     // Variables
     private let userDefaults = UserDefaults.standard
     private let fileManager = FileManager.default
-    private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!)
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
     private var currentRunningVM: [RunningVMProcess] = []
