@@ -214,13 +214,13 @@
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Omf-Na-ehP" userLabel="Update Channel Picker">
                                             <rect key="frame" x="123" y="16" width="169" height="25"/>
-                                            <popUpButtonCell key="cell" type="push" title="Experimental" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fS9-PG-1gU" id="rzE-h1-ge0" userLabel="Update Channel Picker">
+                                            <popUpButtonCell key="cell" type="push" title="Stable" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Qwo-1T-3jX" id="rzE-h1-ge0" userLabel="Update Channel Picker">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="JRK-iu-2pZ">
                                                     <items>
-                                                        <menuItem title="Stable" identifier="updateStable" id="Qwo-1T-3jX"/>
-                                                        <menuItem title="Experimental" state="on" id="fS9-PG-1gU"/>
+                                                        <menuItem title="Stable" state="on" identifier="updateStable" id="Qwo-1T-3jX"/>
+                                                        <menuItem title="Experimental" id="fS9-PG-1gU"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
