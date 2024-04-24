@@ -432,8 +432,10 @@ um8663bf_ide=UMC UM8663BF Super I/O (With IDE)
 um8663bf_ide_sec=UMC UM8663BF Super I/O (With Secondary IDE)
 325ax=Chaintech 325AX
 aptiva_cm=IBM Aptiva CM
+aptiva510=IBM Aptiva 510/710/Vision
 ma23c=NEC Mate NX MA23C
 m747=PC Chips M747
+pravetz16s=Pravetz 16S / CPU12
 
 [cpu_family]
 8088=Intel 8088
