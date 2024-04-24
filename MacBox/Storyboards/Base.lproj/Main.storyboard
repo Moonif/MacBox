@@ -1326,7 +1326,7 @@
                                                     <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="Stable" drawsBackground="YES" usesSingleLineMode="YES" id="RSq-qQ-pZk">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.28379482301058628" green="0.55913740335051543" blue="0.24757867575325401" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="oXg-3g-bvZ" userLabel="SpacerView">
