@@ -6346,6 +6346,12 @@
             "state" : "new",
             "value" : "Create or Import a Virtual Machine"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stwórz lu zaimportuj maszynę wirtualną"
+          }
         }
       }
     },
@@ -8774,7 +8780,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pasek drukarki"
+            "value" : "Zadania drukarki"
           }
         },
         "pt-BR" : {
@@ -8966,7 +8972,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pasek drukarki"
+            "value" : "Zadania drukarki"
           }
         },
         "pt-BR" : {
@@ -9045,6 +9051,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Show Printer Tray for selected Virtual Machine"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż zadania drukarki dla wybranej maszyny wirtualnej"
           }
         }
       }
@@ -11282,7 +11294,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Światło"
+            "value" : "Jasny"
           }
         },
         "pt-BR" : {
@@ -14738,7 +14750,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stabilność"
+            "value" : "Stabilna"
           }
         },
         "pt-BR" : {
@@ -14930,7 +14942,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stabilność"
+            "value" : "Stabilna"
           }
         },
         "pt-BR" : {
@@ -18465,6 +18477,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Show Screenshots folder for selected Virtual Machine"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż katalog zrzutów ekranu dla wybranej maszyny wirtualnej"
           }
         }
       }

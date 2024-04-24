@@ -762,7 +762,14 @@
       }
     },
     "update" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "aktualizacja"
+          }
+        }
+      }
     },
     "Update" : {
       "localizations" : {
@@ -775,7 +782,14 @@
       }
     },
     "updates" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "aktualizacje"
+          }
+        }
+      }
     },
     "VM name is already taken!" : {
       "localizations" : {
