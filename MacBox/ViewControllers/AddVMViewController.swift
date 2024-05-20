@@ -23,7 +23,6 @@ class AddVMViewController: NSViewController {
     
     // Variables
     private let fileManager = FileManager.default
-    let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     var vmTemplateList: [VMTemplate] = []
     var currentVMTemplate: VMTemplate?
     
@@ -61,7 +60,8 @@ class AddVMViewController: NSViewController {
         vmSpecHDD.stringValue = "-"
         vmSpecMachineLogo.image = nil
         // Patch status text
-        vmPathStatusTextField.stringValue = String(format: NSLocalizedString("VM will be created at: \"%@\".", comment: ""), homeDirURL.path)
+        let homeDirPath = MainViewController.instance.homeDirURL.path
+        vmPathStatusTextField.stringValue = String(format: NSLocalizedString("VM will be created at: \"%@\".", comment: ""), homeDirPath)
         // Shader option
         vmTemplateShaderOption.isTransparent = true
     }

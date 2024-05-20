@@ -36,9 +36,10 @@ class MainViewController: NSViewController {
     private(set) static var instance: MainViewController!
     
     // Variables
+    let screensaverManager = ScreensaverManager()
     private let userDefaults = UserDefaults.standard
     private let fileManager = FileManager.default
-    private let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
+    var homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     var vmList: [VM] = []
     private var currentSelectedVM: Int?
     private var currentRunningVM: [RunningVMProcess] = []
@@ -73,8 +74,12 @@ class MainViewController: NSViewController {
         
         // Config views
         configView()
+        // Set MacBox home directory
+        setHomeDir()
         // Initialize MacBox files
         initFiles()
+        // Set screensaver & screen sleep preference
+        setScreenSaver()
         // Check for 86Box version
         setEmulatorDefaultPath()
         setEmulatorUpdateChannel()
@@ -106,6 +111,15 @@ class MainViewController: NSViewController {
             default:
                 break
             }
+        }
+    }
+    
+    // Set screensaver & screen sleep preference
+    private func setScreenSaver() {
+        let disableScreensaver = userDefaults.bool(forKey: "disableScreensaver")
+        
+        if disableScreensaver == true {
+            screensaverManager.disableScreensaver()
         }
     }
     
@@ -166,6 +180,18 @@ class MainViewController: NSViewController {
         vmSpecHDD.stringValue = "-"
         vmSpecMachineLogo.image = nil
     }
+    
+    // Set MacBox home directory path
+    private func setHomeDir() {
+        if let homeDirPath = userDefaults.string(forKey: "homeDirPath") {
+            if #available(macOS 13.0, *) {
+                homeDirURL = URL(filePath: homeDirPath)
+            } else {
+                // Fallback on earlier versions
+                homeDirURL = URL(fileURLWithPath: homeDirPath)
+            }
+        }
+    }
 
     // Initialize MacBox directory and config files
     private func initFiles() {
@@ -182,24 +208,20 @@ class MainViewController: NSViewController {
     
     // Initialize MacBox config file
     private func initConfigFile() {
+        var configFileURL = homeDirURL
         if #available(macOS 13.0, *) {
-            let configFileURL = homeDirURL.appending(component: "Config")
-            if !fileManager.fileExists(atPath: configFileURL.path) {
-                writeConfigFile()
-            }
-            else {
-                readConfigFile()
-            }
+            configFileURL = configFileURL.appending(component: "Config")
         } else {
             // Fallback on earlier versions
-            let configFileURL = homeDirURL.appendingPathComponent("Config")
-            if !fileManager.fileExists(atPath: configFileURL.path) {
-                writeConfigFile()
-            }
-            else {
-                readConfigFile()
-            }
+            configFileURL = configFileURL.appendingPathComponent("Config")
         }
+        if !fileManager.fileExists(atPath: configFileURL.path) {
+            writeConfigFile()
+        }
+        else {
+            readConfigFile()
+        }
+        
         // Restore last selected vm
         let lastSelectedVM = userDefaults.integer(forKey: "lastSelectedVM")
         if lastSelectedVM >= 0 && lastSelectedVM < vmList.count {
@@ -264,6 +286,25 @@ class MainViewController: NSViewController {
         } catch {
             print("Error: \(error.localizedDescription)")
         }
+    }
+    
+    // Update the config file for custom HomeDir path
+    func updateConfigFile(previousLocation: URL, newLocation: URL) {
+        for vm in vmList {
+            guard let isValid = vm.path?.hasPrefix(previousLocation.path) else { return }
+            if isValid {
+                if let index = vmList.firstIndex(where: {$0.path == vm.path}) {
+                    let newVMPath = vm.path?.replacingOccurrences(of: previousLocation.path, with: newLocation.path)
+                    vmList[index].path = newVMPath
+                    // Update config file
+                    writeConfigFile()
+                    // Update HomeDir URL
+                    homeDirURL = newLocation
+                }
+            }
+        }
+        // Recheck for MacBox in-case it was moved with the home directory
+        checkFor86Box(url: nil, appVer: nil, buildVer: nil, ignoreVersionCheck: true)
     }
     
     // Check if 86Box is installed, and check for updated version
@@ -437,7 +478,12 @@ class MainViewController: NSViewController {
                     // Check for latest 86Box ROMs
                     self.fetchEmulatorRomsUpdateInfo()
                 } catch {
+                    // Jenkins Connection error
                     print("Error: \(error.localizedDescription)")
+                    // Set version to local
+                    self.emulatorOnlineVer = self.emulatorBuildVer
+                    // Check for latest 86Box ROMs
+                    self.fetchEmulatorRomsUpdateInfo()
                 }
             }
             task.resume()
@@ -479,6 +525,7 @@ class MainViewController: NSViewController {
                     // Check for latest 86Box ROMs
                     self.fetchEmulatorRomsUpdateInfo()
                 } catch {
+                    // Connection error
                     print("Error: \(error.localizedDescription)")
                 }
             }
@@ -1396,13 +1443,13 @@ extension MainViewController: NSMenuDelegate {
         menu.removeAllItems()
         
         if vmsTableView.clickedRow >= 0 {
-            // Clicked on a VM cell
+            // Right-Clicked on a VM cell
             menu.addItem(NSMenuItem(title: NSLocalizedString("Show in Finder", comment: ""), action: #selector(tableViewFindInFinderAction(_:)), keyEquivalent: ""))
             menu.addItem(.separator())
             menu.addItem(NSMenuItem(title: NSLocalizedString("Duplicate", comment: ""), action: #selector(tableViewDuplicateAction(_:)), keyEquivalent: ""))
         }
         else {
-            // Clicked on an empty cell
+            // Right-Clicked on an empty cell
             menu.addItem(NSMenuItem(title: NSLocalizedString("Add a Virtual Machine", comment: ""), action: #selector(addVMButtonAction(_:)), keyEquivalent: ""))
         }
     }

@@ -12,6 +12,7 @@
 		F934D58B29E41BDB00F0D450 /* AddVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */; };
 		F934D58D29E424EE00F0D450 /* VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934D58C29E424EE00F0D450 /* VM.swift */; };
 		F944ACA12B55BF230048455C /* VersionManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F944ACA02B55BF230048455C /* VersionManagerViewController.swift */; };
+		F95C5A682BF93026004BE8E9 /* ScreensaverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95C5A672BF93026004BE8E9 /* ScreensaverManager.swift */; };
 		F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */; };
 		F97BF9B02B5EFF71003AB087 /* VersionInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97BF9AF2B5EFF71003AB087 /* VersionInfoObject.swift */; };
 		F989DA832B754D1300F074F8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F989DA822B754D1300F074F8 /* Localizable.xcstrings */; };
@@ -39,6 +40,7 @@
 		F934D58A29E41BDB00F0D450 /* AddVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVMViewController.swift; sourceTree = "<group>"; };
 		F934D58C29E424EE00F0D450 /* VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VM.swift; sourceTree = "<group>"; };
 		F944ACA02B55BF230048455C /* VersionManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManagerViewController.swift; sourceTree = "<group>"; };
+		F95C5A672BF93026004BE8E9 /* ScreensaverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensaverManager.swift; sourceTree = "<group>"; };
 		F95DC0452B4BD2BB006ECF05 /* GithubResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubResponseObject.swift; sourceTree = "<group>"; };
 		F97BF9AF2B5EFF71003AB087 /* VersionInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoObject.swift; sourceTree = "<group>"; };
 		F989DA822B754D1300F074F8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				F9BB907529F14C7E000B4C5F /* VMTemplate.swift */,
 				F9DC6A4129F874770076FC50 /* SpecsParser.swift */,
 				F92DF7CD2A00021800450E04 /* RunningVMProcess.swift */,
+				F95C5A672BF93026004BE8E9 /* ScreensaverManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				F95DC0462B4BD2BB006ECF05 /* GithubResponseObject.swift in Sources */,
 				F9D3370F2B6A8DD500CE75A0 /* URL.swift in Sources */,
 				F934D58D29E424EE00F0D450 /* VM.swift in Sources */,
+				F95C5A682BF93026004BE8E9 /* ScreensaverManager.swift in Sources */,
 				F9F47FAF2B573444008EDF4E /* JenkinsResponseObject.swift in Sources */,
 				F9B09E6429E9DBC800C86A0F /* IniParser.swift in Sources */,
 				F9F47FAD2B571DBF008EDF4E /* Date.swift in Sources */,
@@ -445,7 +449,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 0.4.7;
+				MARKETING_VERSION = 0.4.8;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -480,7 +484,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 0.4.7;
+				MARKETING_VERSION = 0.4.8;
 				PRODUCT_BUNDLE_IDENTIFIER = Moonif.MacBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

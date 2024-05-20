@@ -110,7 +110,7 @@ flytech386=Flytech A36
 mr1217=Chaintech 325AX (MR BIOS)
 pja511m=Acrosser PJ-A511M
 prox1332=Protech ProX-1332
-ama932j=AMA-932J
+ama932j=Arche AMA-932J
 adi386sx=ADI 386SX
 shuttle386sx=Shuttle 386SX
 cmdsl386sx16=Commodore SL386SX-16
@@ -436,6 +436,7 @@ aptiva510=IBM Aptiva 510/710/Vision
 ma23c=NEC Mate NX MA23C
 m747=PC Chips M747
 pravetz16s=Pravetz 16S / CPU12
+pc140_6260=IBM PC 140 (type 6260)
 
 [cpu_family]
 8088=Intel 8088

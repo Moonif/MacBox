@@ -11,13 +11,19 @@ class SettingsViewController: NSViewController {
     
     // IBOutlets
     @IBOutlet weak var appearancePicker: NSPopUpButton!
+    @IBOutlet weak var macboxPathPicker: NSPopUpButton!
     @IBOutlet weak var defaultPathPicker: NSPopUpButton!
     @IBOutlet weak var updateChannelPicker: NSPopUpButton!
+    @IBOutlet weak var macboxPathTextField: NSTextField!
     @IBOutlet weak var pathTextField: NSTextField!
+    @IBOutlet weak var preventDisplaySleepCheckbox: NSButton!
     
     // Variables
     private let userDefaults = UserDefaults.standard
+    private let fileManager = FileManager.default
+    private var macboxCustomPathString: String?
     private var emulatorCustomPathString: String?
+    private let defaultHomeDir = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     
     // View did load
     override func viewDidLoad() {
@@ -48,6 +54,18 @@ class SettingsViewController: NSViewController {
             }
         }
         
+        // Set the Prevent Display Sleep Checkbox state
+        let disableScreensaver = userDefaults.bool(forKey: "disableScreensaver")
+        if disableScreensaver == true {
+            preventDisplaySleepCheckbox.state = .on
+        }
+        
+        // Set the MacBox default path picker selected item
+        setMacBoxPathTextField(text: MainViewController.instance.homeDirURL.path)
+        if let _ = userDefaults.string(forKey: "homeDirPath") {
+            macboxPathPicker.selectItem(at: 1)
+        }
+        
         // Set the 86Box default path picker selected item
         setEmulatorPathTextField(text: MainViewController.instance.versionInfoObject.emulatorAutoUrl?.relativePath ?? NSLocalizedString("86Box is not installed.", comment: ""))
         if let emulatorDefaultPath = userDefaults.string(forKey: "emulatorDefaultPath") {
@@ -69,8 +87,20 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    // Set MacBox path text
+    private func setMacBoxPathTextField(text: String) {
+        macboxPathTextField.stringValue = text
+    }
+    
+    // Reset the MacBox path picker selection back to default
+    private func resetMacBoxPathPickerSelection() {
+        if macboxCustomPathString == nil {
+            macboxPathPicker.selectItem(at: 0)
+        }
+    }
+    
     // Set 86Box path text
-    func setEmulatorPathTextField(text: String) {
+    private func setEmulatorPathTextField(text: String) {
         pathTextField.stringValue = text
     }
     
@@ -78,6 +108,64 @@ class SettingsViewController: NSViewController {
     private func resetPathPickerSelection() {
         if emulatorCustomPathString == nil {
             defaultPathPicker.selectItem(at: 0)
+        }
+    }
+    
+    // Move MacBox home directory to custom location
+    private func relocateHomeDir(destination: URL?) {
+        do {
+            let currentHomeDir = MainViewController.instance.homeDirURL
+            let homeDirFiles = try fileManager.contentsOfDirectory(at: currentHomeDir, includingPropertiesForKeys: nil)
+            
+            if let customLocation = destination {
+                // Custom location
+                for homeDirFileURL in homeDirFiles {
+                    var customLocationFileURL = customLocation
+                    if #available(macOS 13.0, *) {
+                        customLocationFileURL = customLocationFileURL.appending(component: homeDirFileURL.lastPathComponent)
+                    } else {
+                        // Fallback on earlier versions
+                        customLocationFileURL = customLocationFileURL.appendingPathComponent(homeDirFileURL.lastPathComponent)
+                    }
+                    // Move the files
+                    if !fileManager.fileExists(atPath: customLocationFileURL.path) {
+                       try fileManager.moveItem(at: homeDirFileURL, to: customLocationFileURL)
+                    }
+                }
+                MainViewController.instance.updateConfigFile(previousLocation: currentHomeDir, newLocation: customLocation)
+                userDefaults.set(customLocation.path, forKey: "homeDirPath")
+            }
+            else {
+                // Default location
+                for homeDirFileURL in homeDirFiles {
+                    var defaultLocationFileURL = defaultHomeDir
+                    if #available(macOS 13.0, *) {
+                        defaultLocationFileURL = defaultLocationFileURL.appending(component: homeDirFileURL.lastPathComponent)
+                    } else {
+                        // Fallback on earlier versions
+                        defaultLocationFileURL = defaultLocationFileURL.appendingPathComponent(homeDirFileURL.lastPathComponent)
+                    }
+                    
+                    // Try recreating the default home directory in case it was deleted by user
+                    try fileManager.createDirectory(atPath: defaultHomeDir.path, withIntermediateDirectories: true)
+                    // Move the files
+                    if !fileManager.fileExists(atPath: defaultLocationFileURL.path) {
+                        try fileManager.moveItem(at: homeDirFileURL, to: defaultLocationFileURL)
+                    }
+                }
+                MainViewController.instance.updateConfigFile(previousLocation: currentHomeDir, newLocation: defaultHomeDir)
+                userDefaults.removeObject(forKey: "homeDirPath")
+            }
+        }
+        catch {
+            // Show error alert
+            let alert = NSAlert()
+            
+            alert.messageText = "Error: \(error.localizedDescription)"
+            alert.alertStyle = .critical
+            alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
+            
+            let _ = alert.runModal()
         }
     }
     
@@ -102,7 +190,67 @@ class SettingsViewController: NSViewController {
         }
     }
     
-    // Default Path Picker Action
+    // Enable/Disable Display Sleep
+    @IBAction func preventDisplaySleepCheckboxAction(_ sender: NSButton) {
+        switch sender.state {
+        case .on:
+            // Disable Display Sleep
+            MainViewController.instance.screensaverManager.disableScreensaver()
+            userDefaults.set(true, forKey: "disableScreensaver")
+        default:
+            // Enable Display Sleep
+            MainViewController.instance.screensaverManager.enableScreensaver()
+            userDefaults.set(false, forKey: "disableScreensaver")
+        }
+    }
+    
+    // MacBox Path Picker Action
+    @IBAction func macboxPathPickerAction(_ sender: NSPopUpButton) {
+        if let selectedItem = sender.selectedItem {
+            switch selectedItem.identifier {
+            case NSUserInterfaceItemIdentifier(rawValue: "macboxPathCustom"):
+                // Open the file picker
+                let filePickerPanel = NSOpenPanel()
+                
+                filePickerPanel.allowsMultipleSelection = false
+                filePickerPanel.canChooseDirectories = true
+                filePickerPanel.canChooseFiles = false
+                filePickerPanel.canCreateDirectories = true
+                
+                if filePickerPanel.runModal() == .OK {
+                    if let newHomeDirURL = filePickerPanel.url {
+                        macboxCustomPathString = newHomeDirURL.relativePath
+                        // Set path text
+                        setMacBoxPathTextField(text: macboxCustomPathString ?? "-")
+                        // Move the Home directory to the selected URL
+                        relocateHomeDir(destination: newHomeDirURL)
+                        // Refresh 86Box auto path
+                        if emulatorCustomPathString == nil {
+                            setEmulatorPathTextField(text: MainViewController.instance.versionInfoObject.emulatorAutoUrl?.relativePath ?? NSLocalizedString("86Box is not installed.", comment: ""))
+                        }
+                    }
+                }
+                else {
+                    // Reset selection
+                    resetMacBoxPathPickerSelection()
+                }
+            default:
+                macboxCustomPathString = nil
+                // Set path text
+                setMacBoxPathTextField(text: defaultHomeDir.path)
+                // Reset MacBox HomeDirURL
+                if let _ = userDefaults.string(forKey: "homeDirPath") {
+                    relocateHomeDir(destination: nil)
+                }
+                // Refresh 86Box auto path
+                if emulatorCustomPathString == nil {
+                    setEmulatorPathTextField(text: MainViewController.instance.versionInfoObject.emulatorAutoUrl?.relativePath ?? NSLocalizedString("86Box is not installed.", comment: ""))
+                }
+            }
+        }
+    }
+    
+    // Default 86Box Path Picker Action
     @IBAction func defaultPathPickerAction(_ sender: NSPopUpButton) {
         if let selectedItem = sender.selectedItem {
             switch selectedItem.identifier {

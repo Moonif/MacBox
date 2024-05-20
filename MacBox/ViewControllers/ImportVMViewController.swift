@@ -18,7 +18,6 @@ class ImportVMViewController: NSViewController {
     
     // Variables
     private let fileManager = FileManager.default
-    let homeDirURL = URL(fileURLWithPath: "MacBox", isDirectory: true, relativeTo: FileManager.default.homeDirectoryForCurrentUser)
     private var searchURL: URL?
     private var cancelSearch: Bool = false
     private var configFilesList: [String] = []
@@ -124,12 +123,12 @@ class ImportVMViewController: NSViewController {
         vm.description = description
         
         // Set path
-        var defaultPath = homeDirURL
+        var defaultPath = MainViewController.instance.homeDirURL
         if #available(macOS 13.0, *) {
-            defaultPath = homeDirURL.appending(component: "\(vm.name ?? "")")
+            defaultPath = defaultPath.appending(component: "\(vm.name ?? "")")
         } else {
             // Fallback on earlier versions
-            defaultPath = homeDirURL.appendingPathComponent("\(vm.name ?? "")")
+            defaultPath = defaultPath.appendingPathComponent("\(vm.name ?? "")")
         }
         vm.path = path != nil ? path : defaultPath.path
         
