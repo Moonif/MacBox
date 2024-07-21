@@ -437,6 +437,12 @@ ma23c=NEC Mate NX MA23C
 m747=PC Chips M747
 pravetz16s=Pravetz 16S / CPU12
 pc140_6260=IBM PC 140 (type 6260)
+wellamerastar=Wells American A*Star
+dataexpert386wb=DataExpert 386WB
+genoa486=Genoa Unknown 486
+ga486l=Gigabyte GA-486L
+cougar=Alaris COUGAR 486BL
+acer100t=Acer 100T
 
 [cpu_family]
 8088=Intel 8088
