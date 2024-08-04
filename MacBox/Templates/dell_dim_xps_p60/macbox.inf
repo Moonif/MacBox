@@ -1,0 +1,10 @@
+[General]
+Manufacturer=Dell
+Description=Dell Dimension XPS P60
+Logo=Dell_logo
+Year=1994
+Author=npjg
+
+[Shader]
+enable_overscan = 1
+
