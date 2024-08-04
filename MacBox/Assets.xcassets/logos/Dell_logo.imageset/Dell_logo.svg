@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="400"
+   height="126.95"
+   id="DELL logotype "
+   sodipodi:docname="Dell_logo.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="5.0739915"
+     inkscape:cx="362.14093"
+     inkscape:cy="28.380024"
+     inkscape:window-width="1312"
+     inkscape:window-height="449"
+     inkscape:window-x="0"
+     inkscape:window-y="43"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="DELL (tm)" />
+  <g
+     transform="translate(-66.45031,-175.0199)"
+     id="DELL (tm)">
+    <path
+       d="M 66.450309,181.95609 L 66.450309,296.64052 L    121.31569,296.64052 C 145.44292,296.64051 176.34172,281.26783    176.34172,239.23136 C 176.34172,193.26319 140.42564,181.95609    107.60604,181.95609 L 66.450309,181.95609 z M    106.99017,217.38161 C 106.99017,217.38161 114.05921,217.3816    114.05921,217.38161 C 125.14159,217.38161 134.58393,226.94032    134.73079,239.79367 C 134.73071,239.80211 134.73089,239.81202    134.73079,239.82045 C 134.58393,252.67381 126.1591,262.20574    115.07673,262.20574 C 115.07673,262.20574 106.99017,262.20574    106.99017,262.20574 L 106.99017,217.38161 z "
+       style="fill:#0075ba;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="D" />
+    <path
+       d="M 306.2716,181.95609 L 306.2716,296.64685 L    382.21298,296.64685 L 382.21298,260.38313 L 346.45072,260.38313    L 346.45072,181.95609 L 306.2716,181.95609 z "
+       style="fill:#0075ba;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="L1" />
+    <path
+       d="M 270.18746,199.36675 L 214.08846,234.73565 L    204.31627,228.16246 L 204.33825,228.1654 L 261.7189,191.62129 L    261.82636,191.69606 L 235.58804,175.01784 L 135.64871,238.57845    L 236.09737,301.972 L 335.33968,238.73485 L 306.60127,221.18799    L 249.39085,257.2327 L 239.77744,250.68504 L    295.38212,215.35937 L 270.18746,199.36675 z "
+       style="fill:#0075ba;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="O" />
+    <path
+       d="M 389.43722,181.94577 L 389.43722,296.51341 L    465.3786,296.51341 L 465.3786,260.38313 L 429.61634,260.38313 L    429.61634,181.94577 L 389.43722,181.94577 z "
+       style="fill:#0075ba;fill-opacity:1;fill-rule:evenodd"
+       id="L2" />
+  </g>
+</svg>
