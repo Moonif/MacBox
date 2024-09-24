@@ -698,7 +698,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Specyfikacje"
+            "value" : "Specyfikacja"
           }
         },
         "pt-BR" : {
@@ -1466,7 +1466,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Specyfikacje"
+            "value" : "Specyfikacja"
           }
         },
         "pt-BR" : {
@@ -5458,6 +5458,12 @@
             "state" : "new",
             "value" : "Prevent Display Sleep"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapobiegaj uśpieniu"
+          }
         }
       }
     },
@@ -8096,7 +8102,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktualizuj kanał"
+            "value" : "Kanał aktualizacji"
           }
         },
         "pt-BR" : {
@@ -15298,6 +15304,12 @@
             "state" : "new",
             "value" : "Path"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ścieżka"
+          }
         }
       }
     },
@@ -16845,6 +16857,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Prevent the host display from sleeping or playing a screensaver"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapobiegaj uśpieniu ekranu hosta lub uruchomienia wygaszacza ekranu."
           }
         }
       }
