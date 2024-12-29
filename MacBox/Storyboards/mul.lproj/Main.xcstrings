@@ -128,7 +128,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Procurando arquivos de configuração para o Mac 86Box..."
+            "value" : "Procurando no seu Mac por arquivos de configuração do 86Box..."
           }
         },
         "pt-PT" : {
@@ -896,7 +896,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DDH"
+            "value" : "HDD"
           }
         },
         "pt-PT" : {
@@ -1856,7 +1856,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sobre MacBox"
+            "value" : "Sobre o MacBox"
           }
         },
         "pt-PT" : {
@@ -3140,7 +3140,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nome da VM"
+            "value" : "Nome da MV"
           }
         },
         "pt-PT" : {
@@ -3656,7 +3656,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SISTEMA"
+            "value" : "Sistema"
           }
         },
         "pt-PT" : {
@@ -3848,7 +3848,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DDH"
+            "value" : "HDD"
           }
         },
         "pt-PT" : {
@@ -4424,7 +4424,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Definições…"
+            "value" : "Configurações…"
           }
         },
         "pt-PT" : {
@@ -4616,7 +4616,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nome da VM"
+            "value" : "Nome da MV"
           }
         },
         "pt-PT" : {
@@ -4808,7 +4808,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nome da VM - Pode ser editado"
+            "value" : "Nome da MV - Pode ser editado"
           }
         },
         "pt-PT" : {
@@ -5000,7 +5000,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nome da VM"
+            "value" : "Nome da MV"
           }
         },
         "pt-PT" : {
@@ -5192,7 +5192,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Digite um nome para sua nova VM"
+            "value" : "Digite um nome para sua nova MV"
           }
         },
         "pt-PT" : {
@@ -5384,7 +5384,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "cpu"
+            "value" : "CPU"
           }
         },
         "pt-PT" : {
@@ -5463,6 +5463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zapobiegaj uśpieniu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impedir que a tela entre em modo de suspensão"
           }
         }
       }
@@ -6170,7 +6176,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Iniciar VM"
+            "value" : "Iniciar MV"
           }
         },
         "pt-PT" : {
@@ -6362,7 +6368,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adicionar VM"
+            "value" : "Adicionar MV"
           }
         },
         "pt-PT" : {
@@ -6554,7 +6560,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adicionar VM"
+            "value" : "Adicionar MV"
           }
         },
         "pt-PT" : {
@@ -6633,6 +6639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stwórz lu zaimportuj maszynę wirtualną"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criar ou Importar uma Máquina Virtual"
           }
         }
       }
@@ -6764,7 +6776,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Busca: Início"
+            "value" : "Buscar: Início"
           }
         },
         "pt-PT" : {
@@ -6956,7 +6968,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versão 86Box padrão"
+            "value" : "Versão Padrão do 86Box"
           }
         },
         "pt-PT" : {
@@ -7724,7 +7736,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Importar VM Existente"
+            "value" : "Importar MV Existente"
           }
         },
         "pt-PT" : {
@@ -8300,7 +8312,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Criar nova VM"
+            "value" : "Criar nova MV"
           }
         },
         "pt-PT" : {
@@ -8684,7 +8696,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Iniciar a VM selecionada"
+            "value" : "Inicia a MV selecionada"
           }
         },
         "pt-PT" : {
@@ -9068,7 +9080,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bandeja de Impressora"
+            "value" : "Bandeja da Impressora"
           }
         },
         "pt-PT" : {
@@ -9260,7 +9272,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bandeja de Impressora"
+            "value" : "Bandeja da Impressora"
           }
         },
         "pt-PT" : {
@@ -9339,6 +9351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pokaż zadania drukarki dla wybranej maszyny wirtualnej"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar Bandeja da Impressora para a Máquina Virtual selecionada"
           }
         }
       }
@@ -10430,7 +10448,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versão personalizada para 86Box"
+            "value" : "Versão Personalizada do 86Box"
           }
         },
         "pt-PT" : {
@@ -10622,7 +10640,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ROMs de 86Box"
+            "value" : "ROMs do 86Box"
           }
         },
         "pt-PT" : {
@@ -11006,7 +11024,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DDH"
+            "value" : "HDD"
           }
         },
         "pt-PT" : {
@@ -11390,7 +11408,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DDH"
+            "value" : "HDD"
           }
         },
         "pt-PT" : {
@@ -11582,7 +11600,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fino"
+            "value" : "Claro"
           }
         },
         "pt-PT" : {
@@ -12350,7 +12368,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Caixa de menu de Modelos de Máquina Virtual"
+            "value" : "Caixa de seleção de Modelos de Máquina Virtual"
           }
         },
         "pt-PT" : {
@@ -12542,7 +12560,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lista de modelos VM, pressione a seta para baixo para abrir a lista"
+            "value" : "Lista de modelos de MV, pressione a seta para baixo para abrir a lista"
           }
         },
         "pt-PT" : {
@@ -13310,7 +13328,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remover a VM selecionada"
+            "value" : "Remove a MV selecionada"
           }
         },
         "pt-PT" : {
@@ -13886,7 +13904,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Digite uma descrição para sua nova VM"
+            "value" : "Digite uma descrição para sua nova MV"
           }
         },
         "pt-PT" : {
@@ -14846,7 +14864,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Busca: Personalizado"
+            "value" : "Pesquisar: Personalizado"
           }
         },
         "pt-PT" : {
@@ -15310,6 +15328,12 @@
             "state" : "translated",
             "value" : "Ścieżka"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caminho"
+          }
         }
       }
     },
@@ -15632,7 +15656,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir janela de configurações do VM"
+            "value" : "Abre a janela de configurações da MV"
           }
         },
         "pt-PT" : {
@@ -16400,7 +16424,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir gerenciador de versão"
+            "value" : "Abrir gerenciador de versões"
           }
         },
         "pt-PT" : {
@@ -16784,7 +16808,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplicar sombreamento"
+            "value" : "Aplicar Shader"
           }
         },
         "pt-PT" : {
@@ -16863,6 +16887,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zapobiegaj uśpieniu ekranu hosta lub uruchomienia wygaszacza ekranu."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impedir que a tela do anfitrião entre em suspensão ou exiba um protetor de tela"
           }
         }
       }
@@ -16994,7 +17024,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Busca: Documentos"
+            "value" : "Buscar: Documentos"
           }
         },
         "pt-PT" : {
@@ -17762,7 +17792,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Confirgurações"
+            "value" : "Configurações"
           }
         },
         "pt-PT" : {
@@ -18338,7 +18368,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "cpu"
+            "value" : "CPU"
           }
         },
         "pt-PT" : {
@@ -18530,7 +18560,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Screenshots"
+            "value" : "Capturas de Tela"
           }
         },
         "pt-PT" : {
@@ -18722,7 +18752,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Screenshots"
+            "value" : "Capturas de Tela"
           }
         },
         "pt-PT" : {
@@ -18801,6 +18831,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pokaż katalog zrzutów ekranu dla wybranej maszyny wirtualnej"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar pasta de Capturas de Tela para a Máquina Virtual selecionada"
           }
         }
       }
