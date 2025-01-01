@@ -704,7 +704,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Especificações"
+            "value" : "Especificações:"
           }
         },
         "pt-PT" : {
@@ -1472,7 +1472,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Especificações"
+            "value" : "Especificações:"
           }
         },
         "pt-PT" : {
@@ -6776,7 +6776,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar: Início"
+            "value" : "Buscar: Pasta Home"
           }
         },
         "pt-PT" : {
@@ -13136,7 +13136,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remover VM Selecionada"
+            "value" : "Remover MV Selecionada"
           }
         },
         "pt-PT" : {
@@ -13520,7 +13520,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remover VM Selecionada"
+            "value" : "Remover MV Selecionada"
           }
         },
         "pt-PT" : {
@@ -13712,7 +13712,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descrição da VM"
+            "value" : "Descrição da MV"
           }
         },
         "pt-PT" : {
@@ -14864,7 +14864,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pesquisar: Personalizado"
+            "value" : "Buscar: Personalizar"
           }
         },
         "pt-PT" : {
@@ -15464,7 +15464,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Configurações da VM"
+            "value" : "Configurações da MV"
           }
         },
         "pt-PT" : {
@@ -17024,7 +17024,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar: Documentos"
+            "value" : "Buscar: Pasta Documentos"
           }
         },
         "pt-PT" : {
