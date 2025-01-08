@@ -447,6 +447,12 @@ acer100t=Acer 100T
 maz1016=Mazovia 1016
 gw2kma=Gateway 2000 Mailman
 grid1520=GRiD GRiDcase 1520
+p54np4=ASUS PCI/I-P54NP4
+prosignias31x_bx=Compaq ProSignia S316/318 (Intel)
+m5pi=Micronics M5Pi
+pl4600c=Compaq Presario 7100/7200 Series 486
+ataripc3=Atari PC 3
+ataripc4=Atari PC 4
 
 [cpu_family]
 8088=Intel 8088
