@@ -453,6 +453,9 @@ m5pi=Micronics M5Pi
 pl4600c=Compaq Presario 7100/7200 Series 486
 ataripc3=Atari PC 3
 ataripc4=Atari PC 4
+bx6=ABIT BX6
+globalyst330_p5=AT&T Globalyst 330 (Pentium)
+via809ds=PC Partner VIA809DS
 
 [cpu_family]
 8088=Intel 8088
