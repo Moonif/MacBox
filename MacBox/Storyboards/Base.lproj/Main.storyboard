@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1419,12 +1420,8 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="check_mark" id="sd7-q8-sC8"/>
                                             <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
-                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="1CR-jz-lZd">
-                                            <rect key="frame" x="350" y="178" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="jbb-Ss-Mkx"/>
-                                                <constraint firstAttribute="height" constant="20" id="usg-Vd-0V1"/>
-                                            </constraints>
+                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-BB-Y1z" userLabel="Emulator Update Progress Indicator">
+                                            <rect key="frame" x="352" y="180" width="16" height="16"/>
                                         </progressIndicator>
                                     </subviews>
                                     <constraints>
@@ -1433,11 +1430,11 @@
                                         <constraint firstItem="hXm-Cc-cGO" firstAttribute="leading" secondItem="sLd-s7-btj" secondAttribute="trailing" constant="8" symbolic="YES" id="7hx-G2-FbA"/>
                                         <constraint firstItem="eMT-Bb-tBI" firstAttribute="leading" secondItem="n7D-ZJ-djp" secondAttribute="leading" constant="20" symbolic="YES" id="BIW-4m-num"/>
                                         <constraint firstItem="eMT-Bb-tBI" firstAttribute="top" secondItem="sLd-s7-btj" secondAttribute="bottom" constant="16" id="BaI-7F-bdi"/>
+                                        <constraint firstItem="vNh-BB-Y1z" firstAttribute="centerY" secondItem="NYI-hP-LRs" secondAttribute="centerY" id="COW-aO-MHn"/>
                                         <constraint firstItem="xMK-BE-ANn" firstAttribute="centerY" secondItem="sLd-s7-btj" secondAttribute="centerY" id="DYi-hP-34D"/>
                                         <constraint firstAttribute="trailing" secondItem="NYI-hP-LRs" secondAttribute="trailing" constant="20" symbolic="YES" id="Naj-ej-5OJ"/>
                                         <constraint firstItem="sLd-s7-btj" firstAttribute="top" secondItem="n7D-ZJ-djp" secondAttribute="top" constant="20" symbolic="YES" id="NwU-f9-kxQ"/>
                                         <constraint firstItem="sLd-s7-btj" firstAttribute="leading" secondItem="n7D-ZJ-djp" secondAttribute="leading" constant="20" symbolic="YES" id="U7E-eU-DzS"/>
-                                        <constraint firstAttribute="trailing" secondItem="1CR-jz-lZd" secondAttribute="trailing" constant="20" symbolic="YES" id="Uyj-2l-Ctc"/>
                                         <constraint firstAttribute="trailing" secondItem="eMT-Bb-tBI" secondAttribute="trailing" constant="20" symbolic="YES" id="VeH-gW-Lza"/>
                                         <constraint firstItem="xMK-BE-ANn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hXm-Cc-cGO" secondAttribute="trailing" constant="8" symbolic="YES" id="Xay-hQ-K2q"/>
                                         <constraint firstItem="xMK-BE-ANn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LcE-JH-RWN" secondAttribute="trailing" constant="8" symbolic="YES" id="XeM-5P-z0d"/>
@@ -1445,10 +1442,10 @@
                                         <constraint firstItem="qZ8-H9-O3a" firstAttribute="leading" secondItem="n7D-ZJ-djp" secondAttribute="leading" constant="20" symbolic="YES" id="brc-df-kcc"/>
                                         <constraint firstItem="LcE-JH-RWN" firstAttribute="leading" secondItem="sLd-s7-btj" secondAttribute="trailing" constant="8" symbolic="YES" id="cTR-xg-CO8"/>
                                         <constraint firstItem="NYI-hP-LRs" firstAttribute="centerY" secondItem="sLd-s7-btj" secondAttribute="centerY" id="kJv-MY-jkM"/>
-                                        <constraint firstItem="1CR-jz-lZd" firstAttribute="centerY" secondItem="sLd-s7-btj" secondAttribute="centerY" id="l3W-D8-7a1"/>
                                         <constraint firstItem="xMK-BE-ANn" firstAttribute="top" secondItem="n7D-ZJ-djp" secondAttribute="top" constant="34" id="mHZ-Ff-8t6"/>
                                         <constraint firstItem="qZ8-H9-O3a" firstAttribute="top" secondItem="eMT-Bb-tBI" secondAttribute="bottom" constant="8" symbolic="YES" id="pmd-PK-NUa"/>
                                         <constraint firstItem="hXm-Cc-cGO" firstAttribute="centerY" secondItem="sLd-s7-btj" secondAttribute="centerY" constant="10" id="uDm-nZ-nzS"/>
+                                        <constraint firstItem="vNh-BB-Y1z" firstAttribute="centerX" secondItem="NYI-hP-LRs" secondAttribute="centerX" id="xbv-L7-rcd"/>
                                         <constraint firstItem="LcE-JH-RWN" firstAttribute="centerY" secondItem="sLd-s7-btj" secondAttribute="centerY" constant="-10" id="ygP-y1-5t2"/>
                                     </constraints>
                                 </view>
@@ -1502,12 +1499,8 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="check_mark" id="qOe-ip-elF"/>
                                             <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
-                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="HUA-we-eSI">
-                                            <rect key="frame" x="350" y="34" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="N8d-m1-uWQ"/>
-                                                <constraint firstAttribute="width" constant="20" id="eBU-jl-YNH"/>
-                                            </constraints>
+                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="b8A-6P-Qcr" userLabel="Roms Update Progress Indicator">
+                                            <rect key="frame" x="352" y="36" width="16" height="16"/>
                                         </progressIndicator>
                                     </subviews>
                                     <constraints>
@@ -1516,7 +1509,6 @@
                                         <constraint firstAttribute="trailing" secondItem="SJp-VP-YtA" secondAttribute="trailing" constant="20" symbolic="YES" id="2RK-Tf-2WR"/>
                                         <constraint firstItem="XlJ-06-WgW" firstAttribute="centerY" secondItem="nbv-Bp-k8O" secondAttribute="centerY" constant="10" id="EPH-Hb-pG9"/>
                                         <constraint firstItem="kv7-Io-RWQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XlJ-06-WgW" secondAttribute="trailing" constant="8" symbolic="YES" id="G0h-nb-Kkj"/>
-                                        <constraint firstItem="HUA-we-eSI" firstAttribute="centerY" secondItem="nbv-Bp-k8O" secondAttribute="centerY" id="JIn-Z1-5EJ"/>
                                         <constraint firstItem="nbv-Bp-k8O" firstAttribute="top" secondItem="fhZ-jh-XMl" secondAttribute="top" constant="20" symbolic="YES" id="KVH-6d-c4r"/>
                                         <constraint firstItem="kv7-Io-RWQ" firstAttribute="centerY" secondItem="nbv-Bp-k8O" secondAttribute="centerY" id="PhY-qb-T4S"/>
                                         <constraint firstItem="kv7-Io-RWQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Q2J-qI-Slg" secondAttribute="trailing" constant="8" symbolic="YES" id="WBa-NM-KMy"/>
@@ -1525,8 +1517,9 @@
                                         <constraint firstAttribute="bottom" secondItem="nbv-Bp-k8O" secondAttribute="bottom" constant="20" symbolic="YES" id="cZP-UT-Ula"/>
                                         <constraint firstItem="Q2J-qI-Slg" firstAttribute="leading" secondItem="nbv-Bp-k8O" secondAttribute="trailing" constant="8" symbolic="YES" id="eIV-y4-5Qt"/>
                                         <constraint firstItem="Q2J-qI-Slg" firstAttribute="centerY" secondItem="nbv-Bp-k8O" secondAttribute="centerY" constant="-10" id="hQh-TO-DUS"/>
-                                        <constraint firstAttribute="trailing" secondItem="HUA-we-eSI" secondAttribute="trailing" constant="20" symbolic="YES" id="plm-Fz-wJp"/>
+                                        <constraint firstItem="b8A-6P-Qcr" firstAttribute="centerY" secondItem="SJp-VP-YtA" secondAttribute="centerY" id="jG0-Y5-izd"/>
                                         <constraint firstAttribute="trailing" secondItem="kv7-Io-RWQ" secondAttribute="trailing" constant="20" symbolic="YES" id="q19-fT-A35"/>
+                                        <constraint firstItem="b8A-6P-Qcr" firstAttribute="centerX" secondItem="SJp-VP-YtA" secondAttribute="centerX" id="zku-ur-1Cs"/>
                                     </constraints>
                                 </view>
                             </box>
@@ -1607,17 +1600,15 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="check_mark" id="OOx-7E-BHb"/>
                                             <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
-                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="l9c-qP-ZQN">
-                                            <rect key="frame" x="350" y="110" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="OqZ-Di-Lfd"/>
-                                                <constraint firstAttribute="height" constant="20" id="bcw-Q8-X4v"/>
-                                            </constraints>
+                                        <progressIndicator maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="vh7-TY-hWy" userLabel="Macbox Update Progress Indicator">
+                                            <rect key="frame" x="352" y="112" width="16" height="16"/>
                                         </progressIndicator>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="u0K-Xo-fUc" firstAttribute="top" secondItem="DNL-rP-Cdf" secondAttribute="top" constant="34" id="14A-dg-oow"/>
+                                        <constraint firstItem="vh7-TY-hWy" firstAttribute="centerY" secondItem="tbD-hi-VCK" secondAttribute="centerY" id="4q1-Zu-8qE"/>
                                         <constraint firstItem="u0K-Xo-fUc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D5C-sN-EGG" secondAttribute="trailing" constant="8" symbolic="YES" id="7tc-0x-Erw"/>
+                                        <constraint firstItem="vh7-TY-hWy" firstAttribute="centerX" secondItem="tbD-hi-VCK" secondAttribute="centerX" id="98K-xD-hAT"/>
                                         <constraint firstAttribute="trailing" secondItem="jYA-Bo-sDU" secondAttribute="trailing" constant="20" symbolic="YES" id="CF6-WN-fba"/>
                                         <constraint firstItem="tbD-hi-VCK" firstAttribute="centerY" secondItem="6jD-b7-2zt" secondAttribute="centerY" id="DDa-KS-TOA"/>
                                         <constraint firstItem="u0K-Xo-fUc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YPx-HH-eDg" secondAttribute="trailing" constant="8" symbolic="YES" id="Ga7-mh-SP9"/>
@@ -1627,12 +1618,10 @@
                                         <constraint firstAttribute="trailing" secondItem="tbD-hi-VCK" secondAttribute="trailing" constant="20" symbolic="YES" id="WTX-7G-ocD"/>
                                         <constraint firstItem="YPx-HH-eDg" firstAttribute="centerY" secondItem="6jD-b7-2zt" secondAttribute="centerY" constant="10" id="XyE-F4-vZr"/>
                                         <constraint firstItem="6jD-b7-2zt" firstAttribute="leading" secondItem="DNL-rP-Cdf" secondAttribute="leading" constant="20" symbolic="YES" id="bLG-j1-4b4"/>
-                                        <constraint firstAttribute="trailing" secondItem="l9c-qP-ZQN" secondAttribute="trailing" constant="20" symbolic="YES" id="cM1-A2-KDM"/>
                                         <constraint firstAttribute="trailing" secondItem="u0K-Xo-fUc" secondAttribute="trailing" constant="20" symbolic="YES" id="gJw-hd-LjM"/>
                                         <constraint firstItem="jYA-Bo-sDU" firstAttribute="leading" secondItem="DNL-rP-Cdf" secondAttribute="leading" constant="20" symbolic="YES" id="r5a-tc-J6U"/>
                                         <constraint firstItem="D5C-sN-EGG" firstAttribute="centerY" secondItem="6jD-b7-2zt" secondAttribute="centerY" constant="-10" id="sZI-En-zAa"/>
                                         <constraint firstItem="6jD-b7-2zt" firstAttribute="top" secondItem="DNL-rP-Cdf" secondAttribute="top" constant="20" symbolic="YES" id="smh-1m-lLa"/>
-                                        <constraint firstItem="l9c-qP-ZQN" firstAttribute="centerY" secondItem="6jD-b7-2zt" secondAttribute="centerY" id="tH9-OU-074"/>
                                         <constraint firstItem="D5C-sN-EGG" firstAttribute="leading" secondItem="6jD-b7-2zt" secondAttribute="trailing" constant="8" symbolic="YES" id="tNK-eU-Q32"/>
                                         <constraint firstItem="u0K-Xo-fUc" firstAttribute="centerY" secondItem="6jD-b7-2zt" secondAttribute="centerY" id="zyv-Va-MHV"/>
                                     </constraints>
@@ -1657,17 +1646,17 @@
                         <outlet property="emulatorUpdateButton" destination="xMK-BE-ANn" id="eLX-oe-Flu"/>
                         <outlet property="emulatorUpdateCheckImageView" destination="NYI-hP-LRs" id="hk6-BI-BeG"/>
                         <outlet property="emulatorUpdateDateTextField" destination="hXm-Cc-cGO" id="sME-0w-MFo"/>
-                        <outlet property="emulatorUpdateProgressIndicator" destination="1CR-jz-lZd" id="yOH-rL-Ss6"/>
+                        <outlet property="emulatorUpdateProgressIndicator" destination="vNh-BB-Y1z" id="rVU-HZ-3Ao"/>
                         <outlet property="experimentalTagTextField" destination="FLg-wG-QPf" id="MHn-X2-5B1"/>
                         <outlet property="macboxReleaseNoteTextView" destination="1jF-IP-slJ" id="7Gi-e7-uyP"/>
                         <outlet property="macboxUpdateButton" destination="u0K-Xo-fUc" id="7Dl-70-S8P"/>
                         <outlet property="macboxUpdateCheckImageView" destination="tbD-hi-VCK" id="l7N-jI-c4j"/>
                         <outlet property="macboxUpdateDateTextField" destination="YPx-HH-eDg" id="4yQ-29-mbR"/>
-                        <outlet property="macboxUpdateProgressIndicator" destination="l9c-qP-ZQN" id="s9z-wR-1es"/>
+                        <outlet property="macboxUpdateProgressIndicator" destination="vh7-TY-hWy" id="hg9-4I-Yp3"/>
                         <outlet property="romsUpdateButton" destination="kv7-Io-RWQ" id="C63-sE-5pg"/>
                         <outlet property="romsUpdateCheckImageView" destination="SJp-VP-YtA" id="kM3-Ny-kuv"/>
                         <outlet property="romsUpdateDateTextField" destination="XlJ-06-WgW" id="PdC-c9-FKF"/>
-                        <outlet property="romsUpdateProgressIndicator" destination="HUA-we-eSI" id="WF9-uI-EjV"/>
+                        <outlet property="romsUpdateProgressIndicator" destination="b8A-6P-Qcr" id="Eya-ni-LPw"/>
                         <outlet property="stableTagTextField" destination="SxQ-gN-rYu" id="doc-UZ-gPD"/>
                         <outlet property="tagsStackView" destination="qZ8-H9-O3a" id="sfj-Fc-Tx7"/>
                         <outlet property="versionTagTextField" destination="tCw-gc-569" id="A1r-Mh-J4m"/>

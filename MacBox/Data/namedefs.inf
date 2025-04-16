@@ -456,6 +456,9 @@ ataripc4=Atari PC 4
 bx6=ABIT BX6
 globalyst330_p5=AT&T Globalyst 330 (Pentium)
 via809ds=PC Partner VIA809DS
+pb286=Packard Bell PB286
+if386sx=OKI if386AX30L
+7sbb=Soyo SY-7SBB
 
 [cpu_family]
 8088=Intel 8088
