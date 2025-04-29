@@ -154,7 +154,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box v%1$@ (Build %2$@)."
+            "value" : "86Box v%1$@ (Версия %2$@)."
           }
         },
         "sr" : {
@@ -344,7 +344,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box v%1$@ (Build %2$@). Статус версии: %3$d %4$@ доступен."
+            "value" : "86Box v%1$@ (Версия %2$@). Статус версии: %3$d %4$@ доступен."
           }
         },
         "sr" : {
