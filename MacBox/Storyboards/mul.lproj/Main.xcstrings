@@ -266,7 +266,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "Boîte"
           }
         },
         "he" : {
@@ -290,13 +290,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86箱"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "86Box"
+            "state" : "translated",
+            "value" : "86상자"
           }
         },
         "nb" : {
@@ -314,31 +314,31 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86SKrzynka"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86Caixa"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86Caixa"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86Cutie"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86бокс"
           }
         },
         "sr" : {
@@ -362,7 +362,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86коробка"
           }
         },
         "vi" : {
@@ -374,13 +374,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Box"
+            "value" : "86盒子"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "86Box"
+            "state" : "translated",
+            "value" : "86盒子"
           }
         }
       }
@@ -571,8 +571,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Found 86Box Virtual Machines"
+            "state" : "translated",
+            "value" : "找到 86Box 虛擬機"
           }
         }
       }
@@ -6415,8 +6415,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add VM"
+            "state" : "translated",
+            "value" : "thêm máy ảo"
           }
         },
         "zh-Hans" : {
@@ -6427,8 +6427,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add VM"
+            "state" : "translated",
+            "value" : "新增虛擬機"
           }
         }
       }
@@ -15266,7 +15266,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Конюшня"
+            "value" : "стабильно"
           }
         },
         "sr" : {
@@ -15307,8 +15307,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stable"
+            "state" : "translated",
+            "value" : "穩定的"
           }
         }
       }
