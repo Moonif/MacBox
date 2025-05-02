@@ -295,7 +295,7 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "86Box"
           }
         },
@@ -379,7 +379,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "86Box"
           }
         }
@@ -571,8 +571,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Found 86Box Virtual Machines"
+            "state" : "translated",
+            "value" : "找到 86Box 虛擬機"
           }
         }
       }
@@ -6415,8 +6415,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add VM"
+            "state" : "translated",
+            "value" : "thêm máy ảo"
           }
         },
         "zh-Hans" : {
@@ -6427,8 +6427,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add VM"
+            "state" : "translated",
+            "value" : "新增虛擬機"
           }
         }
       }
@@ -15266,7 +15266,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Конюшня"
+            "value" : "стабильно"
           }
         },
         "sr" : {
@@ -15307,8 +15307,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stable"
+            "state" : "translated",
+            "value" : "穩定的"
           }
         }
       }
