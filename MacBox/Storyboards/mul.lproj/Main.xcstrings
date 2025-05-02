@@ -266,7 +266,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Boîte"
+            "value" : "86Box"
           }
         },
         "he" : {
@@ -290,13 +290,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86箱"
+            "value" : "86Box"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86상자"
+            "value" : "86Box"
           }
         },
         "nb" : {
@@ -314,31 +314,31 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86SKrzynka"
+            "value" : "86Box"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Caixa"
+            "value" : "86Box"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Caixa"
+            "value" : "86Box"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86Cutie"
+            "value" : "86Box"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86бокс"
+            "value" : "86Box"
           }
         },
         "sr" : {
@@ -362,7 +362,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86коробка"
+            "value" : "86Box"
           }
         },
         "vi" : {
@@ -374,13 +374,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86盒子"
+            "value" : "86Box"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "86盒子"
+            "value" : "86Box"
           }
         }
       }
