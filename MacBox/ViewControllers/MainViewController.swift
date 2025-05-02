@@ -805,6 +805,22 @@ class MainViewController: NSViewController {
                 // Send vm files to trash
                 if deleteOptionButton.state == .on {
                     if let vmPath = vmList[currentSelectedVM ?? 0].path {
+                        // Check the VM config file for HDDs that are located outside the VM path
+                        if let vmConfigPath = currentVMConfigPath {
+                            let ini = IniParser()
+                            // Iterate through the list of HDDs and send them to trash
+                            if let hddPaths = ini.parseConfig(vmConfigPath)["Hard disks"] {
+                                for hddPath in hddPaths {
+                                    if hddPath.key.hasSuffix("_fn") {
+                                        do {
+                                            try fileManager.trashItem(at: URL(fileURLWithPath:hddPath.value), resultingItemURL: nil)
+                                        } catch {
+                                            print("Error: \(error.localizedDescription)")
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         do {
                             try fileManager.trashItem(at: URL(fileURLWithPath:vmPath), resultingItemURL: nil)
                         } catch {
