@@ -682,7 +682,7 @@ class MainViewController: NSViewController {
                 defaultPath = homeDirURL.appendingPathComponent(UUID().uuidString)
             }
             
-            fixedVM.path = defaultPath.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+            fixedVM.path = defaultPath.path
         }
         
         // Create all VM paths
