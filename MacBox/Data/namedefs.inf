@@ -81,7 +81,7 @@ portableii=Compaq Portable II
 portableiii=Compaq Portable III
 mr286=MR BIOS 286 clone
 pc8=NCR PC8/810/710/3390/3392
-m290=Olivetti M290
+m290=Olivetti M290/AT&T 6286 WGS
 openat=OpenAT
 ibmatpx=Phoenix IBM AT
 ibmatquadtel=Quadtel IBM AT
@@ -491,6 +491,8 @@ at122=PC's Limited (Dell) 28608L/AT122
 c747=CAF Technology C747
 tuliptc8=Tulip PC Compact 2
 cobalt=Alaris Cobalt LPX
+drsm35286=ICL DRS M35/286
+v12p=Acer V12P
 
 [cpu_family]
 8088=Intel 8088
