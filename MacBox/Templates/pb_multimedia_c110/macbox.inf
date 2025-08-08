@@ -1,0 +1,9 @@
+[General]
+Manufacturer=Packard Bell
+Description=Packard Bell Multimedia C110
+Logo=Pb_logo
+Year=1996
+Author=MyUsernameIsNothing
+
+[Shader]
+enable_overscan = 1
