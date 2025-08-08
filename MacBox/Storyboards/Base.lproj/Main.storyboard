@@ -84,18 +84,18 @@
                         <toolbar key="toolbar" implicitIdentifier="1756AC06-50A3-486E-B4F1-68772E058424" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="T2p-DO-2la">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wAl-LD-C7Z"/>
-                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" toolTip="Create or Import a Virtual Machine" tag="-1" image="add" sizingBehavior="auto" selectable="YES" id="dku-Fs-jda">
+                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" toolTip="Create or Import a Virtual Machine" tag="-1" image="NSAddTemplate" sizingBehavior="auto" selectable="YES" id="dku-Fs-jda">
                                     <connections>
                                         <action selector="addVMButtonAction:" target="Oky-zY-oP4" id="Zu3-TD-Eor"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="pGa-oF-eFZ"/>
-                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" toolTip="Show Printer Tray for selected Virtual Machine" tag="-1" image="print" sizingBehavior="auto" selectable="YES" id="iAl-vP-Cp6" userLabel="Print Tray">
+                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" toolTip="Show Printer Tray for selected Virtual Machine" tag="-1" image="printer" catalog="system" sizingBehavior="auto" selectable="YES" id="iAl-vP-Cp6" userLabel="Print Tray">
                                     <connections>
                                         <action selector="printTrayButtonAction:" target="Oky-zY-oP4" id="Kcd-R2-cyZ"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" toolTip="Show Screenshots folder for selected Virtual Machine" tag="-1" image="camera" sizingBehavior="auto" selectable="YES" id="YpZ-1Y-BHP">
+                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" toolTip="Show Screenshots folder for selected Virtual Machine" tag="-1" image="camera" catalog="system" sizingBehavior="auto" selectable="YES" id="YpZ-1Y-BHP">
                                     <connections>
                                         <action selector="screenshotsButtonAction:" target="Oky-zY-oP4" id="EHM-Hf-M4x"/>
                                     </connections>
@@ -384,11 +384,11 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-yG-FNS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="-3" width="20.5" height="56"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="qrT-1t-9Go"/>
                                                                     </constraints>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pc" id="79C-iQ-zVF"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="desktopcomputer" catalog="system" id="79C-iQ-zVF"/>
                                                                 </imageView>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-WR-MWR">
                                                                     <rect key="frame" x="26" y="17" width="436" height="16"/>
@@ -423,7 +423,7 @@
                                     <constraint firstAttribute="height" constant="420" id="qMW-49-xWC"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="guc-dT-iMi">
-                                    <rect key="frame" x="1" y="404" width="478" height="15"/>
+                                    <rect key="frame" x="1" y="403" width="478" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="rnH-az-gek">
@@ -435,8 +435,8 @@
                                 <rect key="frame" x="508" y="58" width="280" height="420"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-nJ-PyD">
-                                        <rect key="frame" x="180" y="-6" width="106" height="40"/>
-                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="run" imagePosition="leading" alignment="left" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
+                                        <rect key="frame" x="186" y="-6" width="100" height="40"/>
+                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="play.fill" catalog="system" imagePosition="leading" alignment="left" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -447,8 +447,8 @@
                                         </connections>
                                     </button>
                                     <button toolTip="Remove Selected VM" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-kZ-aMF" userLabel="DeleteVM Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="trash" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" inset="2" id="sPp-tA-UPt">
+                                        <rect key="frame" x="0.0" y="-3" width="20.5" height="17"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="trash" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" inset="2" id="sPp-tA-UPt">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -500,8 +500,8 @@
                                         </scroller>
                                     </scrollView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-fR-vKm">
-                                        <rect key="frame" x="130" y="-6" width="50" height="40"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="options" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
+                                        <rect key="frame" x="142" y="-6" width="44" height="40"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="gearshape" catalog="system" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -538,11 +538,11 @@
                                         </textFieldCell>
                                     </textField>
                                     <imageView toolTip="Machine and CPU" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MyA-zx-Jcf">
-                                        <rect key="frame" x="0.0" y="169" width="20" height="22"/>
+                                        <rect key="frame" x="0.0" y="179" width="20.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="3it-eU-Erc"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pc" id="8Po-9v-67c"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="desktopcomputer" catalog="system" id="8Po-9v-67c"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pHA-8B-i3h">
                                         <rect key="frame" x="26" y="177" width="256" height="14"/>
@@ -561,11 +561,11 @@
                                         </textFieldCell>
                                     </textField>
                                     <imageView toolTip="RAM" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-W7-XQj">
-                                        <rect key="frame" x="0.0" y="129" width="20" height="18"/>
+                                        <rect key="frame" x="0.0" y="136" width="20" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="cBL-TT-NcB"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ram" id="wlK-h9-fPz"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="memorychip" catalog="system" id="wlK-h9-fPz"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yeP-1u-gvO">
                                         <rect key="frame" x="26" y="133" width="256" height="14"/>
@@ -576,11 +576,11 @@
                                         </textFieldCell>
                                     </textField>
                                     <imageView toolTip="HDD" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aRi-Wi-bFy">
-                                        <rect key="frame" x="0.0" y="108" width="20" height="17"/>
+                                        <rect key="frame" x="0.0" y="114" width="20" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="GQv-WS-wQY"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hdd" id="8r5-V0-dgM"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="opticaldiscdrive" catalog="system" id="8r5-V0-dgM"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ss8-X5-ioU">
                                         <rect key="frame" x="26" y="111" width="256" height="14"/>
@@ -939,11 +939,11 @@
                                 </constraints>
                             </box>
                             <imageView toolTip="Machine and CPU" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f85-j5-Sxi">
-                                <rect key="frame" x="337" y="251" width="20" height="22"/>
+                                <rect key="frame" x="337" y="261" width="20.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="SaB-iP-Djr"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pc" id="aFX-5p-GTu"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="desktopcomputer" catalog="system" id="aFX-5p-GTu"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lwc-2R-58F">
                                 <rect key="frame" x="363" y="259" width="176" height="14"/>
@@ -962,11 +962,11 @@
                                 </textFieldCell>
                             </textField>
                             <imageView toolTip="RAM" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9FM-9z-CaN">
-                                <rect key="frame" x="337" y="211" width="20" height="18"/>
+                                <rect key="frame" x="337" y="218" width="20" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="oHT-8K-GwD"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ram" id="Xae-fg-01f"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="memorychip" catalog="system" id="Xae-fg-01f"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L8M-e1-RH9">
                                 <rect key="frame" x="363" y="215" width="176" height="14"/>
@@ -977,11 +977,11 @@
                                 </textFieldCell>
                             </textField>
                             <imageView toolTip="HDD" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSa-Mr-o6a">
-                                <rect key="frame" x="337" y="190" width="20" height="17"/>
+                                <rect key="frame" x="337" y="196" width="20" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="gxf-Yf-oLw"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hdd" id="Uvm-aO-Oc3"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="opticaldiscdrive" catalog="system" id="Uvm-aO-Oc3"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yqD-7x-e1j">
                                 <rect key="frame" x="363" y="193" width="176" height="14"/>
@@ -1355,11 +1355,11 @@
                                                 <constraint firstAttribute="height" constant="100" id="ru2-z8-2lT"/>
                                                 <constraint firstAttribute="width" constant="350" id="ucd-yv-pWN"/>
                                             </constraints>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0aU-zy-RbT">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0aU-zy-RbT">
                                                 <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Ndb-Hn-vSf">
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Ndb-Hn-vSf">
                                                 <rect key="frame" x="334" y="1" width="15" height="98"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -1582,11 +1582,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="lWg-3w-1TI"/>
                                             </constraints>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Yxv-my-oYh">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Yxv-my-oYh">
                                                 <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="LqW-PO-klY">
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="LqW-PO-klY">
                                                 <rect key="frame" x="334" y="1" width="15" height="98"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -1671,19 +1671,19 @@
         <image name="86Box" width="48" height="48"/>
         <image name="86BoxROMs" width="48" height="48"/>
         <image name="MacBox" width="48" height="48"/>
-        <image name="add" width="14" height="15"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
         <image name="arrowtriangle.forward.circle.fill" catalog="system" width="15" height="15"/>
-        <image name="camera" width="22" height="22"/>
+        <image name="camera" catalog="system" width="19" height="15"/>
         <image name="check_mark" width="20" height="20"/>
+        <image name="desktopcomputer" catalog="system" width="19" height="15"/>
         <image name="emulator_tray" width="32" height="32"/>
         <image name="exclamation_mark" width="20" height="20"/>
-        <image name="hdd" width="22" height="17"/>
-        <image name="options" width="22" height="22"/>
-        <image name="pc" width="22" height="22"/>
-        <image name="print" width="21" height="21"/>
-        <image name="ram" width="22" height="18"/>
-        <image name="run" width="18" height="21"/>
-        <image name="trash" width="22" height="21"/>
+        <image name="gearshape" catalog="system" width="16" height="16"/>
+        <image name="memorychip" catalog="system" width="17" height="14"/>
+        <image name="opticaldiscdrive" catalog="system" width="18" height="13"/>
+        <image name="play.fill" catalog="system" width="12" height="13"/>
+        <image name="printer" catalog="system" width="18" height="16"/>
+        <image name="trash" catalog="system" width="15" height="17"/>
         <image name="x_mark" width="20" height="20"/>
     </resources>
 </document>
