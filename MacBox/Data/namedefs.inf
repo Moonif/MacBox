@@ -493,6 +493,16 @@ tuliptc8=Tulip PC Compact 2
 cobalt=Alaris Cobalt LPX
 drsm35286=ICL DRS M35/286
 v12p=Acer V12P
+m5ata=Biostar M5ATA
+svc386sxp1=Silicon Valley Computer SVC386SX/P1
+svc486wb=Silicon Valley Computer 486WB
+mbc17=Sanyo MBC-17PLUS
+ax286=Sharp AX 286
+ecs50x=ECS SI5PI AIO
+pci56001=Taken PCI560-01
+lgibmx52=LG IBM Multinet x52 (MSI MS-5136)
+pc7286=Amstrad PC7286
+pc5286=Amstrad PC5286
 
 [cpu_family]
 8088=Intel 8088
