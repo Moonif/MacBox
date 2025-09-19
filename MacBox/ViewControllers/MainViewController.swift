@@ -89,9 +89,6 @@ class MainViewController: NSViewController {
     
     // View will appear
     override func viewWillAppear() {
-        // Remove fullscreen window button
-        self.view.window?.styleMask.remove(.fullScreen)
-        self.view.window?.styleMask.remove(.resizable)
         // Set the Start VM button dynamic width based on localized title
         let startVMWidth = startVMButton.frame.width + 14
         startVMButton.translatesAutoresizingMaskIntoConstraints = false

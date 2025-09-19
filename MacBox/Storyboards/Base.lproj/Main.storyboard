@@ -78,24 +78,24 @@
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="MacBox" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <rect key="contentRect" x="609" y="358" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="1756AC06-50A3-486E-B4F1-68772E058424" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="T2p-DO-2la">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wAl-LD-C7Z"/>
-                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" toolTip="Create or Import a Virtual Machine" tag="-1" image="NSAddTemplate" sizingBehavior="auto" selectable="YES" id="dku-Fs-jda">
+                                <toolbarItem implicitItemIdentifier="AD800A2B-F158-47A4-8978-A05CB2B3A04F" label="Add VM" paletteLabel="Add VM" toolTip="Create or Import a Virtual Machine" tag="-1" image="NSAddTemplate" bordered="YES" sizingBehavior="auto" selectable="YES" id="dku-Fs-jda">
                                     <connections>
                                         <action selector="addVMButtonAction:" target="Oky-zY-oP4" id="Zu3-TD-Eor"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="pGa-oF-eFZ"/>
-                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" toolTip="Show Printer Tray for selected Virtual Machine" tag="-1" image="printer" catalog="system" sizingBehavior="auto" selectable="YES" id="iAl-vP-Cp6" userLabel="Print Tray">
+                                <toolbarItem implicitItemIdentifier="16213134-8370-4256-8572-2776556EAD38" label="Printer Tray" paletteLabel="Printer Tray" toolTip="Show Printer Tray for selected Virtual Machine" tag="-1" image="printer" catalog="system" bordered="YES" sizingBehavior="auto" selectable="YES" id="iAl-vP-Cp6" userLabel="Print Tray">
                                     <connections>
                                         <action selector="printTrayButtonAction:" target="Oky-zY-oP4" id="Kcd-R2-cyZ"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" toolTip="Show Screenshots folder for selected Virtual Machine" tag="-1" image="camera" catalog="system" sizingBehavior="auto" selectable="YES" id="YpZ-1Y-BHP">
+                                <toolbarItem implicitItemIdentifier="B58FD9E0-4954-4D69-BA19-610D993A69C6" label="Screenshots" paletteLabel="Screenshots" toolTip="Show Screenshots folder for selected Virtual Machine" tag="-1" image="camera" catalog="system" bordered="YES" sizingBehavior="auto" selectable="YES" id="YpZ-1Y-BHP">
                                     <connections>
                                         <action selector="screenshotsButtonAction:" target="Oky-zY-oP4" id="EHM-Hf-M4x"/>
                                     </connections>
@@ -435,8 +435,8 @@
                                 <rect key="frame" x="508" y="58" width="280" height="420"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-nJ-PyD">
-                                        <rect key="frame" x="178" y="0.0" width="102" height="28"/>
-                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="run" imagePosition="leading" alignment="left" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
+                                        <rect key="frame" x="182" y="0.0" width="98" height="28"/>
+                                        <buttonCell key="cell" type="push" title="Start VM" bezelStyle="rounded" image="arrowtriangle.right.fill" catalog="system" imagePosition="leading" alignment="left" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbM-P4-cq0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -500,8 +500,8 @@
                                         </scroller>
                                     </scrollView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-fR-vKm">
-                                        <rect key="frame" x="116" y="0.0" width="50" height="28"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="options" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
+                                        <rect key="frame" x="126" y="0.0" width="44" height="28"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="gearshape.fill" catalog="system" imagePosition="only" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gce-KL-PPg">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -621,9 +621,6 @@
                                             <action selector="vmAppVersionPopUpButtonAction:" target="XfG-lQ-9wD" id="PLo-NJ-SmS"/>
                                         </connections>
                                     </popUpButton>
-                                    <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nDC-9M-wZv">
-                                        <rect key="frame" x="250" y="2" width="5" height="24"/>
-                                    </box>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ss8-X5-ioU" firstAttribute="top" secondItem="yeP-1u-gvO" secondAttribute="bottom" constant="8" symbolic="YES" id="1Mh-lM-ys3"/>
@@ -659,9 +656,7 @@
                                     <constraint firstItem="Kri-lR-wWJ" firstAttribute="top" secondItem="bru-xq-RxK" secondAttribute="bottom" constant="8" symbolic="YES" id="YqV-rf-ynV"/>
                                     <constraint firstItem="MyA-zx-Jcf" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="bYz-Tg-M2g"/>
                                     <constraint firstAttribute="trailing" secondItem="hxY-nJ-PyD" secondAttribute="trailing" id="cUc-Xu-vGh"/>
-                                    <constraint firstItem="nDC-9M-wZv" firstAttribute="bottom" secondItem="84X-KJ-u2Y" secondAttribute="bottom" constant="-2" id="dib-7o-9fe"/>
                                     <constraint firstAttribute="trailing" secondItem="84X-KJ-u2Y" secondAttribute="trailing" id="fEe-WP-KMa"/>
-                                    <constraint firstItem="nDC-9M-wZv" firstAttribute="leading" secondItem="84X-KJ-u2Y" secondAttribute="leading" id="gay-1J-Zo3"/>
                                     <constraint firstItem="Oek-Du-kCB" firstAttribute="top" secondItem="KzH-sh-kDv" secondAttribute="top" id="hUZ-gY-fM7"/>
                                     <constraint firstAttribute="trailing" secondItem="s3a-Ly-7lh" secondAttribute="trailing" id="iJ1-UB-VPu"/>
                                     <constraint firstAttribute="trailing" secondItem="gGx-G7-pyA" secondAttribute="trailing" id="kR1-OC-X3k"/>
@@ -669,7 +664,6 @@
                                     <constraint firstAttribute="bottom" secondItem="hxY-nJ-PyD" secondAttribute="bottom" id="m0E-mE-FI4"/>
                                     <constraint firstItem="aRi-Wi-bFy" firstAttribute="top" secondItem="ss8-X5-ioU" secondAttribute="top" id="m0s-f5-Zu8"/>
                                     <constraint firstItem="hxY-nJ-PyD" firstAttribute="top" secondItem="gGx-G7-pyA" secondAttribute="bottom" constant="20" symbolic="YES" id="moz-3e-ZjZ"/>
-                                    <constraint firstItem="nDC-9M-wZv" firstAttribute="top" secondItem="84X-KJ-u2Y" secondAttribute="top" constant="2" id="o7K-Ts-2wo"/>
                                     <constraint firstItem="pHA-8B-i3h" firstAttribute="leading" secondItem="MyA-zx-Jcf" secondAttribute="trailing" constant="8" symbolic="YES" id="pnL-a0-Owj"/>
                                     <constraint firstItem="YsQ-9I-cBw" firstAttribute="leading" secondItem="KzH-sh-kDv" secondAttribute="leading" id="t0B-ki-wxY"/>
                                     <constraint firstAttribute="bottom" secondItem="Nuf-kZ-aMF" secondAttribute="bottom" id="tfa-gm-PF5"/>
@@ -1673,16 +1667,16 @@
         <image name="MacBox" width="48" height="48"/>
         <image name="NSAddTemplate" width="18" height="16"/>
         <image name="arrowtriangle.forward.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="arrowtriangle.right.fill" catalog="system" width="14" height="13"/>
         <image name="camera" catalog="system" width="20" height="15"/>
         <image name="check_mark" width="20" height="20"/>
         <image name="emulator_tray" width="32" height="32"/>
         <image name="exclamation_mark" width="20" height="20"/>
+        <image name="gearshape.fill" catalog="system" width="16" height="16"/>
         <image name="hdd" width="22" height="17"/>
-        <image name="options" width="22" height="22"/>
         <image name="pc" width="22" height="22"/>
         <image name="printer" catalog="system" width="19" height="16"/>
         <image name="ram" width="22" height="18"/>
-        <image name="run" width="18" height="21"/>
         <image name="trash" width="22" height="21"/>
         <image name="x_mark" width="20" height="20"/>
     </resources>
